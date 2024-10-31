@@ -1,0 +1,42 @@
+.edit-Radius{
+    -fx-background-color: white;
+    -fx-background-radius: 100;
+    -fx-border-color: #0f6789
+}
+.gradient{
+    -fx-background-color: linear-gradient(to bottom right, #63BAD9, #B1DCEC);
+}
+
+.login-btn{
+    -fx-background-color: linear-gradient(to bottom right, #63BAD9, #B1DCEC);
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+    -fx-text-fill: #fff;
+    -fx-font-size: 14px;
+}
+
+.login-btn:hover{
+    -fx-background-color: linear-gradient(to bottom right, #72d1f4, #c0e2ee);
+}
+
+.textfield{
+    -fx-background-color: transparent;
+    -fx-border-color: linear-gradient(to bottom right, #63BAD9, #B1DCEC);
+    -fx-border-width: .5px;
+}
+.textfield:focused{
+    -fx-border-width: 1px;
+}
+.back-btn{
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-text-fill: #fff;
+    -fx-border-color: #fff;
+    -fx-border-width: 1px;
+}
+.back-btn:hover{
+    -fx-background-color: #fff;
+    -fx-text-fill: #000;
+}
+
+/*#0f6789 = 63BAD9 286155 = B1DCEC*/

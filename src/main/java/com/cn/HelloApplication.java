@@ -1,0 +1,44 @@
+package com.cn;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+
+
+public class HelloApplication extends Application {
+//    private AnchorPane root;
+    @Override
+    public void start(Stage stage) throws IOException {
+//        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+            System.out.println(this.getClass().getResource("FruitIdentification.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FruitIdentification.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            stage.setTitle("Hello!");
+            stage.setScene(scene);
+            stage.show();
+    }
+
+    public static void main2(String[] args) {
+        launch();
+    }
+/*
+    Parent root = FXMLLoader.load(this.getClass().getResource("/com/ltc/btl_javafx/designFXML/LoginDesign.fxml"));
+//            Parent root = FXMLLoader.load(this.getClass().getResource("/com/ltc/btl_javafx/designFXML/TenantDesign_1.fxml"));
+
+    Scene scene = new Scene(root);
+            primaryStage.setResizable(false);
+            primaryStage.setScene(scene);
+
+    // Kiểm tra xem đường dẫn hình ảnh có chính xác không
+    //System.out.println(getClass().getResource("/com/ltc/btl_javafx/imageIcon/icon_miniapartment.png"));
+    Support.icon = new Image("/com/ltc/btl_javafx/imageIcon/icon_miniapartment.png");
+            primaryStage.getIcons().add(Support.icon);
+
+            primaryStage.setTitle("Phần Mềm Quản Lý Chung Cư Mini - Đăng nhập");
+            primaryStage.show();
+            */
+
+}
