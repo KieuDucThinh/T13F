@@ -13,7 +13,7 @@ import java.util.List;
 public interface DAOPosition extends Remote{
     public void createPosition(Position p) throws RemoteException;
     public Position getPosition(short pos_id) throws RemoteException;
-    public ObservableList<Position> getGoodsPositionsByStatus(String status, byte page) throws RemoteException;
+    public List<Position> getGoodsPositionsByStatus(String status, byte page) throws RemoteException;
     public boolean addGoodstoPosition(Goods goods) throws RemoteException;
     public long countEmptyPosByFtType(String ft_type) throws RemoteException;
     public boolean clearPositions() throws RemoteException;

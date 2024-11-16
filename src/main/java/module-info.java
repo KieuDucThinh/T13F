@@ -5,7 +5,9 @@ module com.example.t13fproject {
     requires java.rmi;
     requires static lombok;
 
-
-    opens com.cn to javafx.fxml;
+    opens com.entity to javafx.base;
+    opens com.dao to javafx.base;
+    opens com.util to javafx.base;
+    opens com.cn to javafx.fxml, javafx.base;
     exports com.cn;
 }

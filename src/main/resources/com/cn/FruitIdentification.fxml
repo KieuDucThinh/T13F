@@ -131,18 +131,18 @@
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="518.0" prefWidth="1065.0">
                            <children>
-                              <TableView layoutX="2.0" layoutY="8.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="482.0" prefWidth="1023.0" stylesheets="@../style/MainCSS.css">
+                              <TableView fx:id="tbl_EG" layoutX="2.0" layoutY="8.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="482.0" prefWidth="1023.0" stylesheets="@../style/LoginCSS.css">
                                 <columns>
-                                  <TableColumn prefWidth="192.79999160766602" style="-fx-background-color: #EE554C;" text="SKU" />
-                                  <TableColumn prefWidth="161.59999084472656" style="-fx-background-color: #EE554C;" text="Kích thước" />
-                                    <TableColumn prefWidth="189.0667724609375" style="-fx-background-color: #EE554C;" text="Trạng thái" />
-                                    <TableColumn prefWidth="144.26678466796875" style="-fx-background-color: #EE554C;" text="Giá xuất" />
-                                    <TableColumn prefWidth="135.4666748046875" style="-fx-background-color: #EE554C;" text="Ngày hết hạn" />
-                                    <TableColumn prefWidth="107.199951171875" style="-fx-background-color: #EE554C;" text="Số lượng/hộp" />
-                                    <TableColumn prefWidth="94.13336181640625" style="-fx-background-color: #EE554C;" text="Vị trí" />
+                                  <TableColumn fx:id="col_EG_sku" prefWidth="192.79999160766602" text="SKU" />
+                                  <TableColumn fx:id="col_EG_size" prefWidth="161.59999084472656" text="Kích thước" />
+                                    <TableColumn fx:id="col_EG_status" prefWidth="189.0667724609375" text="Trạng thái" />
+                                    <TableColumn fx:id="col_EG_delivery_price" prefWidth="144.26678466796875" text="Giá xuất" />
+                                    <TableColumn fx:id="col_EG_exp" prefWidth="135.4666748046875" text="Ngày hết hạn" />
+                                    <TableColumn fx:id="col_EG_qinbox" prefWidth="107.199951171875" text="Số lượng/hộp" />
+                                    <TableColumn fx:id="col_EG_pos" prefWidth="94.13336181640625" text="Vị trí" />
                                 </columns>
                               </TableView>
-                              <Button layoutX="7.0" layoutY="506.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="62.0" stylesheets="@../style/MainCSS.css" text="Dọn dẹp" textFill="WHITE" AnchorPane.bottomAnchor="3.200000000000024" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="955.9999999999999" AnchorPane.topAnchor="506.0">
+                              <Button fx:id="btn_Clear" layoutX="7.0" layoutY="506.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="62.0" stylesheets="@../style/MainCSS.css" text="Dọn dẹp" textFill="WHITE" AnchorPane.bottomAnchor="3.200000000000024" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="955.9999999999999" AnchorPane.topAnchor="506.0">
                                  <font>
                                     <Font name="Segoe UI Bold" size="11.0" />
                                  </font>
@@ -151,8 +151,7 @@
                                     <String fx:value="heading5" />
                                  </styleClass>
                               </Button>
-                              <Label layoutX="970.0" layoutY="510.0" styleClass="heading3" stylesheets="@../style/MainCSS.css" text="1" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="970.0" />
-                              <Button layoutX="976.0" layoutY="492.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="50.0" style="-fx-background-color: white;" stylesheets="@../style/MainCSS.css" text="&gt;" textFill="#ee554c" AnchorPane.bottomAnchor="-7.200000000000003" AnchorPane.leftAnchor="976.0">
+                              <Button fx:id="btn_EG_next" layoutX="976.0" layoutY="492.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="50.0" style="-fx-background-color: white;" stylesheets="@../style/MainCSS.css" text="&gt;" textFill="#ee554c" AnchorPane.bottomAnchor="-7.200000000000003" AnchorPane.leftAnchor="976.0">
                                  <font>
                                     <Font size="48.0" />
                                  </font>
@@ -161,7 +160,7 @@
                                     <String fx:value="btn-cur" />
                                  </styleClass>
                               </Button>
-                              <Button layoutX="923.0" layoutY="492.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="50.0" style="-fx-background-color: white;" stylesheets="@../style/MainCSS.css" text="&lt;" textFill="#ee554c" AnchorPane.bottomAnchor="-7.200000000000003" AnchorPane.leftAnchor="923.0">
+                              <Button fx:id="btn_EG_prev" layoutX="923.0" layoutY="492.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="50.0" style="-fx-background-color: white;" stylesheets="@../style/MainCSS.css" text="&lt;" textFill="#ee554c" AnchorPane.bottomAnchor="-7.200000000000003" AnchorPane.leftAnchor="923.0">
                                  <font>
                                     <Font size="48.0" />
                                  </font>
@@ -170,6 +169,7 @@
                                     <String fx:value="btn-cur" />
                                  </styleClass>
                               </Button>
+                              <Label fx:id="lbl_EG_page" layoutX="970.0" layoutY="510.0" styleClass="heading3" stylesheets="@../style/MainCSS.css" text="1" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="970.0" />
                            </children>
                         </AnchorPane>
                   </content>
@@ -178,25 +178,25 @@
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <TableView layoutX="2.0" layoutY="9.0" prefHeight="482.0" prefWidth="1020.0">
+                              <TableView fx:id="tbl_OG" layoutX="2.0" layoutY="9.0" prefHeight="482.0" prefWidth="1020.0">
                                 <columns>
-                                  <TableColumn prefWidth="156.00000381469727" text="SKU" />
-                                  <TableColumn prefWidth="119.99995422363281" text="Kích thước" />
-                                    <TableColumn prefWidth="148.79998779296875" text="Trạng thái" />
-                                    <TableColumn prefWidth="141.60003662109375" text="Giá xuất" />
-                                    <TableColumn prefWidth="189.60003662109375" text="Ngày hết hạn" />
-                                    <TableColumn prefWidth="152.0" text="Số lượng/hộp" />
-                                    <TableColumn prefWidth="113.60003662109375" text="Vị trí" />
+                                  <TableColumn fx:id="col_OG_sku" prefWidth="156.00000381469727" text="SKU" />
+                                  <TableColumn fx:id="col_OG_size" prefWidth="119.99995422363281" text="Kích thước" />
+                                    <TableColumn fx:id="col_OG_status" prefWidth="148.79998779296875" text="Trạng thái" />
+                                    <TableColumn fx:id="col_OG_deliveryprice" prefWidth="141.60003662109375" text="Giá xuất" />
+                                    <TableColumn fx:id="col_OG_exp" prefWidth="189.60003662109375" text="Ngày hết hạn" />
+                                    <TableColumn fx:id="col_OG_qinbox" prefWidth="152.0" text="Số lượng/hộp" />
+                                    <TableColumn fx:id="col_OG_pos" prefWidth="113.60003662109375" text="Vị trí" />
                                 </columns>
                               </TableView>
-                              <Label layoutX="960.0" layoutY="509.0" styleClass="heading3" stylesheets="@../style/MainCSS.css" text="1" />
-                              <Button layoutX="967.0" layoutY="492.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="50.0" stylesheets="@../style/MainCSS.css" text="&gt;" textFill="#63bad9">
+                              <Label fx:id="lbl_OG_page" layoutX="960.0" layoutY="509.0" styleClass="heading3" stylesheets="@../style/MainCSS.css" text="1" />
+                              <Button fx:id="btn_OG_next" layoutX="967.0" layoutY="492.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="50.0" stylesheets="@../style/MainCSS.css" text="&gt;" textFill="#63bad9">
                                  <styleClass>
                                     <String fx:value="btn-cur" />
                                     <String fx:value="heading1" />
                                  </styleClass>
                               </Button>
-                              <Button layoutX="912.0" layoutY="492.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="50.0" stylesheets="@../style/MainCSS.css" text="&lt;" textFill="#63bad9">
+                              <Button fx:id="btn_OG_prev" layoutX="912.0" layoutY="492.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="50.0" stylesheets="@../style/MainCSS.css" text="&lt;" textFill="#63bad9">
                                  <styleClass>
                                     <String fx:value="btn-cur" />
                                     <String fx:value="heading1" />
@@ -210,25 +210,25 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <TableView layoutX="1.0" layoutY="7.0" prefHeight="479.0" prefWidth="1020.0">
+                              <TableView fx:id="tbl_RG" layoutX="1.0" layoutY="7.0" prefHeight="479.0" prefWidth="1020.0">
                                 <columns>
-                                  <TableColumn prefWidth="182.40002822875977" text="SKU" />
-                                  <TableColumn prefWidth="116.79997253417969" text="Kích thước" />
-                                    <TableColumn prefWidth="131.20001220703125" text="Trạng thái" />
-                                    <TableColumn prefWidth="180.0" text="Giá xuất" />
-                                    <TableColumn prefWidth="157.5999755859375" text="Ngày quá chín" />
-                                    <TableColumn prefWidth="130.39996337890625" text="Số lượng/hộp" />
-                                    <TableColumn prefWidth="116.80010986328125" text="Vị trí" />
+                                  <TableColumn fx:id="col_RG_sku" prefWidth="182.40002822875977" text="SKU" />
+                                  <TableColumn fx:id="col_RG_size" prefWidth="116.79997253417969" text="Kích thước" />
+                                    <TableColumn fx:id="col_RG_status" prefWidth="131.20001220703125" text="Trạng thái" />
+                                    <TableColumn fx:id="col_RG_deliveryprice" prefWidth="180.0" text="Giá xuất" />
+                                    <TableColumn fx:id="col_RG_ovdate" prefWidth="157.5999755859375" text="Ngày quá chín" />
+                                    <TableColumn fx:id="col_RG_qinbox" prefWidth="130.39996337890625" text="Số lượng/hộp" />
+                                    <TableColumn fx:id="col_RG_pos" prefWidth="116.80010986328125" text="Vị trí" />
                                 </columns>
                               </TableView>
-                              <Label layoutX="960.0" layoutY="507.0" styleClass="heading3" stylesheets="@../style/MainCSS.css" text="1" />
-                              <Button layoutX="968.0" layoutY="490.0" mnemonicParsing="false" stylesheets="@../style/MainCSS.css" text="&gt;" textFill="#63bad9">
+                              <Label fx:id="lbl_RG_page" layoutX="960.0" layoutY="507.0" styleClass="heading3" stylesheets="@../style/MainCSS.css" text="1" />
+                              <Button fx:id="btn_RG_next" layoutX="968.0" layoutY="490.0" mnemonicParsing="false" stylesheets="@../style/MainCSS.css" text="&gt;" textFill="#63bad9">
                                  <styleClass>
                                     <String fx:value="btn-cur" />
                                     <String fx:value="heading1" />
                                  </styleClass>
                               </Button>
-                              <Button layoutX="911.0" layoutY="490.0" mnemonicParsing="false" stylesheets="@../style/MainCSS.css" text="&lt;" textFill="#63bad9">
+                              <Button fx:id="btn_RG_prev" layoutX="911.0" layoutY="490.0" mnemonicParsing="false" stylesheets="@../style/MainCSS.css" text="&lt;" textFill="#63bad9">
                                  <styleClass>
                                     <String fx:value="btn-cur" />
                                     <String fx:value="heading1" />

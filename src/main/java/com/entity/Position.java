@@ -31,6 +31,10 @@ public class Position implements Serializable {
     @ToString.Exclude
     private Goods goodsPos;
 
+    public String getPos(){
+        return String.valueOf(this.col + this.row + "-" + stack);
+    }
+
 //    @Override
 //    public boolean equals(Object o) {
 //        if (this == o) return true;
