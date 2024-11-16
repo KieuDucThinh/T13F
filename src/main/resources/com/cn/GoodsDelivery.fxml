@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="1.7976931348623157E308" prefHeight="750.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cn.GoodsDeliveryController">
+   <children>
+      <AnchorPane prefHeight="753.0" prefWidth="258.0" styleClass="gradient-side-form" stylesheets="@../style/MainCSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="110.0" fitWidth="110.0" layoutX="71.0" layoutY="31.2" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="612.0" AnchorPane.leftAnchor="71.0" AnchorPane.topAnchor="31.2">
+               <image>
+                  <Image url="@../img/Vector.png" />
+               </image>
+            </ImageView>
+            <Label contentDisplay="CENTER" layoutX="26.0" layoutY="151.0" styleClass="heading2" stylesheets="@../style/MainCSS.css" text="Kho hàng trái cây T13F">
+               <font>
+                  <Font name="Segoe UI Black" size="20.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="10.0" layoutY="222.0" prefHeight="63.0" prefWidth="236.0" stylesheets="@../style/MainCSS.css">
+               <styleClass>
+                  <String fx:value="white-form" />
+                  <String fx:value="radius2" />
+               </styleClass>
+               <children>
+                  <FontAwesomeIconView fill="#63bad9" glyphName="USER" layoutX="27.0" layoutY="41.0" size="32.0" />
+                  <Label layoutX="96.0" layoutY="7.0" styleClass="heading4" stylesheets="@../style/MainCSS.css" text="Xin chào">
+                     <font>
+                        <Font name="Segoe UI Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="66.0" layoutY="28.0" styleClass="heading3" stylesheets="@../style/MainCSS.css" text="Kiều Đức Thịnh" />
+               </children>
+            </AnchorPane>
+            <Line endX="108.79997253417969" layoutX="136.0" layoutY="212.0" startX="-129.59999084472656" stroke="WHITE" />
+            <Line endX="110.19999694824219" layoutX="137.0" layoutY="296.0" startX="-129.59999084472656" stroke="WHITE" />
+            <Button layoutX="1.0" layoutY="707.6" mnemonicParsing="false" prefHeight="42.0" prefWidth="253.0" stylesheets="@../style/MainCSS.css" text="Đăng xuất" textFill="#dc3939" AnchorPane.bottomAnchor="3.0">
+               <styleClass>
+                  <String fx:value="function-btn" />
+                  <String fx:value="heading3" />
+                  <String fx:value="black" />
+               </styleClass>
+               <graphic>
+                  <FontAwesomeIconView fill="#d95151" glyphName="SIGN_OUT" selectionFill="#df2d2d" size="25.0" text="    " />
+               </graphic>
+            </Button>
+            <Button layoutY="445.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="262.0" stylesheets="@../style/MainCSS.css" text="Xử lý trái cây               ">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="function-btn" />
+                  <String fx:value="heading3" />
+                  <String fx:value="red" />
+               </styleClass>
+               <graphic>
+                  <FontAwesomeIconView fill="#ee554c" glyphName="PLAY" selectionFill="#e75e5e" size="25.0" text="     " />
+               </graphic>
+            </Button>
+            <Button layoutX="-2.0" layoutY="320.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="262.0" stylesheets="@../style/MainCSS.css" text="Phiếu nhập                   ">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="function-btn" />
+                  <String fx:value="heading3" />
+                  <String fx:value="black" />
+               </styleClass>
+               <graphic>
+                  <FontAwesomeIconView glyphName="FILE" size="23" text="      " />
+               </graphic>
+            </Button>
+            <Button layoutY="381.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="262.0" stylesheets="@../style/MainCSS.css" text="Xuất hàng                     ">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="function-btn" />
+                  <String fx:value="heading3" />
+                  <String fx:value="black" />
+                  <String fx:value="btn" />
+               </styleClass>
+               <graphic>
+                  <FontAwesomeIconView glyphName="LIST" size="22" text="     " />
+               </graphic>
+            </Button>
+            <Button layoutY="511.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="262.0" stylesheets="@../style/MainCSS.css" text="Tài khoản                     ">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="function-btn" />
+                  <String fx:value="heading3" />
+                  <String fx:value="black" />
+               </styleClass>
+               <graphic>
+                  <FontAwesomeIconView glyphName="KEY" size="24" text="    " />
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="287.2" layoutY="44.0" prefHeight="698.0" prefWidth="1086.0" stylesheets="@../style/MainCSS.css" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="287.1999999999998" AnchorPane.rightAnchor="27.0" AnchorPane.topAnchor="44.0">
+         <styleClass>
+            <String fx:value="white-form" />
+            <String fx:value="shadow-to-form" />
+            <String fx:value="radius2" />
+         </styleClass>
+         <children>
+            <Label layoutX="85.0" layoutY="28.0" stylesheets="@../style/MainCSS.css" text="Xuất hàng">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="heading1" />
+                  <String fx:value="blue" />
+               </styleClass>
+            </Label>
+            <FontAwesomeIconView fill="#63bad9" glyphName="LIST" layoutX="36.0" layoutY="57.0" size="30" />
+            <Line endX="876.9334716796875" layoutX="178.0" layoutY="82.0" startX="-141.7333526611328" startY="-7.62939453125E-6" />
+            <TabPane layoutX="35.0" layoutY="98.0" prefHeight="565.0" prefWidth="1022.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Lập phiếu xuất">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-stroke: 50;" stylesheets="@../style/MainCSS.css">
+                           <styleClass>
+                              <String fx:value="white-form" />
+                              <String fx:value="shadow-to-form" />
+                           </styleClass>
+                           <children>
+                              <Circle fill="#72d1f4" layoutX="376.0" layoutY="23.0" radius="15.0" stroke="WHITE" strokeType="INSIDE" />
+                              <StackPane layoutX="3.0" layoutY="68.0" prefHeight="462.0" prefWidth="1014.0" stylesheets="@../style/MainCSS.css">
+                                 <children>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@../style/MainCSS.css">
+                                       <children>
+                                          <VBox alignment="TOP_RIGHT" layoutX="189.0" layoutY="46.0" prefHeight="200.0" prefWidth="177.0" spacing="30.0">
+                                             <children>
+                                                <Label stylesheets="@../style/MainCSS.css" text="Mã khách hàng">
+                                                   <styleClass>
+                                                      <String fx:value="heading2" />
+                                                      <String fx:value="blue" />
+                                                   </styleClass>
+                                                </Label>
+                                                <Label stylesheets="@../style/MainCSS.css" text="Tên khách hàng">
+                                                   <styleClass>
+                                                      <String fx:value="heading2" />
+                                                      <String fx:value="blue" />
+                                                   </styleClass>
+                                                </Label>
+                                                <Label stylesheets="@../style/MainCSS.css" text="Số điện thoại">
+                                                   <styleClass>
+                                                      <String fx:value="heading2" />
+                                                      <String fx:value="blue" />
+                                                   </styleClass>
+                                                </Label>
+                                                <Label stylesheets="@../style/MainCSS.css" text="Email">
+                                                   <styleClass>
+                                                      <String fx:value="heading2" />
+                                                      <String fx:value="blue" />
+                                                   </styleClass>
+                                                </Label>
+                                                <Label stylesheets="@../style/MainCSS.css" text="Địa chỉ">
+                                                   <styleClass>
+                                                      <String fx:value="heading2" />
+                                                      <String fx:value="blue" />
+                                                   </styleClass>
+                                                </Label>
+                                                <Label stylesheets="@../style/MainCSS.css" text="Địa chỉ nhận hàng">
+                                                   <styleClass>
+                                                      <String fx:value="heading2" />
+                                                      <String fx:value="blue" />
+                                                   </styleClass>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                          <VBox layoutX="389.0" layoutY="38.0" prefHeight="338.0" prefWidth="378.0" spacing="14.0">
+                                             <children>
+                                                <TextField editable="false" prefHeight="41.0" prefWidth="378.0" styleClass="heading4" stylesheets="@../style/MainCSS.css" />
+                                                <TextField prefHeight="41.0" prefWidth="378.0" styleClass="heading4" stylesheets="@../style/MainCSS.css" />
+                                                <TextField prefHeight="41.0" prefWidth="378.0" styleClass="heading4" stylesheets="@../style/MainCSS.css" />
+                                                <TextField prefHeight="41.0" prefWidth="378.0" styleClass="heading4" stylesheets="@../style/MainCSS.css" />
+                                                <TextField prefHeight="41.0" prefWidth="378.0" styleClass="heading4" stylesheets="@../style/MainCSS.css" />
+                                                <TextField prefHeight="41.0" prefWidth="378.0" styleClass="heading4" stylesheets="@../style/MainCSS.css" />
+                                             </children>
+                                          </VBox>
+                                          <Button layoutX="481.0" layoutY="401.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="110.0" stylesheets="@../style/MainCSS.css" text="Tiếp theo" textFill="WHITE">
+                                             <styleClass>
+                                                <String fx:value="btn" />
+                                                <String fx:value="heading3" />
+                                                <String fx:value="update-btn" />
+                                             </styleClass>
+                                          </Button>
+                                          <Button layoutX="782.0" layoutY="153.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0" stylesheets="@../style/MainCSS.css">
+                                             <styleClass>
+                                                <String fx:value="add-btn" />
+                                                <String fx:value="btn" />
+                                             </styleClass>
+                                             <graphic>
+                                                <FontAwesomeIconView fill="WHITE" glyphName="CHECK" size="21" />
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="shadow-to-form" />
+                                          <String fx:value="white-form" />
+                                       </styleClass>
+                                    </AnchorPane>
+                                    <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="white-form" stylesheets="@../style/MainCSS.css">
+                                       <left>
+                                          <AnchorPane prefHeight="462.0" prefWidth="747.0" stylesheets="@../style/MainCSS.css" BorderPane.alignment="CENTER">
+                                             <styleClass>
+                                                <String fx:value="shadow-to-form" />
+                                                <String fx:value="white-form" />
+                                                <String fx:value="radius" />
+                                             </styleClass>
+                                             <children>
+                                                <Button layoutX="353.0" layoutY="430.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="23.0" stylesheets="@../style/MainCSS.css" textFill="WHITE">
+                                                   <styleClass>
+                                                      <String fx:value="add-btn" />
+                                                      <String fx:value="radius2" />
+                                                   </styleClass>
+                                                   <graphic>
+                                                      <FontAwesomeIconView fill="WHITE" glyphName="PLUS" size="17" />
+                                                   </graphic>
+                                                </Button>
+                                                <ScrollPane prefHeight="423.0" prefWidth="747.0" stylesheets="@../style/MainCSS.css">
+                                                   <content>
+                                                      <GridPane fx:id="gridPaneGD" alignment="TOP_CENTER" prefHeight="408.0" prefWidth="745.0" vgap="5.0">
+                                                        <columnConstraints>
+                                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                        </columnConstraints>
+                                                      </GridPane>
+                                                   </content>
+                                                </ScrollPane>
+                                             </children>
+                                          </AnchorPane>
+                                       </left>
+                                       <right>
+                                          <AnchorPane prefHeight="462.0" prefWidth="259.0" stylesheets="@../style/MainCSS.css" BorderPane.alignment="CENTER">
+                                             <styleClass>
+                                                <String fx:value="shadow-to-form" />
+                                                <String fx:value="white-form" />
+                                                <String fx:value="radius" />
+                                             </styleClass>
+                                             <children>
+                                                <Label layoutX="17.0" layoutY="16.0" stylesheets="@../style/MainCSS.css" text="Ghi chú">
+                                                   <styleClass>
+                                                      <String fx:value="heading4" />
+                                                      <String fx:value="bold" />
+                                                      <String fx:value="blue" />
+                                                   </styleClass>
+                                                </Label>
+                                                <TextArea layoutX="15.0" layoutY="43.0" prefHeight="130.0" prefWidth="231.0" styleClass="heading4" stylesheets="@../style/MainCSS.css" />
+                                                <VBox layoutX="81.0" layoutY="392.0" prefHeight="69.0" prefWidth="114.0" spacing="8.0">
+                                                   <children>
+                                                      <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="114.0" stylesheets="@../style/MainCSS.css" text="Hủy" textFill="WHITE">
+                                                         <styleClass>
+                                                            <String fx:value="delete-btn" />
+                                                            <String fx:value="heading4" />
+                                                            <String fx:value="bold" />
+                                                         </styleClass>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="117.0" stylesheets="@../style/MainCSS.css" text="Xuất phiếu" textFill="WHITE">
+                                                         <styleClass>
+                                                            <String fx:value="update-btn" />
+                                                            <String fx:value="heading4" />
+                                                            <String fx:value="bold" />
+                                                         </styleClass>
+                                                      </Button>
+                                                   </children>
+                                                </VBox>
+                                                <GridPane layoutX="16.0" layoutY="265.0" prefHeight="91.0" prefWidth="230.0">
+                                                  <columnConstraints>
+                                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="105.0" minWidth="10.0" prefWidth="97.4" />
+                                                    <ColumnConstraints fillWidth="false" halignment="RIGHT" hgrow="NEVER" maxWidth="113.599951171875" minWidth="10.0" prefWidth="92.199951171875" />
+                                                      <ColumnConstraints halignment="RIGHT" hgrow="NEVER" maxWidth="113.599951171875" minWidth="4.800000000000011" prefWidth="10.400048828124994" />
+                                                      <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="72.199951171875" minWidth="10.0" prefWidth="34.000024414062494" />
+                                                  </columnConstraints>
+                                                  <rowConstraints>
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                  </rowConstraints>
+                                                   <children>
+                                                      <Label stylesheets="@../style/MainCSS.css" text="VND" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                                         <styleClass>
+                                                            <String fx:value="heading4" />
+                                                            <String fx:value="blue" />
+                                                         </styleClass>
+                                                      </Label>
+                                                      <Label stylesheets="@../style/MainCSS.css" text="VND" GridPane.columnIndex="3">
+                                                         <styleClass>
+                                                            <String fx:value="heading4" />
+                                                            <String fx:value="red" />
+                                                         </styleClass>
+                                                      </Label>
+                                                      <Label stylesheets="@../style/MainCSS.css" text="\%" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                                         <styleClass>
+                                                            <String fx:value="heading4" />
+                                                            <String fx:value="green" />
+                                                         </styleClass>
+                                                      </Label>
+                                                      <Label stylesheets="@../style/MainCSS.css" text="Tổng tiền">
+                                                         <styleClass>
+                                                            <String fx:value="heading4" />
+                                                            <String fx:value="red" />
+                                                         </styleClass>
+                                                      </Label>
+                                                      <Label stylesheets="@../style/MainCSS.css" text="Số tiền phải trả" GridPane.rowIndex="2">
+                                                         <styleClass>
+                                                            <String fx:value="heading4" />
+                                                            <String fx:value="blue" />
+                                                         </styleClass>
+                                                      </Label>
+                                                      <Label stylesheets="@../style/MainCSS.css" text="Giảm giá" GridPane.rowIndex="1">
+                                                         <styleClass>
+                                                            <String fx:value="heading4" />
+                                                            <String fx:value="green" />
+                                                         </styleClass>
+                                                      </Label>
+                                                      <Label stylesheets="@../style/MainCSS.css" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                         <styleClass>
+                                                            <String fx:value="heading4" />
+                                                            <String fx:value="blue" />
+                                                         </styleClass>
+                                                      </Label>
+                                                      <Label stylesheets="@../style/MainCSS.css" text="0" GridPane.columnIndex="1">
+                                                         <styleClass>
+                                                            <String fx:value="heading4" />
+                                                            <String fx:value="red" />
+                                                         </styleClass>
+                                                      </Label>
+                                                      <TextField alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="54.0" stylesheets="@../style/MainCSS.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                         <styleClass>
+                                                            <String fx:value="green" />
+                                                            <String fx:value="heading4" />
+                                                         </styleClass>
+                                                      </TextField>
+                                                   </children>
+                                                </GridPane>
+                                             </children>
+                                          </AnchorPane>
+                                       </right>
+                                    </BorderPane>
+                                 </children>
+                              </StackPane>
+                              <Label layoutX="371.0" layoutY="13.0" styleClass="heading3" stylesheets="@../style/MainCSS.css" text="1" textFill="WHITE" />
+                              <Label layoutX="306.0" layoutY="42.0" stylesheets="@../style/MainCSS.css" text="Thông tin khách hàng">
+                                 <styleClass>
+                                    <String fx:value="heading4" />
+                                    <String fx:value="bold" />
+                                    <String fx:value="blue" />
+                                 </styleClass>
+                              </Label>
+                              <Label layoutX="620.0" layoutY="43.0" stylesheets="@../style/MainCSS.css" text="Thông tin hàng">
+                                 <styleClass>
+                                    <String fx:value="heading4" />
+                                    <String fx:value="blue" />
+                                    <String fx:value="bold" />
+                                 </styleClass>
+                              </Label>
+                              <Circle fill="#a6e0f4" layoutX="671.0" layoutY="23.0" radius="15.0" stroke="WHITE" strokeType="INSIDE" />
+                              <Label layoutX="667.0" layoutY="13.0" styleClass="heading3" stylesheets="@../style/MainCSS.css" text="2" textFill="WHITE" />
+                              <Line cache="true" endX="100.0" layoutX="525.0" layoutY="26.0" startX="-100.0" stroke="#72d1f4" strokeWidth="2.0" />
+                              <FontAwesomeIconView fill="#72d1f4" glyphName="PLAY" layoutX="614.0" layoutY="31.0" selectionFill="#72d1f4" size="15" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                     <styleClass>
+                        <String fx:value="heading4" />
+                        <String fx:value="bold" />
+                        <String fx:value="blue" />
+                     </styleClass>
+                </Tab>
+                <Tab text="Tìm hàng">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@../style/MainCSS.css">
+                           <styleClass>
+                              <String fx:value="white-form" />
+                              <String fx:value="shadow-to-form" />
+                           </styleClass>
+                           <children>
+                              <Button layoutX="957.0" layoutY="491.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="50.0" style="-fx-background-color: transparent;" stylesheets="@../style/MainCSS.css" text="&gt;">
+                                 <styleClass>
+                                    <String fx:value="btn-cur" />
+                                    <String fx:value="heading1" />
+                                    <String fx:value="blue" />
+                                 </styleClass>
+                              </Button>
+                              <Button layoutX="905.0" layoutY="491.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="50.0" style="-fx-background-color: transparent;" stylesheets="@../style/MainCSS.css" text="&lt;">
+                                 <styleClass>
+                                    <String fx:value="btn-cur" />
+                                    <String fx:value="heading1" />
+                                    <String fx:value="blue" />
+                                 </styleClass>
+                              </Button>
+                              <TextField layoutX="102.0" layoutY="25.0" prefHeight="30.0" prefWidth="782.0" promptText="Tìm kiếm theo mã sku" stylesheets="@../style/MainCSS.css">
+                                 <styleClass>
+                                    <String fx:value="heading4" />
+                                    <String fx:value="blue" />
+                                    <String fx:value="InputControll" />
+                                 </styleClass>
+                              </TextField>
+                              <TableView layoutX="22.0" layoutY="75.0" prefHeight="422.0" prefWidth="975.0">
+                                <columns>
+                                  <TableColumn prefWidth="180.79999160766602" text="SKU" />
+                                  <TableColumn prefWidth="82.40000915527344" text="Kích thước" />
+                                    <TableColumn prefWidth="114.39996337890625" text="Trạng thái" />
+                                    <TableColumn prefWidth="133.5999755859375" text="Giá xuất" />
+                                    <TableColumn prefWidth="172.80010986328125" text="Nguồn gốc" />
+                                    <TableColumn prefWidth="156.0" text="Số lượng/hộp" />
+                                    <TableColumn prefWidth="131.9999877929688" text="Số lượng còn" />
+                                </columns>
+                              </TableView>
+                              <Label layoutX="37.0" layoutY="26.0" stylesheets="@../style/MainCSS.css" text="SKU">
+                                 <styleClass>
+                                    <String fx:value="heading2" />
+                                    <String fx:value="blue" />
+                                 </styleClass>
+                              </Label>
+                              <Button layoutX="952.0" layoutY="22.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="38.0" stylesheets="@../style/MainCSS.css">
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="update-btn" />
+                                 </styleClass>
+                                 <graphic>
+                                    <FontAwesomeIconView fill="WHITE" glyphName="REFRESH" size="18" text="" />
+                                 </graphic>
+                              </Button>
+                              <Button layoutX="905.0" layoutY="22.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="38.0" stylesheets="@../style/MainCSS.css">
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="update-btn" />
+                                 </styleClass>
+                                 <graphic>
+                                    <FontAwesomeIconView fill="WHITE" glyphName="SEARCH" size="18" />
+                                 </graphic>
+                              </Button>
+                              <Label layoutX="952.0" layoutY="508.0" stylesheets="@../style/MainCSS.css" text="1">
+                                 <styleClass>
+                                    <String fx:value="heading3" />
+                                    <String fx:value="blue" />
+                                 </styleClass>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                     <styleClass>
+                        <String fx:value="heading4" />
+                        <String fx:value="bold" />
+                     </styleClass>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
