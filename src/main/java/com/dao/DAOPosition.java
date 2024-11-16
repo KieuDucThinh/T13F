@@ -2,7 +2,7 @@ package com.dao;
 
 import com.entity.Goods;
 import com.entity.Position;
-import jakarta.persistence.EntityManager;
+//import jakarta.persistence.EntityManager;
 import javafx.collections.ObservableList;
 
 import java.rmi.Remote;
@@ -21,6 +21,6 @@ public interface DAOPosition extends Remote{
     public ObservableList<Position> getPositionsByFt(String ft_id) throws RemoteException;
     public ObservableList<Position> getPosByPosNumber(int positionNumber) throws RemoteException;
 
-    public boolean getGoodsPos(Goods goods, short quantity, EntityManager em, HashMap<String, List<String>> map) throws RemoteException;
-    public boolean removeGoods(String sku, EntityManager em) throws RemoteException;
+//    public boolean getGoodsPos(Goods goods, short quantity, EntityManager em, HashMap<String, List<String>> map) throws RemoteException;
+//    public boolean removeGoods(String sku, EntityManager em) throws RemoteException;
 }
