@@ -12,9 +12,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @ToString
 public class GdnDetailKey implements Serializable {
-
     private String skuGDN;
-
 
     private String gdnID;
 

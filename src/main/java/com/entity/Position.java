@@ -11,7 +11,6 @@ import java.io.Serializable;
 @NoArgsConstructor
 @ToString
 public class Position implements Serializable {
-
     private int posId;
 //    @Basic
 //    @Column(name = "ft_id")

@@ -12,7 +12,6 @@ import java.util.Objects;
 @NoArgsConstructor
 @ToString
 public class GrnDetailKey implements Serializable {
-
     private String skuGRN;
 
     private String grnID;

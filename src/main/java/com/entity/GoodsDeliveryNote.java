@@ -4,6 +4,7 @@ import lombok.*;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,7 +15,6 @@ import java.util.Set;
 @Builder
 @ToString
 public class GoodsDeliveryNote implements Serializable {
-
     private String gdnId;
 //    @Basic
 //    @Column(name = "username")
@@ -24,6 +24,8 @@ public class GoodsDeliveryNote implements Serializable {
 //    private String cId;
 
     private String gdnAddress;
+
+    private Date gdnDate;
 
     private BigDecimal totalDeliveryPrice;
 

@@ -3,6 +3,7 @@ module com.example.t13fproject {
     requires javafx.fxml;
     requires java.sql;
     requires java.rmi;
+    requires static lombok;
 
 
     opens com.cn to javafx.fxml;

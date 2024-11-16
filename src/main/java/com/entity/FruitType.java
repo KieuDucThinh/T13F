@@ -36,10 +36,6 @@ public class FruitType implements Serializable {
     private byte temperature;
 
     @ToString.Exclude
-//    @JoinColumn(name = "ft_id")
-            //(mappedBy = "fruitType", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    //     (targetEntity = Position.class)
-//    @JoinColumn(name = "pos_id")
     private Set<Position> pos = new HashSet<>();
 
     @ToString.Exclude

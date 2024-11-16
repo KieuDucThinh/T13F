@@ -10,9 +10,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-//@IdClass(com.entity.GrnDetailPK.class)
 public class GrnDetail implements Serializable {
-
     private GrnDetailKey id;
 
     private short quantity;

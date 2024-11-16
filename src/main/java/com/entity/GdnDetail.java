@@ -12,7 +12,6 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @ToString
 public class GdnDetail implements Serializable {
-
     private GdnDetailKey id;
 
     private short quantity;
