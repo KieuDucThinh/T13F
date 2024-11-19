@@ -178,9 +178,9 @@
                </styleClass>
                <children>
                   <Separator layoutX="718.0" layoutY="12.0" orientation="VERTICAL" prefHeight="530.0" prefWidth="0.0" />
-                  <TabPane layoutX="731.0" layoutY="5.0" prefHeight="546.0" prefWidth="281.0" stylesheets="@../style/MainCSS.css" tabClosingPolicy="UNAVAILABLE">
+                  <TabPane fx:id="tabPane" layoutX="731.0" layoutY="5.0" prefHeight="546.0" prefWidth="281.0" stylesheets="@../style/MainCSS.css" tabClosingPolicy="UNAVAILABLE">
                     <tabs>
-                      <Tab styleClass="heading3" text="Khu vực">
+                      <Tab onSelectionChanged="#selectTabArea" styleClass="heading3" text="Khu vực">
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
@@ -200,7 +200,7 @@
                               </AnchorPane>
                         </content>
                       </Tab>
-                      <Tab styleClass="heading3" text="Vị trí">
+                      <Tab fx:id="tabPos" styleClass="heading3" text="Vị trí">
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
@@ -231,14 +231,14 @@
                                     <TableView fx:id="tbl_pos" layoutX="14.0" layoutY="111.0" prefHeight="400.0" prefWidth="262.0">
                                       <columns>
                                         <TableColumn fx:id="col_stack" prefWidth="44.800048828125" text="Ngăn" />
-                                        <TableColumn fx:id="col_sku" prefWidth="123.199951171875" text="SKU" />
+                                        <TableColumn fx:id="col_sku" prefWidth="180.0" text="SKU" />
                                           <TableColumn fx:id="col_status" prefWidth="97.59996032714844" text="Trạng thái" />
-                                          <TableColumn fx:id="col_original" prefWidth="99.20001220703125" text="Nguồn gốc" />
+                                          <TableColumn fx:id="col_original" prefWidth="180.0" text="Nguồn gốc" />
                                           <TableColumn fx:id="col_jrd" prefWidth="112.79998779296875" text="Ngày vừa chín" />
                                           <TableColumn fx:id="col_rd" prefWidth="112.0" text="Ngày chín" />
                                           <TableColumn fx:id="col_ovd" prefWidth="111.20001220703125" text="Ngày quá chín" />
                                           <TableColumn fx:id="col_expd" prefWidth="111.20001220703125" text="Hết hạn" />
-                                          <TableColumn fx:id="col_qinbox" prefWidth="95.199951171875" text="Số lượng/hộp" />
+                                          <TableColumn fx:id="col_qinbox" prefWidth="100.0" text="Số lượng/hộp" />
                                       </columns>
                                     </TableView>
                                     <VBox layoutX="82.0" layoutY="13.0" prefHeight="74.0" prefWidth="34.0" spacing="15.0">

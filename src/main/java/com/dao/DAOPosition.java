@@ -19,7 +19,7 @@ public interface DAOPosition extends Remote{
     public boolean clearPositions() throws RemoteException;
     public byte pageQuantity(String status) throws RemoteException;
     public List<Position> getPositionsByFt(String ft_id) throws RemoteException;
-    public ObservableList<Position> getPosByPosNumber(int positionNumber) throws RemoteException;
+    public List<Position> getPosByPosNumber(int positionNumber) throws RemoteException;
 
 //    public boolean getGoodsPos(Goods goods, short quantity, EntityManager em, HashMap<String, List<String>> map) throws RemoteException;
 //    public boolean removeGoods(String sku, EntityManager em) throws RemoteException;

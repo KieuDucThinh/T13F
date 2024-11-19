@@ -201,5 +201,14 @@
     -fx-text-fill: transparent;
     -fx-background-color: #82cce6;
     -fx-min-width: 35,6px;
+    -fx-cursor: hand;
+}
+
+.btn_pos_selected{
+    -fx-font-size: 16,8px;
+    -fx-text-fill: transparent;
+    -fx-background-color: #EE554C;
+    -fx-min-width: 35,6px;
+    -fx-cursor: hand;
 }
 /*#0f6789 = 63BAD9 286155 = 82C8E1 286155 = B1DCEC*/
