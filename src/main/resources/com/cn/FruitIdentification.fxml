@@ -142,7 +142,7 @@
                                     <TableColumn fx:id="col_EG_pos" prefWidth="94.13336181640625" text="Vị trí" />
                                 </columns>
                               </TableView>
-                              <Button fx:id="btn_Clear" layoutX="7.0" layoutY="506.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="62.0" stylesheets="@../style/MainCSS.css" text="Dọn dẹp" textFill="WHITE" AnchorPane.bottomAnchor="3.200000000000024" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="955.9999999999999" AnchorPane.topAnchor="506.0">
+                              <Button fx:id="btn_Clear" layoutX="7.0" layoutY="506.0" mnemonicParsing="false" onAction="#clearPosition" prefHeight="26.0" prefWidth="62.0" stylesheets="@../style/MainCSS.css" text="Dọn dẹp" textFill="WHITE" AnchorPane.bottomAnchor="3.200000000000024" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="955.9999999999999" AnchorPane.topAnchor="506.0">
                                  <font>
                                     <Font name="Segoe UI Bold" size="11.0" />
                                  </font>
@@ -151,7 +151,7 @@
                                     <String fx:value="heading5" />
                                  </styleClass>
                               </Button>
-                              <Button fx:id="btn_EG_next" layoutX="976.0" layoutY="492.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="50.0" style="-fx-background-color: white;" stylesheets="@../style/MainCSS.css" text="&gt;" textFill="#ee554c" AnchorPane.bottomAnchor="-7.200000000000003" AnchorPane.leftAnchor="976.0">
+                              <Button fx:id="btn_EG_next" layoutX="976.0" layoutY="492.0" mnemonicParsing="false" onAction="#next_EG" prefHeight="51.0" prefWidth="50.0" style="-fx-background-color: white;" stylesheets="@../style/MainCSS.css" text="&gt;" textFill="#ee554c" AnchorPane.bottomAnchor="-7.200000000000003" AnchorPane.leftAnchor="976.0">
                                  <font>
                                     <Font size="48.0" />
                                  </font>
@@ -160,7 +160,7 @@
                                     <String fx:value="btn-cur" />
                                  </styleClass>
                               </Button>
-                              <Button fx:id="btn_EG_prev" layoutX="923.0" layoutY="492.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="50.0" style="-fx-background-color: white;" stylesheets="@../style/MainCSS.css" text="&lt;" textFill="#ee554c" AnchorPane.bottomAnchor="-7.200000000000003" AnchorPane.leftAnchor="923.0">
+                              <Button fx:id="btn_EG_prev" layoutX="923.0" layoutY="492.0" mnemonicParsing="false" onAction="#prev_EG" prefHeight="51.0" prefWidth="50.0" style="-fx-background-color: white;" stylesheets="@../style/MainCSS.css" text="&lt;" textFill="#ee554c" AnchorPane.bottomAnchor="-7.200000000000003" AnchorPane.leftAnchor="923.0">
                                  <font>
                                     <Font size="48.0" />
                                  </font>
@@ -189,19 +189,19 @@
                                     <TableColumn fx:id="col_OG_pos" prefWidth="113.60003662109375" text="Vị trí" />
                                 </columns>
                               </TableView>
+                              <Button fx:id="btn_OG_next" layoutX="967.0" layoutY="492.0" mnemonicParsing="false" onAction="#next_OG" prefHeight="42.0" prefWidth="50.0" stylesheets="@../style/MainCSS.css" text="&gt;" textFill="#63bad9">
+                                 <styleClass>
+                                    <String fx:value="btn-cur" />
+                                    <String fx:value="heading1" />
+                                 </styleClass>
+                              </Button>
+                              <Button fx:id="btn_OG_prev" layoutX="912.0" layoutY="492.0" mnemonicParsing="false" onAction="#prev_OG" prefHeight="42.0" prefWidth="50.0" stylesheets="@../style/MainCSS.css" text="&lt;" textFill="#63bad9">
+                                 <styleClass>
+                                    <String fx:value="btn-cur" />
+                                    <String fx:value="heading1" />
+                                 </styleClass>
+                              </Button>
                               <Label fx:id="lbl_OG_page" layoutX="960.0" layoutY="509.0" styleClass="heading3" stylesheets="@../style/MainCSS.css" text="1" />
-                              <Button fx:id="btn_OG_next" layoutX="967.0" layoutY="492.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="50.0" stylesheets="@../style/MainCSS.css" text="&gt;" textFill="#63bad9">
-                                 <styleClass>
-                                    <String fx:value="btn-cur" />
-                                    <String fx:value="heading1" />
-                                 </styleClass>
-                              </Button>
-                              <Button fx:id="btn_OG_prev" layoutX="912.0" layoutY="492.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="50.0" stylesheets="@../style/MainCSS.css" text="&lt;" textFill="#63bad9">
-                                 <styleClass>
-                                    <String fx:value="btn-cur" />
-                                    <String fx:value="heading1" />
-                                 </styleClass>
-                              </Button>
                            </children>
                         </AnchorPane>
                   </content>
@@ -222,13 +222,13 @@
                                 </columns>
                               </TableView>
                               <Label fx:id="lbl_RG_page" layoutX="960.0" layoutY="507.0" styleClass="heading3" stylesheets="@../style/MainCSS.css" text="1" />
-                              <Button fx:id="btn_RG_next" layoutX="968.0" layoutY="490.0" mnemonicParsing="false" stylesheets="@../style/MainCSS.css" text="&gt;" textFill="#63bad9">
+                              <Button fx:id="btn_RG_next" layoutX="968.0" layoutY="490.0" mnemonicParsing="false" onAction="#next_RG" stylesheets="@../style/MainCSS.css" text="&gt;" textFill="#63bad9">
                                  <styleClass>
                                     <String fx:value="btn-cur" />
                                     <String fx:value="heading1" />
                                  </styleClass>
                               </Button>
-                              <Button fx:id="btn_RG_prev" layoutX="911.0" layoutY="490.0" mnemonicParsing="false" stylesheets="@../style/MainCSS.css" text="&lt;" textFill="#63bad9">
+                              <Button fx:id="btn_RG_prev" layoutX="911.0" layoutY="490.0" mnemonicParsing="false" onAction="#prev_RG" stylesheets="@../style/MainCSS.css" text="&lt;" textFill="#63bad9">
                                  <styleClass>
                                     <String fx:value="btn-cur" />
                                     <String fx:value="heading1" />

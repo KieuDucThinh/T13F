@@ -11,7 +11,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@ToString
+//@ToString
 public class FruitType implements Serializable {
     private String ftId;
 
@@ -40,6 +40,11 @@ public class FruitType implements Serializable {
 
     @ToString.Exclude
     private Set<Goods> goodsSet = new HashSet<>();
+
+    @Override
+    public String toString() {
+        return this.getFtName();
+    }
 
     /*
     @Override

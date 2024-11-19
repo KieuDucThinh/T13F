@@ -184,16 +184,16 @@
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <ComboBox layoutX="15.0" layoutY="14.0" prefHeight="26.0" prefWidth="247.0" promptText="Loại trái cây">
+                                    <ComboBox fx:id="cbo_Ft" layoutX="15.0" layoutY="14.0" onAction="#setAreaByFT" prefHeight="26.0" prefWidth="247.0" promptText="Loại trái cây">
                                        <styleClass>
                                           <String fx:value="heading5" />
                                           <String fx:value="InputControll" />
                                        </styleClass>
                                     </ComboBox>
-                                    <TableView layoutX="15.0" layoutY="55.0" prefHeight="454.0" prefWidth="254.0">
+                                    <TableView fx:id="tbl_area" layoutX="15.0" layoutY="55.0" prefHeight="454.0" prefWidth="254.0">
                                       <columns>
-                                        <TableColumn prefWidth="132.0" text="Hàng" />
-                                        <TableColumn prefWidth="120.80008544921876" text="Cột" />
+                                        <TableColumn fx:id="col_area_row" prefWidth="132.0" text="Hàng" />
+                                        <TableColumn fx:id="col_area_col" prefWidth="120.80008544921876" text="Cột" />
                                       </columns>
                                     </TableView>
                                  </children>
@@ -228,19 +228,53 @@
                                           <String fx:value="bold" />
                                        </styleClass>
                                     </Label>
-                                    <TableView layoutX="14.0" layoutY="111.0" prefHeight="400.0" prefWidth="262.0">
+                                    <TableView fx:id="tbl_pos" layoutX="14.0" layoutY="111.0" prefHeight="400.0" prefWidth="262.0">
                                       <columns>
-                                        <TableColumn prefWidth="44.800048828125" text="Ngăn" />
-                                        <TableColumn prefWidth="123.199951171875" text="SKU" />
-                                          <TableColumn prefWidth="97.59996032714844" text="Trạng thái" />
-                                          <TableColumn prefWidth="99.20001220703125" text="Nguồn gốc" />
-                                          <TableColumn prefWidth="112.79998779296875" text="Ngày vừa chín" />
-                                          <TableColumn prefWidth="112.0" text="Ngày chín" />
-                                          <TableColumn prefWidth="111.20001220703125" text="Ngày quá chín" />
-                                          <TableColumn prefWidth="111.20001220703125" text="Hết hạn" />
-                                          <TableColumn prefWidth="95.199951171875" text="Số lượng/hộp" />
+                                        <TableColumn fx:id="col_stack" prefWidth="44.800048828125" text="Ngăn" />
+                                        <TableColumn fx:id="col_sku" prefWidth="123.199951171875" text="SKU" />
+                                          <TableColumn fx:id="col_status" prefWidth="97.59996032714844" text="Trạng thái" />
+                                          <TableColumn fx:id="col_original" prefWidth="99.20001220703125" text="Nguồn gốc" />
+                                          <TableColumn fx:id="col_jrd" prefWidth="112.79998779296875" text="Ngày vừa chín" />
+                                          <TableColumn fx:id="col_rd" prefWidth="112.0" text="Ngày chín" />
+                                          <TableColumn fx:id="col_ovd" prefWidth="111.20001220703125" text="Ngày quá chín" />
+                                          <TableColumn fx:id="col_expd" prefWidth="111.20001220703125" text="Hết hạn" />
+                                          <TableColumn fx:id="col_qinbox" prefWidth="95.199951171875" text="Số lượng/hộp" />
                                       </columns>
                                     </TableView>
+                                    <VBox layoutX="82.0" layoutY="13.0" prefHeight="74.0" prefWidth="34.0" spacing="15.0">
+                                       <children>
+                                          <Label fx:id="lbl_shelf" prefHeight="18.0" prefWidth="37.0" stylesheets="@../style/MainCSS.css">
+                                             <font>
+                                                <Font name="System Bold" size="27.0" />
+                                             </font>
+                                             <styleClass>
+                                                <String fx:value="heading4" />
+                                                <String fx:value="blue" />
+                                                <String fx:value="bold" />
+                                             </styleClass>
+                                          </Label>
+                                          <Label fx:id="lbl_col" prefHeight="18.0" prefWidth="40.0" stylesheets="@../style/MainCSS.css">
+                                             <font>
+                                                <Font name="System Bold" size="27.0" />
+                                             </font>
+                                             <styleClass>
+                                                <String fx:value="heading4" />
+                                                <String fx:value="blue" />
+                                                <String fx:value="bold" />
+                                             </styleClass>
+                                          </Label>
+                                          <Label fx:id="lbl_row" prefHeight="18.0" prefWidth="43.0" stylesheets="@../style/MainCSS.css">
+                                             <font>
+                                                <Font name="System Bold" size="27.0" />
+                                             </font>
+                                             <styleClass>
+                                                <String fx:value="heading4" />
+                                                <String fx:value="blue" />
+                                                <String fx:value="bold" />
+                                             </styleClass>
+                                          </Label>
+                                       </children>
+                                    </VBox>
                                  </children></AnchorPane>
                         </content>
                       </Tab>

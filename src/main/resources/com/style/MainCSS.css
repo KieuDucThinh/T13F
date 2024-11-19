@@ -47,6 +47,10 @@
     -fx-font-size: 14px;
 }
 
+.table-column{
+    -fx-alignment: center;
+}
+
 .table-view .column-header-background2{
     -fx-background-color: linear-gradient(to bottom right, #EE554C, #EE554C);
 }

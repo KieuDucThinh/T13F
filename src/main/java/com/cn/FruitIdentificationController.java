@@ -1,8 +1,8 @@
 package com.cn;
 
 import com.entity.Position;
+import com.util.FruitUtil;
 import com.util.RegistryClass;
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -12,14 +12,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.math.BigDecimal;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
-import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class FruitIdentificationController {
 
@@ -48,7 +46,7 @@ public class FruitIdentificationController {
     private TableColumn<Position, BigDecimal> col_EG_delivery_price;
 
     @FXML
-    private TableColumn<Position, Date> col_EG_exp;
+    private TableColumn<Position, String> col_EG_exp;
 
     @FXML
     private TableColumn<Position, String> col_EG_pos;
@@ -69,7 +67,7 @@ public class FruitIdentificationController {
     private TableColumn<Position, BigDecimal> col_OG_deliveryprice;
 
     @FXML
-    private TableColumn<Position, Date> col_OG_exp;
+    private TableColumn<Position, String> col_OG_exp;
 
     @FXML
     private TableColumn<Position, String> col_OG_pos;
@@ -90,7 +88,7 @@ public class FruitIdentificationController {
     private TableColumn<Position, BigDecimal> col_RG_deliveryprice;
 
     @FXML
-    private TableColumn<Position, Date> col_RG_ovdate;
+    private TableColumn<Position, String> col_RG_ovdate;
 
     @FXML
     private TableColumn<Position, String> col_RG_pos;
@@ -125,6 +123,20 @@ public class FruitIdentificationController {
     @FXML
     private TableView<Position> tbl_RG;
 
+    //Thuộc tính: Các trang hiện tại là 1
+    private byte pageEG = 1;
+    private byte pageOG = 1;
+    private byte pageRG = 1;
+
+    //Thuộc tính: Các trang tối đa
+    private byte maxPageEG = 1;
+    private byte maxPageOG = 1;
+    private byte maxPageRG = 1;
+
+    //Thuộc tính: Lớp tiện ích
+    private FruitUtil dict = new FruitUtil();
+
+    //Chen dữ liệu vào bảng: Trái cây hết hạn
     public void setInforEGTable(ObservableList<Position> list) {
 //        this.col_EG_sku.setCellValueFactory(new PropertyValueFactory<>("posId"));
         this.col_EG_sku.setCellValueFactory((cellData) ->{
@@ -134,13 +146,13 @@ public class FruitIdentificationController {
             return new SimpleStringProperty(((Position) cellData.getValue()).getGoodsPos().getSize());
         });
         this.col_EG_status.setCellValueFactory((cellData) ->{
-            return new SimpleStringProperty(((Position) cellData.getValue()).getGoodsPos().getStatus());
+            return new SimpleStringProperty(dict.encode(((Position) cellData.getValue()).getGoodsPos().getStatus()));
         });
         this.col_EG_delivery_price.setCellValueFactory((cellData) ->{
             return new SimpleObjectProperty<BigDecimal>(((Position) cellData.getValue()).getGoodsPos().getDeliveryPrice());
         });
         this.col_EG_exp.setCellValueFactory((cellData) ->{
-            return new SimpleObjectProperty<Date>(((Position) cellData.getValue()).getGoodsPos().getExpDate());
+            return new SimpleStringProperty(dict.convertDate(((Position) cellData.getValue()).getGoodsPos().getExpDate()));
         });
         this.col_EG_qinbox.setCellValueFactory((cellData) ->{
             return new SimpleObjectProperty<BigDecimal>(((Position) cellData.getValue()).getGoodsPos().getQuantityInBox());
@@ -151,6 +163,157 @@ public class FruitIdentificationController {
         this.tbl_EG.setItems(list);
     }
 
+    //Chen dữ liệu vào bảng: Trái cây quá chín
+    public void setInforOGTable(ObservableList<Position> list) {
+//        this.col_EG_sku.setCellValueFactory(new PropertyValueFactory<>("posId"));
+        this.col_OG_sku.setCellValueFactory((cellData) ->{
+            return new SimpleStringProperty(((Position) cellData.getValue()).getGoodsPos().getSku());
+        });
+        this.col_OG_size.setCellValueFactory((cellData) ->{
+            return new SimpleStringProperty(((Position) cellData.getValue()).getGoodsPos().getSize());
+        });
+        this.col_OG_status.setCellValueFactory((cellData) ->{
+            return new SimpleStringProperty(dict.encode(((Position) cellData.getValue()).getGoodsPos().getStatus()));
+        });
+        this.col_OG_deliveryprice.setCellValueFactory((cellData) ->{
+            return new SimpleObjectProperty<BigDecimal>(((Position) cellData.getValue()).getGoodsPos().getDeliveryPrice());
+        });
+        this.col_OG_exp.setCellValueFactory((cellData) ->{
+            return new SimpleStringProperty(dict.convertDate(((Position) cellData.getValue()).getGoodsPos().getExpDate()));
+        });
+        this.col_OG_qinbox.setCellValueFactory((cellData) ->{
+            return new SimpleObjectProperty<BigDecimal>(((Position) cellData.getValue()).getGoodsPos().getQuantityInBox());
+        });
+        this.col_OG_pos.setCellValueFactory((cellData) ->{
+            return new SimpleStringProperty(((Position) cellData.getValue()).getPos());
+        });
+        this.tbl_OG.setItems(list);
+    }
+
+    //Chen dữ liệu vào bảng: Trái cây chín
+    public void setInforRGTable(ObservableList<Position> list) {
+//        this.col_EG_sku.setCellValueFactory(new PropertyValueFactory<>("posId"));
+        this.col_RG_sku.setCellValueFactory((cellData) ->{
+            return new SimpleStringProperty(((Position) cellData.getValue()).getGoodsPos().getSku());
+        });
+        this.col_RG_size.setCellValueFactory((cellData) ->{
+            return new SimpleStringProperty(((Position) cellData.getValue()).getGoodsPos().getSize());
+        });
+        this.col_RG_status.setCellValueFactory((cellData) ->{
+            return new SimpleStringProperty(dict.encode(((Position) cellData.getValue()).getGoodsPos().getStatus()));
+        });
+        this.col_RG_deliveryprice.setCellValueFactory((cellData) ->{
+            return new SimpleObjectProperty<BigDecimal>(((Position) cellData.getValue()).getGoodsPos().getDeliveryPrice());
+        });
+        this.col_RG_ovdate.setCellValueFactory((cellData) ->{
+            return new SimpleStringProperty(dict.convertDate(((Position) cellData.getValue()).getGoodsPos().getOverripDate()));
+        });
+        this.col_RG_qinbox.setCellValueFactory((cellData) ->{
+            return new SimpleObjectProperty<BigDecimal>(((Position) cellData.getValue()).getGoodsPos().getQuantityInBox());
+        });
+        this.col_RG_pos.setCellValueFactory((cellData) ->{
+            return new SimpleStringProperty(((Position) cellData.getValue()).getPos());
+        });
+        this.tbl_RG.setItems(list);
+    }
+
+    //Hàm chuyển về trang trước của trái cây hỏng
+    public void prev_EG() throws RemoteException {
+        //Nếu là trang đầu tiên thì không thể tiến
+        if (lbl_EG_page.getText().equalsIgnoreCase("1"))
+            return;
+
+        //Giảm số trang đi 1
+        this.pageEG = (byte) (Byte.parseByte(lbl_EG_page.getText()) - 1);
+        this.lbl_EG_page.setText(this.pageEG+"");
+
+        //Load lại bảng
+        setInforEGTable(FXCollections.observableArrayList(registryClass.position().getGoodsPositionsByStatus("D", this.pageEG)));
+    }
+
+    //Hàm chuyển về trang sau của trái cây hỏng
+    public void next_EG() throws RemoteException {
+
+        //Nếu là trang cuối thì không thể lùi
+        if (lbl_EG_page.getText().equalsIgnoreCase(this.maxPageEG+""))
+            return;
+
+        //Tăng số trang lên 1
+        this.pageEG = (byte) (Byte.parseByte(lbl_EG_page.getText()) + 1);
+        this.lbl_EG_page.setText(this.pageEG+"");
+
+        //Load lại bảng
+        setInforEGTable(FXCollections.observableArrayList(registryClass.position().getGoodsPositionsByStatus("D", this.pageEG)));
+    }
+
+    //Hàm chuyển về trang trước của trái cây quá chín
+    public void prev_OG() throws RemoteException {
+        //Nếu là trang đầu tiên thì không thể tiến
+        if (lbl_OG_page.getText().equalsIgnoreCase("1"))
+            return;
+
+        //Giảm số trang đi 1
+        this.pageOG = (byte) (Byte.parseByte(lbl_OG_page.getText()) - 1);
+        this.lbl_OG_page.setText(this.pageOG+"");
+
+        //Load lại bảng
+        setInforOGTable(FXCollections.observableArrayList(registryClass.position().getGoodsPositionsByStatus("OR", this.pageOG)));
+    }
+
+    //Hàm chuyển về trang sau của trái cây quá chín
+    public void next_OG() throws RemoteException {
+        //Nếu là trang cuối thì không thể lùi
+        if (lbl_EG_page.getText().equalsIgnoreCase(this.maxPageOG+""))
+            return;
+
+        //Tăng số trang lên 1
+        this.pageOG = (byte) (Byte.parseByte(lbl_OG_page.getText()) + 1);
+        this.lbl_OG_page.setText(this.pageOG+"");
+
+        //Load lại bảng
+        setInforOGTable(FXCollections.observableArrayList(registryClass.position().getGoodsPositionsByStatus("OR", this.pageOG)));
+    }
+
+    //Hàm chuyển về trang trước của trái cây chín
+    public void prev_RG() throws RemoteException {
+        //Nếu là trang đầu tiên thì không thể tiến
+        if (lbl_RG_page.getText().equalsIgnoreCase("1"))
+            return;
+
+        //Giảm số trang đi 1
+        this.pageRG = (byte) (Byte.parseByte(lbl_RG_page.getText()) - 1);
+        this.lbl_RG_page.setText(this.pageRG+"");
+
+        //Load lại bảng
+        setInforRGTable(FXCollections.observableArrayList(registryClass.position().getGoodsPositionsByStatus("RI", this.pageRG)));
+    }
+
+    //Hàm chuyển về trang trước của trái cây chín
+    public void next_RG() throws RemoteException {
+        //Nếu là trang cuối thì không thể lùi
+        if (lbl_RG_page.getText().equalsIgnoreCase(this.maxPageRG+""))
+            return;
+
+        //Tăng số trang lên 1
+        this.pageRG = (byte) (Byte.parseByte(lbl_RG_page.getText()) + 1);
+        this.lbl_RG_page.setText(this.pageRG+"");
+
+        //Load lại bảng
+        setInforRGTable(FXCollections.observableArrayList(registryClass.position().getGoodsPositionsByStatus("RI", this.pageRG)));
+    }
+
+    public void clearPosition() throws RemoteException {
+        if (this.dict.showAlertWarning()) {
+            //Xóa toàn bộ hàng hết hạn trong kho
+            //Tạm thời đóng băng do lệnh nguy hiểm
+            //registryClass.position().clearPositions();
+            this.tbl_EG.getItems().clear();
+            this.lbl_EG_page.setText("1");
+            this.maxPageEG = 1;
+        }
+    }
+
+    //Các thuộc tính đặc biệt
     private RegistryClass registryClass;
 
     {
@@ -164,6 +327,9 @@ public class FruitIdentificationController {
     }
 
     private ObservableList<Position> listEG;
+    private ObservableList<Position> listOG;
+    private ObservableList<Position> listRG;
+
 
     public FruitIdentificationController (){
 
@@ -171,11 +337,19 @@ public class FruitIdentificationController {
 
     @FXML
     void initialize() throws RemoteException {
-        this.listEG = FXCollections.observableArrayList(registryClass.position().getGoodsPositionsByStatus("D", (byte)1));
+        //Lấy danh sách các trái cây
+        this.listEG = FXCollections.observableArrayList(registryClass.position().getGoodsPositionsByStatus("D", this.pageEG));
+        this.listOG = FXCollections.observableArrayList(registryClass.position().getGoodsPositionsByStatus("OR", this.pageOG));
+        this.listRG = FXCollections.observableArrayList(registryClass.position().getGoodsPositionsByStatus("RI", this.pageRG));
+
+        //Đưa dữ liệu danh sách vào các bảng
         setInforEGTable(listEG);
-//        List<Position> list = registryClass.position().getGoodsPositionsByStatus("D",(byte)1);
-//        for (Position p : list){
-//            System.out.println(p.getGoodsPos().getSku());
-//        }
+        setInforOGTable(listOG);
+        setInforRGTable(listRG);
+
+        //Lấy số trang lớn nhất có thể
+        this.maxPageEG = registryClass.position().pageQuantity("D");
+        this.maxPageOG = registryClass.position().pageQuantity("OR");
+        this.maxPageRG = registryClass.position().pageQuantity("RI");
     }
 }

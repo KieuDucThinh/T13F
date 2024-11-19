@@ -1,11 +1,21 @@
 package com.cn;
 
+import com.entity.FruitType;
+import com.entity.Position;
+import com.util.RegistryClass;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 
+import java.math.BigDecimal;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,10 +23,61 @@ import java.util.Map;
 public class PositionManageController {
 
     @FXML
+    private ComboBox<FruitType> cbo_Ft;
+
+    @FXML
+    private TableColumn<Position, String> col_area_col;
+
+    @FXML
+    private TableColumn<Position, Short> col_area_row;
+
+    @FXML
+    private TableColumn<?, ?> col_expd;
+
+    @FXML
+    private TableColumn<?, ?> col_jrd;
+
+    @FXML
+    private TableColumn<?, ?> col_original;
+
+    @FXML
+    private TableColumn<?, ?> col_ovd;
+
+    @FXML
+    private TableColumn<?, ?> col_qinbox;
+
+    @FXML
+    private TableColumn<?, ?> col_rd;
+
+    @FXML
+    private TableColumn<?, ?> col_sku;
+
+    @FXML
+    private TableColumn<?, ?> col_stack;
+
+    @FXML
+    private TableColumn<?, ?> col_status;
+
+    @FXML
     private GridPane gridPane1;
 
     @FXML
     private GridPane gridPane2;
+
+    @FXML
+    private Label lbl_col;
+
+    @FXML
+    private Label lbl_row;
+
+    @FXML
+    private Label lbl_shelf;
+
+    @FXML
+    private TableView<Position> tbl_area;
+
+    @FXML
+    private TableView<?> tbl_pos;
 
     private Map<Button, Integer> buttonIdMap = new HashMap<>();
 
@@ -79,9 +140,63 @@ public class PositionManageController {
         }
     }
 
+    //Hàm khởi tạo comboBox
+    private void cboInit() throws RemoteException {
+        //Xét giá trị cho cbo
+        this.cbo_Ft.setItems(FXCollections.observableArrayList(registryClass.fruitType().getAllFruitTypes()));
+
+        //Xét giá trị nếu cbo được update
+        this.cbo_Ft.setCellFactory(lv -> new ListCell<FruitType>(){
+            protected void updateItem(FruitType item, boolean empty) {
+                super.updateItem(item, empty);
+                if (item != null && !empty) {
+                    setText(item.getFtName());
+                } else {
+                    setText(null);
+                }
+            }
+
+        });
+    }
+
+    //Khi chọn loại trái cây sẽ điền dữ liệu vào bảng
+    public void setAreaByFT() throws RemoteException {
+        FruitType fruitType = (FruitType) cbo_Ft.getValue();
+        setInforAreaTable(FXCollections.observableArrayList(registryClass.position().getPositionsByFt(fruitType.getFtId())));
+    }
+
+    //Chen dữ liệu vào bảng: Khu vực
+    public void setInforAreaTable(ObservableList<Position> list) {
+        this.col_area_row.setCellValueFactory((cellData) ->{
+            return new SimpleObjectProperty<Short>(((Position) cellData.getValue()).getRow());
+        });
+        this.col_area_col.setCellValueFactory((cellData) ->{
+            return new SimpleStringProperty(((Position) cellData.getValue()).getCol());
+        });
+        this.tbl_area.setItems(list);
+    }
+
+    //Các thuộc tính đặc biệt
+    private RegistryClass registryClass;
+
+    {
+        try {
+            registryClass = new RegistryClass();
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        } catch (NotBoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public PositionManageController(){
+
+    }
+
     @FXML
-    void initialize() {
+    void initialize() throws RemoteException {
         addBtn();
+        cboInit();
     }
 }
 
