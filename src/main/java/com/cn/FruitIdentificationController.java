@@ -228,7 +228,9 @@ public class FruitIdentificationController {
         this.lbl_EG_page.setText(this.pageEG+"");
 
         //Load lại bảng
-        setInforEGTable(FXCollections.observableArrayList(registryClass.position().getGoodsPositionsByStatus("D", this.pageEG)));
+        this.listEG = FXCollections.observableArrayList(registryClass.position().getGoodsPositionsByStatus("D", this.pageEG));
+        this.tbl_EG.setItems(listEG);
+        //setInforEGTable(FXCollections.observableArrayList(registryClass.position().getGoodsPositionsByStatus("D", this.pageEG)));
     }
 
     //Hàm chuyển về trang sau của trái cây hỏng
@@ -243,7 +245,9 @@ public class FruitIdentificationController {
         this.lbl_EG_page.setText(this.pageEG+"");
 
         //Load lại bảng
-        setInforEGTable(FXCollections.observableArrayList(registryClass.position().getGoodsPositionsByStatus("D", this.pageEG)));
+        this.listEG = FXCollections.observableArrayList(registryClass.position().getGoodsPositionsByStatus("D", this.pageEG));
+        this.tbl_EG.setItems(listEG);
+        //setInforEGTable(FXCollections.observableArrayList(registryClass.position().getGoodsPositionsByStatus("D", this.pageEG)));
     }
 
     //Hàm chuyển về trang trước của trái cây quá chín
@@ -257,7 +261,9 @@ public class FruitIdentificationController {
         this.lbl_OG_page.setText(this.pageOG+"");
 
         //Load lại bảng
-        setInforOGTable(FXCollections.observableArrayList(registryClass.position().getGoodsPositionsByStatus("OR", this.pageOG)));
+        this.listOG = FXCollections.observableArrayList(registryClass.position().getGoodsPositionsByStatus("OR", this.pageOG));
+        this.tbl_OG.setItems(listOG);
+        //setInforOGTable(FXCollections.observableArrayList(registryClass.position().getGoodsPositionsByStatus("OR", this.pageOG)));
     }
 
     //Hàm chuyển về trang sau của trái cây quá chín
@@ -271,7 +277,9 @@ public class FruitIdentificationController {
         this.lbl_OG_page.setText(this.pageOG+"");
 
         //Load lại bảng
-        setInforOGTable(FXCollections.observableArrayList(registryClass.position().getGoodsPositionsByStatus("OR", this.pageOG)));
+        this.listOG = FXCollections.observableArrayList(registryClass.position().getGoodsPositionsByStatus("OR", this.pageOG));
+        this.tbl_OG.setItems(listOG);
+        //setInforOGTable(FXCollections.observableArrayList(registryClass.position().getGoodsPositionsByStatus("OR", this.pageOG)));
     }
 
     //Hàm chuyển về trang trước của trái cây chín
@@ -285,7 +293,9 @@ public class FruitIdentificationController {
         this.lbl_RG_page.setText(this.pageRG+"");
 
         //Load lại bảng
-        setInforRGTable(FXCollections.observableArrayList(registryClass.position().getGoodsPositionsByStatus("RI", this.pageRG)));
+        this.listRG = FXCollections.observableArrayList(registryClass.position().getGoodsPositionsByStatus("RI", this.pageRG));
+        this.tbl_RG.setItems(listRG);
+        //setInforRGTable(FXCollections.observableArrayList(registryClass.position().getGoodsPositionsByStatus("RI", this.pageRG)));
     }
 
     //Hàm chuyển về trang trước của trái cây chín
@@ -299,11 +309,13 @@ public class FruitIdentificationController {
         this.lbl_RG_page.setText(this.pageRG+"");
 
         //Load lại bảng
-        setInforRGTable(FXCollections.observableArrayList(registryClass.position().getGoodsPositionsByStatus("RI", this.pageRG)));
+        this.listRG = FXCollections.observableArrayList(registryClass.position().getGoodsPositionsByStatus("RI", this.pageRG));
+        this.tbl_RG.setItems(listRG);
+        //setInforRGTable(FXCollections.observableArrayList(registryClass.position().getGoodsPositionsByStatus("RI", this.pageRG)));
     }
 
     public void clearPosition() throws RemoteException {
-        if (this.dict.showAlertWarning()) {
+        if (this.dict.showAlertWarning("Bạn có chắc chắn muốn dọn dẹp không?")) {
             //Xóa toàn bộ hàng hết hạn trong kho
             //Tạm thời đóng băng do lệnh nguy hiểm
             //registryClass.position().clearPositions();

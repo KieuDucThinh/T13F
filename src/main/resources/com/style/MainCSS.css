@@ -211,4 +211,12 @@
     -fx-min-width: 35,6px;
     -fx-cursor: hand;
 }
+
+.circle_color1{
+    -fx-fill: #28bbf1;
+}
+
+.circle_color2{
+    -fx-fill: #a6e0f4;
+}
 /*#0f6789 = 63BAD9 286155 = 82C8E1 286155 = B1DCEC*/

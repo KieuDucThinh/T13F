@@ -148,7 +148,8 @@
                               <String fx:value="shadow-to-form" />
                            </styleClass>
                            <children>
-                              <Circle fill="#72d1f4" layoutX="376.0" layoutY="23.0" radius="15.0" stroke="WHITE" strokeType="INSIDE" />
+                              <Circle fx:id="circle1" fill="#72d1f4" layoutX="376.0" layoutY="23.0" radius="15.0" stroke="WHITE" strokeType="INSIDE" />
+                              <Circle fx:id="circle2" fill="#a6e0f4" layoutX="671.0" layoutY="23.0" radius="15.0" stroke="WHITE" strokeType="INSIDE" />
                               <StackPane layoutX="3.0" layoutY="68.0" prefHeight="462.0" prefWidth="1014.0" stylesheets="@../style/MainCSS.css">
                                  <children>
                                     <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@../style/MainCSS.css">
@@ -161,13 +162,13 @@
                                                       <String fx:value="blue" />
                                                    </styleClass>
                                                 </Label>
-                                                <Label stylesheets="@../style/MainCSS.css" text="Tên khách hàng">
+                                                <Label stylesheets="@../style/MainCSS.css" text="Tên khách hàng *">
                                                    <styleClass>
                                                       <String fx:value="heading2" />
                                                       <String fx:value="blue" />
                                                    </styleClass>
                                                 </Label>
-                                                <Label stylesheets="@../style/MainCSS.css" text="Số điện thoại">
+                                                <Label stylesheets="@../style/MainCSS.css" text="Số điện thoại *">
                                                    <styleClass>
                                                       <String fx:value="heading2" />
                                                       <String fx:value="blue" />
@@ -179,13 +180,13 @@
                                                       <String fx:value="blue" />
                                                    </styleClass>
                                                 </Label>
-                                                <Label stylesheets="@../style/MainCSS.css" text="Địa chỉ">
+                                                <Label stylesheets="@../style/MainCSS.css" text="Địa chỉ *">
                                                    <styleClass>
                                                       <String fx:value="heading2" />
                                                       <String fx:value="blue" />
                                                    </styleClass>
                                                 </Label>
-                                                <Label stylesheets="@../style/MainCSS.css" text="Địa chỉ nhận hàng">
+                                                <Label stylesheets="@../style/MainCSS.css" text="Địa chỉ nhận hàng *">
                                                    <styleClass>
                                                       <String fx:value="heading2" />
                                                       <String fx:value="blue" />
@@ -195,22 +196,22 @@
                                           </VBox>
                                           <VBox layoutX="389.0" layoutY="38.0" prefHeight="338.0" prefWidth="378.0" spacing="14.0">
                                              <children>
-                                                <TextField editable="false" prefHeight="41.0" prefWidth="378.0" styleClass="heading4" stylesheets="@../style/MainCSS.css" />
-                                                <TextField prefHeight="41.0" prefWidth="378.0" styleClass="heading4" stylesheets="@../style/MainCSS.css" />
-                                                <TextField prefHeight="41.0" prefWidth="378.0" styleClass="heading4" stylesheets="@../style/MainCSS.css" />
-                                                <TextField prefHeight="41.0" prefWidth="378.0" styleClass="heading4" stylesheets="@../style/MainCSS.css" />
-                                                <TextField prefHeight="41.0" prefWidth="378.0" styleClass="heading4" stylesheets="@../style/MainCSS.css" />
-                                                <TextField prefHeight="41.0" prefWidth="378.0" styleClass="heading4" stylesheets="@../style/MainCSS.css" />
+                                                <TextField fx:id="txt_c_id" editable="false" prefHeight="41.0" prefWidth="378.0" styleClass="heading4" stylesheets="@../style/MainCSS.css" />
+                                                <TextField fx:id="txt_c_name" prefHeight="41.0" prefWidth="378.0" styleClass="heading4" stylesheets="@../style/MainCSS.css" />
+                                                <TextField fx:id="txt_c_phone" prefHeight="41.0" prefWidth="378.0" styleClass="heading4" stylesheets="@../style/MainCSS.css" />
+                                                <TextField fx:id="txt_c_email" prefHeight="41.0" prefWidth="378.0" styleClass="heading4" stylesheets="@../style/MainCSS.css" />
+                                                <TextField fx:id="txt_c_address" prefHeight="41.0" prefWidth="378.0" promptText="Số 298 Đường Cầu Diễn, Bắc Từ Liêm, Hà Nội" styleClass="heading4" stylesheets="@../style/MainCSS.css" />
+                                                <TextField fx:id="txt_gdn_address" prefHeight="41.0" prefWidth="378.0" promptText="Số 298 Đường Cầu Diễn, Bắc Từ Liêm, Hà Nội" styleClass="heading4" stylesheets="@../style/MainCSS.css" />
                                              </children>
                                           </VBox>
-                                          <Button layoutX="481.0" layoutY="401.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="110.0" stylesheets="@../style/MainCSS.css" text="Tiếp theo" textFill="WHITE">
+                                          <Button layoutX="481.0" layoutY="401.0" mnemonicParsing="false" onAction="#navigateToDelivery" prefHeight="31.0" prefWidth="110.0" stylesheets="@../style/MainCSS.css" text="Tiếp theo" textFill="WHITE">
                                              <styleClass>
                                                 <String fx:value="btn" />
                                                 <String fx:value="heading3" />
                                                 <String fx:value="update-btn" />
                                              </styleClass>
                                           </Button>
-                                          <Button layoutX="782.0" layoutY="153.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0" stylesheets="@../style/MainCSS.css">
+                                          <Button layoutX="782.0" layoutY="153.0" mnemonicParsing="false" onAction="#getInfoCustomer" prefHeight="32.0" prefWidth="32.0" stylesheets="@../style/MainCSS.css">
                                              <styleClass>
                                                 <String fx:value="add-btn" />
                                                 <String fx:value="btn" />
@@ -225,7 +226,7 @@
                                           <String fx:value="white-form" />
                                        </styleClass>
                                     </AnchorPane>
-                                    <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="white-form" stylesheets="@../style/MainCSS.css">
+                                    <BorderPane fx:id="deliveryPane" prefHeight="200.0" prefWidth="200.0" styleClass="white-form" stylesheets="@../style/MainCSS.css">
                                        <left>
                                           <AnchorPane prefHeight="462.0" prefWidth="747.0" stylesheets="@../style/MainCSS.css" BorderPane.alignment="CENTER">
                                              <styleClass>
@@ -234,7 +235,7 @@
                                                 <String fx:value="radius" />
                                              </styleClass>
                                              <children>
-                                                <Button layoutX="353.0" layoutY="430.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="23.0" stylesheets="@../style/MainCSS.css" textFill="WHITE">
+                                                <Button layoutX="353.0" layoutY="430.0" mnemonicParsing="false" onAction="#addCardGD" prefHeight="26.0" prefWidth="23.0" stylesheets="@../style/MainCSS.css" textFill="WHITE">
                                                    <styleClass>
                                                       <String fx:value="add-btn" />
                                                       <String fx:value="radius2" />
@@ -270,17 +271,17 @@
                                                       <String fx:value="blue" />
                                                    </styleClass>
                                                 </Label>
-                                                <TextArea layoutX="15.0" layoutY="43.0" prefHeight="130.0" prefWidth="231.0" styleClass="heading4" stylesheets="@../style/MainCSS.css" />
+                                                <TextArea fx:id="txt_des" layoutX="15.0" layoutY="43.0" prefHeight="130.0" prefWidth="231.0" styleClass="heading4" stylesheets="@../style/MainCSS.css" />
                                                 <VBox layoutX="81.0" layoutY="392.0" prefHeight="69.0" prefWidth="114.0" spacing="8.0">
                                                    <children>
-                                                      <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="114.0" stylesheets="@../style/MainCSS.css" text="Hủy" textFill="WHITE">
+                                                      <Button mnemonicParsing="false" onAction="#cancleGoodsDelivery" prefHeight="28.0" prefWidth="114.0" stylesheets="@../style/MainCSS.css" text="Hủy" textFill="WHITE">
                                                          <styleClass>
                                                             <String fx:value="delete-btn" />
                                                             <String fx:value="heading4" />
                                                             <String fx:value="bold" />
                                                          </styleClass>
                                                       </Button>
-                                                      <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="117.0" stylesheets="@../style/MainCSS.css" text="Xuất phiếu" textFill="WHITE">
+                                                      <Button mnemonicParsing="false" onAction="#delivery" prefHeight="28.0" prefWidth="117.0" stylesheets="@../style/MainCSS.css" text="Xuất phiếu" textFill="WHITE">
                                                          <styleClass>
                                                             <String fx:value="update-btn" />
                                                             <String fx:value="heading4" />
@@ -338,19 +339,19 @@
                                                             <String fx:value="green" />
                                                          </styleClass>
                                                       </Label>
-                                                      <Label stylesheets="@../style/MainCSS.css" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                      <Label fx:id="lbl_amount_payable" stylesheets="@../style/MainCSS.css" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                                          <styleClass>
                                                             <String fx:value="heading4" />
                                                             <String fx:value="blue" />
                                                          </styleClass>
                                                       </Label>
-                                                      <Label stylesheets="@../style/MainCSS.css" text="0" GridPane.columnIndex="1">
+                                                      <Label fx:id="lbl_total_price" stylesheets="@../style/MainCSS.css" text="0" GridPane.columnIndex="1">
                                                          <styleClass>
                                                             <String fx:value="heading4" />
                                                             <String fx:value="red" />
                                                          </styleClass>
                                                       </Label>
-                                                      <TextField alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="54.0" stylesheets="@../style/MainCSS.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                      <TextField fx:id="txt_bonusDiscount" alignment="CENTER_RIGHT" onKeyReleased="#updateAmountPayable" prefHeight="26.0" prefWidth="54.0" stylesheets="@../style/MainCSS.css" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                          <styleClass>
                                                             <String fx:value="green" />
                                                             <String fx:value="heading4" />
@@ -379,7 +380,6 @@
                                     <String fx:value="bold" />
                                  </styleClass>
                               </Label>
-                              <Circle fill="#a6e0f4" layoutX="671.0" layoutY="23.0" radius="15.0" stroke="WHITE" strokeType="INSIDE" />
                               <Label layoutX="667.0" layoutY="13.0" styleClass="heading3" stylesheets="@../style/MainCSS.css" text="2" textFill="WHITE" />
                               <Line cache="true" endX="100.0" layoutX="525.0" layoutY="26.0" startX="-100.0" stroke="#72d1f4" strokeWidth="2.0" />
                               <FontAwesomeIconView fill="#72d1f4" glyphName="PLAY" layoutX="614.0" layoutY="31.0" selectionFill="#72d1f4" size="15" />
@@ -400,36 +400,36 @@
                               <String fx:value="shadow-to-form" />
                            </styleClass>
                            <children>
-                              <Button layoutX="957.0" layoutY="491.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="50.0" style="-fx-background-color: transparent;" stylesheets="@../style/MainCSS.css" text="&gt;">
+                              <Button layoutX="957.0" layoutY="491.0" mnemonicParsing="false" onAction="#next_Page" prefHeight="38.0" prefWidth="50.0" style="-fx-background-color: transparent;" stylesheets="@../style/MainCSS.css" text="&gt;">
                                  <styleClass>
                                     <String fx:value="btn-cur" />
                                     <String fx:value="heading1" />
                                     <String fx:value="blue" />
                                  </styleClass>
                               </Button>
-                              <Button layoutX="905.0" layoutY="491.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="50.0" style="-fx-background-color: transparent;" stylesheets="@../style/MainCSS.css" text="&lt;">
+                              <Button layoutX="905.0" layoutY="491.0" mnemonicParsing="false" onAction="#prev_Page" prefHeight="38.0" prefWidth="50.0" style="-fx-background-color: transparent;" stylesheets="@../style/MainCSS.css" text="&lt;">
                                  <styleClass>
                                     <String fx:value="btn-cur" />
                                     <String fx:value="heading1" />
                                     <String fx:value="blue" />
                                  </styleClass>
                               </Button>
-                              <TextField layoutX="102.0" layoutY="25.0" prefHeight="30.0" prefWidth="782.0" promptText="Tìm kiếm theo mã sku" stylesheets="@../style/MainCSS.css">
+                              <TextField fx:id="txt_skuString" layoutX="102.0" layoutY="25.0" prefHeight="30.0" prefWidth="782.0" promptText="Tìm kiếm theo mã sku" stylesheets="@../style/MainCSS.css">
                                  <styleClass>
                                     <String fx:value="heading4" />
                                     <String fx:value="blue" />
                                     <String fx:value="InputControll" />
                                  </styleClass>
                               </TextField>
-                              <TableView layoutX="22.0" layoutY="75.0" prefHeight="422.0" prefWidth="975.0">
+                              <TableView fx:id="tbl_findGoods" layoutX="22.0" layoutY="75.0" prefHeight="422.0" prefWidth="975.0">
                                 <columns>
-                                  <TableColumn prefWidth="180.79999160766602" text="SKU" />
-                                  <TableColumn prefWidth="82.40000915527344" text="Kích thước" />
-                                    <TableColumn prefWidth="114.39996337890625" text="Trạng thái" />
-                                    <TableColumn prefWidth="133.5999755859375" text="Giá xuất" />
-                                    <TableColumn prefWidth="172.80010986328125" text="Nguồn gốc" />
-                                    <TableColumn prefWidth="156.0" text="Số lượng/hộp" />
-                                    <TableColumn prefWidth="131.9999877929688" text="Số lượng còn" />
+                                  <TableColumn fx:id="col_sku" prefWidth="180.79999160766602" text="SKU" />
+                                  <TableColumn fx:id="col_size" prefWidth="82.40000915527344" text="Kích thước" />
+                                    <TableColumn fx:id="col_status" prefWidth="114.39996337890625" text="Trạng thái" />
+                                    <TableColumn fx:id="col_deliveryPrice" prefWidth="133.5999755859375" text="Giá xuất" />
+                                    <TableColumn fx:id="col_original" prefWidth="172.80010986328125" text="Nguồn gốc" />
+                                    <TableColumn fx:id="col_qinbox" prefWidth="156.0" text="Số lượng/hộp" />
+                                    <TableColumn fx:id="col_available_quantity" prefWidth="131.9999877929688" text="Số lượng còn" />
                                 </columns>
                               </TableView>
                               <Label layoutX="37.0" layoutY="26.0" stylesheets="@../style/MainCSS.css" text="SKU">
@@ -438,7 +438,7 @@
                                     <String fx:value="blue" />
                                  </styleClass>
                               </Label>
-                              <Button layoutX="952.0" layoutY="22.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="38.0" stylesheets="@../style/MainCSS.css">
+                              <Button layoutX="952.0" layoutY="22.0" mnemonicParsing="false" onAction="#refreshFindGoodsTable" prefHeight="35.0" prefWidth="38.0" stylesheets="@../style/MainCSS.css">
                                  <styleClass>
                                     <String fx:value="btn" />
                                     <String fx:value="update-btn" />
@@ -447,7 +447,7 @@
                                     <FontAwesomeIconView fill="WHITE" glyphName="REFRESH" size="18" text="" />
                                  </graphic>
                               </Button>
-                              <Button layoutX="905.0" layoutY="22.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="38.0" stylesheets="@../style/MainCSS.css">
+                              <Button layoutX="905.0" layoutY="22.0" mnemonicParsing="false" onAction="#findGoods" prefHeight="35.0" prefWidth="38.0" stylesheets="@../style/MainCSS.css">
                                  <styleClass>
                                     <String fx:value="btn" />
                                     <String fx:value="update-btn" />
@@ -456,7 +456,7 @@
                                     <FontAwesomeIconView fill="WHITE" glyphName="SEARCH" size="18" />
                                  </graphic>
                               </Button>
-                              <Label layoutX="952.0" layoutY="508.0" stylesheets="@../style/MainCSS.css" text="1">
+                              <Label fx:id="lblPage" layoutX="952.0" layoutY="508.0" stylesheets="@../style/MainCSS.css" text="1">
                                  <styleClass>
                                     <String fx:value="heading3" />
                                     <String fx:value="blue" />

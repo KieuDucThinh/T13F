@@ -3,6 +3,7 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import java.lang.String?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,10 +11,9 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="205.0" prefWidth="727.0" stylesheets="@../style/MainCSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cn.CardGoodsDeliveryController">
    <children>
-      <Button layoutX="684.0" layoutY="14.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="18.0" stylesheets="@../style/MainCSS.css">
+      <Button layoutX="684.0" layoutY="14.0" mnemonicParsing="false" onAction="#removeSelf" prefHeight="24.0" prefWidth="18.0" stylesheets="@../style/MainCSS.css">
          <styleClass>
             <String fx:value="delete-btn" />
             <String fx:value="radius2" />
@@ -37,7 +37,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label stylesheets="@../style/MainCSS.css" text="SKU">
+            <Label stylesheets="@../style/MainCSS.css" text="SKU *">
                <styleClass>
                   <String fx:value="heading4" />
                   <String fx:value="bold" />
@@ -61,17 +61,16 @@
                   <String fx:value="bold" />
                </styleClass>
             </Label>
-            <TextField prefHeight="26.0" prefWidth="213.0" styleClass="heading4" stylesheets="@../style/MainCSS.css" GridPane.columnIndex="1" />
-            <TextField styleClass="heading4" stylesheets="@../style/MainCSS.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField editable="false" styleClass="heading4" stylesheets="@../style/MainCSS.css" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField editable="false" styleClass="heading4" stylesheets="@../style/MainCSS.css" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="txt_card_sku" prefHeight="26.0" prefWidth="213.0" styleClass="heading4" stylesheets="@../style/MainCSS.css" GridPane.columnIndex="1" />
+            <TextField fx:id="txt_card_deliveryPrice" editable="false" opacity="0.6" styleClass="heading4" stylesheets="@../style/MainCSS.css" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txt_card_discountPrice" editable="false" opacity="0.6" styleClass="heading4" stylesheets="@../style/MainCSS.css" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Label stylesheets="@../style/MainCSS.css" text="Nguồn gốc" GridPane.columnIndex="3">
                <styleClass>
                   <String fx:value="heading4" />
                   <String fx:value="bold" />
                </styleClass>
             </Label>
-            <Label stylesheets="@../style/MainCSS.css" text="Số lượng" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <Label stylesheets="@../style/MainCSS.css" text="Số lượng *" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <styleClass>
                   <String fx:value="heading4" />
                   <String fx:value="bold" />
@@ -89,8 +88,8 @@
                   <String fx:value="bold" />
                </styleClass>
             </Label>
-            <TextField GridPane.columnIndex="4" />
-            <TextField GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <TextField fx:id="txt_card_original" styleClass="heading4" stylesheets="@../style/MainCSS.css" GridPane.columnIndex="4" />
+            <TextField fx:id="txt_card_box" prefHeight="34.0" prefWidth="231.0" styleClass="heading4" stylesheets="@../style/MainCSS.css" GridPane.columnIndex="4" GridPane.rowIndex="3" />
             <GridPane GridPane.columnIndex="4" GridPane.rowIndex="1">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="158.39996337890625" minWidth="10.0" prefWidth="155.20001220703125" />
@@ -100,8 +99,8 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextField prefHeight="26.0" prefWidth="119.0" styleClass="heading4" stylesheets="@../style/MainCSS.css" />
-                  <Label styleClass="heading4" stylesheets="@../style/MainCSS.css" text="đvt" GridPane.columnIndex="1" />
+                  <TextField fx:id="txt_card_quantity" prefHeight="26.0" prefWidth="119.0" styleClass="heading4" stylesheets="@../style/MainCSS.css" />
+                  <Label fx:id="lbl_card_unit" styleClass="heading4" stylesheets="@../style/MainCSS.css" text="đvt" textAlignment="RIGHT" GridPane.columnIndex="1" />
                </children>
             </GridPane>
             <GridPane GridPane.columnIndex="4" GridPane.rowIndex="2">
@@ -113,13 +112,14 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <TextField editable="false" prefHeight="26.0" prefWidth="119.0" styleClass="heading4" stylesheets="@../style/MainCSS.css" />
-                  <Label styleClass="heading4" stylesheets="@../style/MainCSS.css" text="đvt" GridPane.columnIndex="1" />
+                  <TextField fx:id="txt_card_qinbox" editable="false" opacity="0.6" prefHeight="26.0" prefWidth="119.0" styleClass="heading4" stylesheets="@../style/MainCSS.css" />
+                  <Label fx:id="lbl_card_unit2" styleClass="heading4" stylesheets="@../style/MainCSS.css" text="đvt" textAlignment="RIGHT" GridPane.columnIndex="1" />
                </children>
             </GridPane>
+            <ComboBox fx:id="cbo_card_status" prefHeight="48.0" prefWidth="218.0" styleClass="heading4" stylesheets="@../style/MainCSS.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
-      <Button layoutX="348.0" layoutY="168.0" mnemonicParsing="false" stylesheets="@../style/MainCSS.css" text="Kiểm tra" textFill="WHITE">
+      <Button layoutX="348.0" layoutY="168.0" mnemonicParsing="false" onAction="#checkGoods" stylesheets="@../style/MainCSS.css" text="Kiểm tra" textFill="WHITE">
          <styleClass>
             <String fx:value="add-btn" />
             <String fx:value="heading4" />

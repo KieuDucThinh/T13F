@@ -12,8 +12,11 @@ import java.util.HashMap;
 public class FruitUtil {
     private static final HashMap<String, String> dict;
     private static final HashMap<String, String> dictdecode;
+    private static final HashMap<String, String> dictAddress;
     private static final DateFormat dfm_encode;
     private Alert alertWarning = new Alert(Alert.AlertType.WARNING);
+    private Alert alertError = new Alert(Alert.AlertType.ERROR);
+    private Alert alertInfo = new Alert(Alert.AlertType.INFORMATION);
 
     static{
         dfm_encode = new SimpleDateFormat("dd/MM/yyyy");
@@ -32,6 +35,71 @@ public class FruitUtil {
         dictdecode.put("Quá chín", "OR");
         dictdecode.put("Hết hạn", "D");
         dictdecode.put("Chuẩn bị nhập", "P");
+
+        dictAddress = new HashMap<>();
+        dictAddress.put("Thành phố Hà Nội", "001");
+        dictAddress.put("Hà Giang", "002");
+        dictAddress.put("Cao Bằng", "004");
+        dictAddress.put("Bắc Kạn", "006");
+        dictAddress.put("Tuyên Quang", "008");
+        dictAddress.put("Lào Cai", "110");
+        dictAddress.put("Điện Biên", "111");
+        dictAddress.put("Lai Châu", "112");
+        dictAddress.put("Sơn La", "114");
+        dictAddress.put("Yên Bái", "115");
+        dictAddress.put("Hòa Bình", "117");
+        dictAddress.put("Thái Nguyên", "119");
+        dictAddress.put("Lạng Sơn", "220");
+        dictAddress.put("Quảng Ninh", "222");
+        dictAddress.put("Bắc Giang", "224");
+        dictAddress.put("Phú Thọ", "225");
+        dictAddress.put("Vĩnh Phúc", "226");
+        dictAddress.put("Bắc Ninh", "227");
+        dictAddress.put("Hải Dương", "330");
+        dictAddress.put("Thành phố Hải Phòng", "331");
+        dictAddress.put("Hưng Yên", "333");
+        dictAddress.put("Thái Bình", "334");
+        dictAddress.put("Hà Nam", "335");
+        dictAddress.put("Nam Định", "336");
+        dictAddress.put("Ninh Bình", "337");
+        dictAddress.put("Thanh Hóa", "338");
+        dictAddress.put("Nghệ An", "440");
+        dictAddress.put("Hà Tĩnh", "442");
+        dictAddress.put("Quảng Bình", "444");
+        dictAddress.put("Quảng Trị", "445");
+        dictAddress.put("Thừa Thiên-Huế", "446");
+        dictAddress.put("Thành phố Đà Nẵng", "448");
+        dictAddress.put("Quảng Nam", "449");
+        dictAddress.put("Quảng Ngãi", "551");
+        dictAddress.put("Bình Định", "552");
+        dictAddress.put("Phú Yên", "554");
+        dictAddress.put("Khánh Hòa", "556");
+        dictAddress.put("Ninh Thuận", "558");
+        dictAddress.put("Bình Thuận", "660");
+        dictAddress.put("Kon Tum", "662");
+        dictAddress.put("Gia Lai", "664");
+        dictAddress.put("Đắk Lắk", "666");
+        dictAddress.put("Đắc Nông", "667");
+        dictAddress.put("Lâm Đồng", "668");
+        dictAddress.put("Bình Phước", "770");
+        dictAddress.put("Tây Ninh", "772");
+        dictAddress.put("Bình Dương", "777");
+        dictAddress.put("Đồng Nai", "775");
+        dictAddress.put("Bà Rịa-Vũng Tàu", "777");
+        dictAddress.put("Thành Phố Hồ Chí Minh", "779");
+        dictAddress.put("Long An", "880");
+        dictAddress.put("Tiền Giang", "882");
+        dictAddress.put("Bến Tre", "883");
+        dictAddress.put("Trà Vinh", "884");
+        dictAddress.put("Vĩnh Long", "886");
+        dictAddress.put("Đồng Tháp", "887");
+        dictAddress.put("An Giang", "889");
+        dictAddress.put("Kiên Giang", "991");
+        dictAddress.put("Thành phố Cần Thơ", "992");
+        dictAddress.put("Hậu Giang", "993");
+        dictAddress.put("Sóc Trăng", "994");
+        dictAddress.put("Bạc Liêu", "995");
+        dictAddress.put("Cà Mau", "996");
     }
 
     public FruitUtil(){
@@ -43,14 +111,24 @@ public class FruitUtil {
         return dict.get(word);
     }
 
+    //Mã hóa trạng thái trái cây
+    public String decode(String word){
+        return dictdecode.get(word);
+    }
+
+    //Mã hóa địa chỉ
+    public String encodeAddrress(String word){
+        return dictAddress.get(word);
+    }
+
     //Định dạng ngày: dd/mm/YYYY
     public String convertDate(Date date){
         return dfm_encode.format(date);
     }
 
-    public boolean showAlertWarning(){
+    public boolean showAlertWarning(String headerText){
         this.alertWarning.setTitle("Xác nhận");
-        this.alertWarning.setHeaderText("Bạn có chắc chắn muốn dọn dẹp không?");
+        this.alertWarning.setHeaderText(headerText);
         this.alertWarning.setContentText("Hành động này không thể hoàn tác.");
 
         // Tạo các nút tùy chỉnh
@@ -65,5 +143,31 @@ public class FruitUtil {
         // Thực hiện hành động khi người dùng chọn Có
         // Thực hiện hành động khi người dùng chọn Không hoặc hủy
         return result.isPresent() && result.get() == buttonTypeYes;
+    }
+
+    public void showAlertError(String headerText){
+        this.alertError.setTitle("Kiểm tra lại dữ liệu nhập vào");
+        this.alertError.setHeaderText(headerText);
+
+        // Tạo các nút tùy chỉnh
+        ButtonType buttonTypeOK = new ButtonType("OK");
+
+        // Thiết lập các nút cho Alert
+        this.alertError.getButtonTypes().setAll(buttonTypeOK);
+
+        this.alertError.showAndWait();
+    }
+
+    public void showAlertInfo(String headerText){
+        this.alertInfo.setTitle("Kiểm tra lại dữ liệu nhập vào");
+        this.alertInfo.setHeaderText(headerText);
+
+        // Tạo các nút tùy chỉnh
+        ButtonType buttonTypeOK = new ButtonType("OK");
+
+        // Thiết lập các nút cho Alert
+        this.alertInfo.getButtonTypes().setAll(buttonTypeOK);
+
+        this.alertInfo.showAndWait();
     }
 }
