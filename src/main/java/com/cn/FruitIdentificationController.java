@@ -3,6 +3,7 @@ package com.cn;
 import com.entity.Position;
 import com.util.FruitUtil;
 import com.util.RegistryClass;
+import com.util.Support;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -323,6 +324,10 @@ public class FruitIdentificationController {
             this.lbl_EG_page.setText("1");
             this.maxPageEG = 1;
         }
+    }
+
+    public void navigateToGDNPage(){
+        Support.navigateTo((byte) 2, this);
     }
 
     //Các thuộc tính đặc biệt

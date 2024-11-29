@@ -82,7 +82,7 @@
                   <FontAwesomeIconView glyphName="FILE" size="23" text="      " />
                </graphic>
             </Button>
-            <Button layoutY="381.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="262.0" stylesheets="@../style/MainCSS.css" text="Xuất hàng                     ">
+            <Button layoutY="381.0" mnemonicParsing="false" onAction="#navigateToGDNPage" prefHeight="52.0" prefWidth="262.0" stylesheets="@../style/MainCSS.css" text="Xuất hàng                     ">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>

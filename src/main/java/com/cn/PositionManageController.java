@@ -4,6 +4,7 @@ import com.entity.FruitType;
 import com.entity.Position;
 import com.util.FruitUtil;
 import com.util.RegistryClass;
+import com.util.Support;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;

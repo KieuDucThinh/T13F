@@ -7,7 +7,7 @@ module com.example.t13fproject {
 
     opens com.entity to javafx.base;
     opens com.dao to javafx.base;
-    opens com.util to javafx.base;
+    opens com.util to javafx.fxml, javafx.base;
     opens com.cn to javafx.fxml, javafx.base;
     exports com.cn;
 }

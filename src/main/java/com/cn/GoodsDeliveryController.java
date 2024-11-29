@@ -4,10 +4,12 @@ import com.entity.*;
 import com.util.FruitUtil;
 import com.util.ObserverObject;
 import com.util.RegistryClass;
+import com.util.Support;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -118,6 +120,9 @@ public class GoodsDeliveryController {
     //Thuộc tính page
     private byte page = 1;
     private byte maxPage = -1;
+
+    //Thuộc tính % giảm giá tổng
+    private double discount;
 
     //Thuộc tính cờ tổng trước khi xuất
     private boolean deliveryFlag = false;
@@ -443,6 +448,7 @@ public class GoodsDeliveryController {
 //        exchangeColor(false);
 //        unlockTxtCustomer();
         gdn = new GoodsDeliveryNote();
+        Support.navigateTo((byte) 2, this);
     }
 
     //Method: Unlock thông tin khách hàng khi hủy tạo đơn
@@ -464,7 +470,12 @@ public class GoodsDeliveryController {
     //Method: Kiểm tra giá trị giảm giá nhập vào
     private boolean validateGoodsDiscount(){
         try{
-            Double.parseDouble(txt_bonusDiscount.getText());
+            discount = Double.parseDouble(txt_bonusDiscount.getText());
+            if (discount<0 || discount>100){
+                this.txt_bonusDiscount.setText("0.0");
+                this.lbl_amount_payable.setText(this.lbl_total_price.getText());
+                return false;
+            }
         } catch (NumberFormatException e){
             this.txt_bonusDiscount.setText("0.0");
             this.lbl_amount_payable.setText(this.lbl_total_price.getText());
@@ -558,6 +569,10 @@ public class GoodsDeliveryController {
             }
         }
 
+    }
+
+    public void navigateToFIPage() throws RemoteException  {
+        Support.navigateTo((byte) 3, this);
     }
 
     //Các thuộc tính đặc biệt
