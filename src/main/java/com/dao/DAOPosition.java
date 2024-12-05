@@ -2,8 +2,6 @@ package com.dao;
 
 import com.entity.Goods;
 import com.entity.Position;
-//import jakarta.persistence.EntityManager;
-import javafx.collections.ObservableList;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

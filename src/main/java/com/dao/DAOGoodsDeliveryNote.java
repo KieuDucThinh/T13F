@@ -10,4 +10,8 @@ import java.util.List;
 public interface DAOGoodsDeliveryNote extends Remote {
     public boolean createGDN(GoodsDeliveryNote gdn) throws RemoteException;
     public HashMap<String, List<String>> getGoodsDeliveryPos() throws RemoteException;
+
+    public List<GoodsDeliveryNote> getAllGDN() throws RemoteException;
+    public List<GoodsDeliveryNote> getGDNByKeyword(String keyword) throws RemoteException;
+    public GoodsDeliveryNote getGDNByID(String id) throws RemoteException;
 }

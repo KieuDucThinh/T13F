@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="1.7976931348623157E308" prefHeight="750.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cn.StaffManageController">
+   <children>
+      <AnchorPane prefHeight="753.0" prefWidth="258.0" styleClass="gradient-side-form" stylesheets="@../style/MainCSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="110.0" fitWidth="110.0" layoutX="71.0" layoutY="31.2" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="612.0" AnchorPane.leftAnchor="71.0" AnchorPane.topAnchor="31.2">
+               <image>
+                  <Image url="@../img/Vector.png" />
+               </image>
+            </ImageView>
+            <Label contentDisplay="CENTER" layoutX="26.0" layoutY="151.0" styleClass="heading2" stylesheets="@../style/MainCSS.css" text="Kho hàng trái cây T13F">
+               <font>
+                  <Font name="Segoe UI Black" size="20.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="10.0" layoutY="222.0" prefHeight="63.0" prefWidth="236.0" stylesheets="@../style/MainCSS.css">
+               <styleClass>
+                  <String fx:value="white-form" />
+                  <String fx:value="radius2" />
+               </styleClass>
+               <children>
+                  <FontAwesomeIconView fill="#63bad9" glyphName="USER" layoutX="27.0" layoutY="41.0" size="32.0" />
+                  <Label layoutX="96.0" layoutY="7.0" styleClass="heading4" stylesheets="@../style/MainCSS.css" text="Xin chào">
+                     <font>
+                        <Font name="Segoe UI Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblFullName" layoutX="66.0" layoutY="28.0" styleClass="heading3" stylesheets="@../style/MainCSS.css" text="Kiều Đức Thịnh" />
+               </children>
+            </AnchorPane>
+            <Line endX="108.79997253417969" layoutX="136.0" layoutY="212.0" startX="-129.59999084472656" stroke="WHITE" />
+            <Line endX="110.19999694824219" layoutX="137.0" layoutY="296.0" startX="-129.59999084472656" stroke="WHITE" />
+            <Button layoutX="1.0" layoutY="707.6" mnemonicParsing="false" prefHeight="42.0" prefWidth="253.0" stylesheets="@../style/MainCSS.css" text="Đăng xuất" textFill="#dc3939" AnchorPane.bottomAnchor="3.0">
+               <styleClass>
+                  <String fx:value="function-btn" />
+                  <String fx:value="heading3" />
+                  <String fx:value="black" />
+               </styleClass>
+               <graphic>
+                  <FontAwesomeIconView fill="#d95151" glyphName="SIGN_OUT" selectionFill="#df2d2d" size="25.0" text="    " />
+               </graphic>
+            </Button>
+            <Button layoutY="307.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="271.0" stylesheets="@../style/MainCSS.css" text="Nhà cung cấp                 ">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="function-btn" />
+                  <String fx:value="heading3" />
+                  <String fx:value="black" />
+               </styleClass>
+               <graphic>
+                  <FontAwesomeIconView glyphName="FILE" size="23" text="     " />
+               </graphic>
+            </Button>
+            <Button layoutX="-1.0" layoutY="363.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="271.0" stylesheets="@../style/MainCSS.css" text=" Khách hàng                     ">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="function-btn" />
+                  <String fx:value="heading3" />
+                  <String fx:value="black" />
+               </styleClass>
+               <graphic>
+                  <FontAwesomeIconView glyphName="HEART" size="23" text="    " />
+               </graphic>
+            </Button>
+            <Button layoutY="640.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="271.0" stylesheets="@../style/MainCSS.css" text="Tài khoản                        ">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="function-btn" />
+                  <String fx:value="heading3" />
+                  <String fx:value="black" />
+               </styleClass>
+               <graphic>
+                  <FontAwesomeIconView glyphName="KEY" size="24" text="    " />
+               </graphic>
+            </Button>
+            <Button layoutX="-1.0" layoutY="418.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="268.0" stylesheets="@../style/MainCSS.css" text="Nhân viên                     ">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="function-btn" />
+                  <String fx:value="heading3" />
+                  <String fx:value="black" />
+                  <String fx:value="btn" />
+               </styleClass>
+               <graphic>
+                  <FontAwesomeIconView glyphName="TAG" size="23" text="    " />
+               </graphic>
+            </Button>
+            <Button layoutY="473.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="268.0" stylesheets="@../style/MainCSS.css" text="Nhập xuất                      ">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="function-btn" />
+                  <String fx:value="heading3" />
+                  <String fx:value="black" />
+               </styleClass>
+               <graphic>
+                  <FontAwesomeIconView glyphName="LIST" size="22" text="     " />
+               </graphic>
+            </Button>
+            <Button layoutX="-1.0" layoutY="527.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="268.0" stylesheets="@../style/MainCSS.css" text="Khu vực lưu trữ            ">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="function-btn" />
+                  <String fx:value="heading3" />
+                  <String fx:value="black" />
+               </styleClass>
+               <graphic>
+                  <FontAwesomeIconView glyphName="EJECT" size="25" text="     " />
+               </graphic>
+            </Button>
+            <Button layoutY="585.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="268.0" stylesheets="@../style/MainCSS.css" text="Thống kê                       ">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="function-btn" />
+                  <String fx:value="heading3" />
+                  <String fx:value="black" />
+               </styleClass>
+               <graphic>
+                  <FontAwesomeIconView glyphName="BAR_CHART" size="24" text="   " />
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="287.2" layoutY="26.2" prefHeight="709.0" prefWidth="1086.0" stylesheets="@../style/MainCSS.css" AnchorPane.bottomAnchor="17.799999999999955" AnchorPane.leftAnchor="287.2" AnchorPane.rightAnchor="27.200000000000045" AnchorPane.topAnchor="26.2">
+         <styleClass>
+            <String fx:value="white-form" />
+            <String fx:value="shadow-to-form" />
+            <String fx:value="radius2" />
+         </styleClass>
+         <children>
+            <Line endX="876.9334716796875" layoutX="178.0" layoutY="82.0" startX="-141.7333526611328" startY="-7.62939453125E-6" />
+            <Label layoutX="101.0" layoutY="28.0" stylesheets="@../style/MainCSS.css" text="Quản lý nhân viên">
+               <styleClass>
+                  <String fx:value="heading1" />
+                  <String fx:value="blue" />
+               </styleClass>
+            </Label>
+            <FontAwesomeIconView fill="#63bad9" glyphName="TAG" layoutX="52.0" layoutY="57.0" selectionFill="#63bad9" size="30" />
+            <TabPane fx:id="tab_pane" layoutX="36.0" layoutY="93.0" prefHeight="602.0" prefWidth="1020.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab styleClass="heading4" text="Danh sách nhân viên">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TextField fx:id="txtKeyWord" layoutY="17.0" prefHeight="35.0" prefWidth="387.0" styleClass="heading4" stylesheets="@../style/MainCSS.css" />
+                              <Button layoutX="400.0" layoutY="17.0" mnemonicParsing="false" onAction="#clickBtnFindStaff" prefHeight="33.0" prefWidth="26.0" stylesheets="@../style/MainCSS.css">
+                                 <graphic>
+                                    <FontAwesomeIconView fill="WHITE" glyphName="SEARCH" size="21" wrappingWidth="19.5" />
+                                 </graphic>
+                                 <styleClass>
+                                    <String fx:value="update-btn" />
+                                    <String fx:value="heading3" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                              </Button>
+                              <Button layoutX="452.0" layoutY="17.0" mnemonicParsing="false" onAction="#clickBtnRefresh" prefHeight="34.0" prefWidth="26.0" stylesheets="@../style/MainCSS.css">
+                                 <styleClass>
+                                    <String fx:value="update-btn" />
+                                    <String fx:value="heading3" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                                 <graphic>
+                                    <FontAwesomeIconView fill="WHITE" glyphName="REFRESH" size="21" />
+                                 </graphic>
+                              </Button>
+                              <TableView fx:id="tbl_Staff" layoutY="68.0" onMouseClicked="#view" prefHeight="491.0" prefWidth="1020.0">
+                                 <columns>
+                                    <TableColumn fx:id="col_fullname" prefWidth="160.7999610900879" text="Họ và tên" />
+                                    <TableColumn fx:id="col_bod" prefWidth="127.19993591308594" text="Ngày sinh" />
+                                    <TableColumn fx:id="col_gender" prefWidth="71.20001220703125" text="Giới tính" />
+                                    <TableColumn fx:id="col_addr" prefWidth="372.7999267578125" text="Địa chỉ" />
+                                    <TableColumn fx:id="col_phone" prefWidth="186.40008544921875" text="Điện thoại" />
+                                    <TableColumn fx:id="col_status" prefWidth="101.60003662109375" text="Trạng thái" />
+                                 </columns>
+                              </TableView>
+                              <ComboBox fx:id="cboStatus" layoutX="869.0" layoutY="21.0" onAction="#clickCbo" prefWidth="150.0" styleClass="heading4" stylesheets="@../style/MainCSS.css" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab fx:id="tab_staff_info" styleClass="heading4" text="Thông tin nhân viên">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <VBox layoutX="892.0" layoutY="58.0" prefHeight="137.0" prefWidth="100.0" spacing="15.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#clickBtnClearTxt" prefHeight="30.0" prefWidth="150.0" stylesheets="@../style/MainCSS.css" text="Làm sạch" textAlignment="RIGHT">
+                                       <graphic>
+                                          <FontAwesomeIconView fill="WHITE" glyphName="RETWEET" size="18" />
+                                       </graphic>
+                                       <styleClass>
+                                          <String fx:value="heading5" />
+                                          <String fx:value="erase-btn" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#clickBtnUpdateSupplier" prefHeight="30.0" prefWidth="150.0" stylesheets="@../style/MainCSS.css" text="Cập nhật" textAlignment="RIGHT">
+                                       <graphic>
+                                          <FontAwesomeIconView fill="WHITE" glyphName="PENCIL" size="18" />
+                                       </graphic>
+                                       <styleClass>
+                                          <String fx:value="heading5" />
+                                          <String fx:value="update-btn" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#clickBtnAddSupplier" prefHeight="30.0" prefWidth="150.0" stylesheets="@../style/MainCSS.css" text="Thêm mới" textAlignment="RIGHT">
+                                       <graphic>
+                                          <FontAwesomeIconView fill="WHITE" glyphName="PLUS" size="18" />
+                                       </graphic>
+                                       <styleClass>
+                                          <String fx:value="heading5" />
+                                          <String fx:value="add-btn" />
+                                       </styleClass>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                              <Label layoutX="44.0" layoutY="481.0" stylesheets="@../style/MainCSS.css" text="Giới tính">
+                                 <styleClass>
+                                    <String fx:value="heading3" />
+                                    <String fx:value="blue" />
+                                 </styleClass>
+                              </Label>
+                              <Label layoutX="94.0" layoutY="33.0" stylesheets="@../style/MainCSS.css">
+                                 <styleClass>
+                                    <String fx:value="heading3" />
+                                    <String fx:value="blue" />
+                                 </styleClass>
+                              </Label>
+                              <GridPane layoutX="44.0" layoutY="54.0" prefHeight="399.0" prefWidth="396.0" vgap="10.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="196.39996337890625" minWidth="10.0" prefWidth="137.99998474121094" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="282.00001525878906" minWidth="10.0" prefWidth="266.00001525878906" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label stylesheets="@../style/MainCSS.css" text="Tên đăng nhập">
+                                       <styleClass>
+                                          <String fx:value="heading3" />
+                                          <String fx:value="blue" />
+                                       </styleClass>
+                                    </Label>
+                                    <Label stylesheets="@../style/MainCSS.css" text="Họ và tên" GridPane.rowIndex="1">
+                                       <styleClass>
+                                          <String fx:value="heading3" />
+                                          <String fx:value="blue" />
+                                       </styleClass>
+                                    </Label>
+                                    <Label stylesheets="@../style/MainCSS.css" text="Ngày sinh" GridPane.rowIndex="2">
+                                       <styleClass>
+                                          <String fx:value="heading3" />
+                                          <String fx:value="blue" />
+                                       </styleClass>
+                                    </Label>
+                                    <Label stylesheets="@../style/MainCSS.css" text="Địa chỉ" GridPane.rowIndex="3">
+                                       <styleClass>
+                                          <String fx:value="heading3" />
+                                          <String fx:value="blue" />
+                                       </styleClass>
+                                    </Label>
+                                    <Label stylesheets="@../style/MainCSS.css" text="Điên thoại" GridPane.rowIndex="4">
+                                       <styleClass>
+                                          <String fx:value="heading3" />
+                                          <String fx:value="blue" />
+                                       </styleClass>
+                                    </Label>
+                                    <Label stylesheets="@../style/MainCSS.css" text="CCCD" GridPane.rowIndex="5">
+                                       <styleClass>
+                                          <String fx:value="heading3" />
+                                          <String fx:value="blue" />
+                                       </styleClass>
+                                    </Label>
+                                    <Label stylesheets="@../style/MainCSS.css" text="Quê quán" GridPane.rowIndex="6">
+                                       <styleClass>
+                                          <String fx:value="heading3" />
+                                          <String fx:value="blue" />
+                                       </styleClass>
+                                    </Label>
+                                    <Label stylesheets="@../style/MainCSS.css" text="Lương" GridPane.rowIndex="7">
+                                       <styleClass>
+                                          <String fx:value="heading3" />
+                                          <String fx:value="blue" />
+                                       </styleClass>
+                                    </Label>
+                                    <TextField fx:id="txt_username" styleClass="heading4" stylesheets="@../style/MainCSS.css" GridPane.columnIndex="1" />
+                                    <TextField fx:id="txt_fullname" styleClass="heading4" stylesheets="@../style/MainCSS.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <DatePicker fx:id="txt_bod" prefHeight="31.0" prefWidth="276.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <TextField fx:id="txt_addr" styleClass="heading4" stylesheets="@../style/MainCSS.css" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <TextField fx:id="txt_phone" styleClass="heading4" stylesheets="@../style/MainCSS.css" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <TextField fx:id="txt_ci" styleClass="heading4" stylesheets="@../style/MainCSS.css" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <TextField fx:id="txt_hometown" styleClass="heading4" stylesheets="@../style/MainCSS.css" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                    <TextField fx:id="txt_salary" styleClass="heading4" stylesheets="@../style/MainCSS.css" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                 </children>
+                              </GridPane>
+                              <GridPane layoutX="525.0" layoutY="58.0" prefHeight="192.0" prefWidth="268.0" vgap="10.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="165.199951171875" minWidth="10.0" prefWidth="154.400048828125" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="129.2000732421875" minWidth="10.0" prefWidth="114.39995117187502" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label stylesheets="@../style/MainCSS.css" text="Trạng thái">
+                                       <styleClass>
+                                          <String fx:value="heading3" />
+                                          <String fx:value="blue" />
+                                       </styleClass>
+                                    </Label>
+                                    <Label fx:id="lbl_status" stylesheets="@../style/MainCSS.css" text="OFF" GridPane.columnIndex="1">
+                                       <styleClass>
+                                          <String fx:value="heading3" />
+                                          <String fx:value="blue" />
+                                       </styleClass>
+                                    </Label>
+                                    <Label stylesheets="@../style/MainCSS.css" text="Ngày vào làm" GridPane.rowIndex="1">
+                                       <styleClass>
+                                          <String fx:value="heading3" />
+                                          <String fx:value="blue" />
+                                       </styleClass>
+                                    </Label>
+                                    <Label fx:id="lbl_startDate" stylesheets="@../style/MainCSS.css" text="05/12/2024" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <styleClass>
+                                          <String fx:value="heading3" />
+                                          <String fx:value="blue" />
+                                       </styleClass>
+                                    </Label>
+                                    <Label stylesheets="@../style/MainCSS.css" text="Ngày nghỉ việc" GridPane.rowIndex="2">
+                                       <styleClass>
+                                          <String fx:value="heading3" />
+                                          <String fx:value="blue" />
+                                       </styleClass>
+                                    </Label>
+                                    <Label fx:id="lbl_endDate" stylesheets="@../style/MainCSS.css" text="03/09/2112" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                       <styleClass>
+                                          <String fx:value="heading3" />
+                                          <String fx:value="blue" />
+                                       </styleClass>
+                                    </Label>
+                                    <Label fx:id="lblPwd" stylesheets="@../style/MainCSS.css" text="Mật khẩu" GridPane.rowIndex="3">
+                                       <styleClass>
+                                          <String fx:value="heading3" />
+                                          <String fx:value="blue" />
+                                          <String fx:value="green" />
+                                       </styleClass>
+                                    </Label>
+                                    <Label fx:id="lbl_newPwd" stylesheets="@../style/MainCSS.css" text="***" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                       <styleClass>
+                                          <String fx:value="heading3" />
+                                          <String fx:value="blue" />
+                                          <String fx:value="green" />
+                                       </styleClass>
+                                    </Label>
+                                 </children>
+                              </GridPane>
+                              <RadioButton fx:id="btn_radio_0" layoutX="177.0" layoutY="482.0" mnemonicParsing="false" selected="true" stylesheets="@../style/MainCSS.css" text="Nam">
+                                 <styleClass>
+                                    <String fx:value="heading4" />
+                                    <String fx:value="bold" />
+                                    <String fx:value="blue" />
+                                 </styleClass>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="gender" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="btn_radio_1" layoutX="353.0" layoutY="482.0" mnemonicParsing="false" stylesheets="@../style/MainCSS.css" text="Nữ" toggleGroup="$gender">
+                                 <styleClass>
+                                    <String fx:value="heading4" />
+                                    <String fx:value="bold" />
+                                    <String fx:value="blue" />
+                                 </styleClass>
+                              </RadioButton>
+                              <VBox layoutX="840.0" layoutY="436.0" opacity="0.9" prefHeight="91.0" prefWidth="152.0" spacing="15.0">
+                                 <children>
+                                    <Button alignment="BASELINE_CENTER" mnemonicParsing="false" onAction="#clickBtnLockStaff" prefHeight="90.0" prefWidth="150.0" stylesheets="@../style/MainCSS.css" text="       Khóa tài khoản">
+                                       <graphic>
+                                          <FontAwesomeIconView fill="WHITE" glyphName="LOCK" size="18" />
+                                       </graphic>
+                                       <styleClass>
+                                          <String fx:value="heading5" />
+                                          <String fx:value="delete-btn" />
+                                          <String fx:value="radius2" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button alignment="BASELINE_CENTER" mnemonicParsing="false" onAction="#clickBtnUnlockStaff" prefHeight="90.0" prefWidth="150.0" stylesheets="@../style/MainCSS.css" text="  Khôi phục tài khoản">
+                                       <graphic>
+                                          <FontAwesomeIconView fill="WHITE" glyphName="UNLOCK" size="18" />
+                                       </graphic>
+                                       <styleClass>
+                                          <String fx:value="heading5" />
+                                          <String fx:value="add-btn" />
+                                          <String fx:value="radius2" />
+                                       </styleClass>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -271,6 +271,19 @@ public class PositionManageController {
             this.btn_pos.getStyleClass().remove("btn_pos_selected");
     }
 
+    //Đổi mật khẩu
+    public void navigateToChangePwdPage(){
+        Support.navigateTo((byte) 11, this);
+    }
+
+    //Đăng xuất
+    public void clickBtnLogOut() throws RemoteException {
+        if(!dict.showAlertWarning("Bạn có chắc chắn muốn thoát không?","Nhấn \"Có\" để xác nhận."))
+            return;
+        this.registryClass.user().logoutUser(Support.account);
+        Support.navigateTo((byte) 0, this);
+    }
+
     //Các thuộc tính đặc biệt
     private RegistryClass registryClass;
 

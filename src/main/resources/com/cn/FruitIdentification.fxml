@@ -40,12 +40,12 @@
                         <Font name="Segoe UI Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="66.0" layoutY="28.0" styleClass="heading3" stylesheets="@../style/MainCSS.css" text="Kiều Đức Thịnh" />
+                  <Label fx:id="lblFullName" layoutX="66.0" layoutY="28.0" styleClass="heading3" stylesheets="@../style/MainCSS.css" text="Kiều Đức Thịnh" />
                </children>
             </AnchorPane>
             <Line endX="108.79997253417969" layoutX="136.0" layoutY="212.0" startX="-129.59999084472656" stroke="WHITE" />
             <Line endX="110.19999694824219" layoutX="137.0" layoutY="296.0" startX="-129.59999084472656" stroke="WHITE" />
-            <Button layoutX="1.0" layoutY="707.6" mnemonicParsing="false" prefHeight="42.0" prefWidth="253.0" stylesheets="@../style/MainCSS.css" text="Đăng xuất" textFill="#dc3939" AnchorPane.bottomAnchor="3.0">
+            <Button layoutX="1.0" layoutY="707.6" mnemonicParsing="false" onAction="#clickBtnLogOut" prefHeight="42.0" prefWidth="253.0" stylesheets="@../style/MainCSS.css" text="Đăng xuất" textFill="#dc3939" AnchorPane.bottomAnchor="3.0">
                <styleClass>
                   <String fx:value="function-btn" />
                   <String fx:value="heading3" />

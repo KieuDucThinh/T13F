@@ -5,6 +5,8 @@ import javafx.scene.control.ButtonType;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -106,6 +108,13 @@ public class FruitUtil {
 
     }
 
+    //Giải mã giới tính
+    public String encode(boolean gender){
+        if(gender)
+            return "Nữ";
+        return "Nam";
+    }
+
     //Giải mã trạng thái trái cây
     public String encode(String word){
         return dict.get(word);
@@ -124,6 +133,16 @@ public class FruitUtil {
     //Định dạng ngày: dd/mm/YYYY
     public String convertDate(Date date){
         return dfm_encode.format(date);
+    }
+
+    //Định dạng ngày: dd/mm/YYYY
+    public LocalDate convertDate2(Date date){
+        return LocalDate.parse(date.toString());
+    }
+
+    //Định dạng ngày: dd/mm/YYYY
+    public String convertDate(LocalDate date){
+        return date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
 
     public boolean showAlertWarning(String headerText){
@@ -169,5 +188,50 @@ public class FruitUtil {
         this.alertInfo.getButtonTypes().setAll(buttonTypeOK);
 
         this.alertInfo.showAndWait();
+    }
+
+    public void showAlertInfo(String title, String headerText){
+        this.alertInfo.setTitle(title);
+        this.alertInfo.setHeaderText(headerText);
+
+        // Tạo các nút tùy chỉnh
+        ButtonType buttonTypeOK = new ButtonType("OK");
+
+        // Thiết lập các nút cho Alert
+        this.alertInfo.getButtonTypes().setAll(buttonTypeOK);
+
+        this.alertInfo.showAndWait();
+    }
+
+    public boolean showAlertWarning(String headerText, String contentText){
+        this.alertWarning.setTitle("Xác nhận");
+        this.alertWarning.setHeaderText(headerText);
+        this.alertWarning.setContentText(contentText);
+
+        // Tạo các nút tùy chỉnh
+        ButtonType buttonTypeYes = new ButtonType("Có");
+        ButtonType buttonTypeNo = new ButtonType("Không");
+
+        // Thiết lập các nút cho Alert
+        this.alertWarning.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
+
+        var result = this.alertWarning.showAndWait();
+
+        // Thực hiện hành động khi người dùng chọn Có
+        // Thực hiện hành động khi người dùng chọn Không hoặc hủy
+        return result.isPresent() && result.get() == buttonTypeYes;
+    }
+
+    public void showAlertError(String title, String headerText){
+        this.alertError.setTitle(title);
+        this.alertError.setHeaderText(headerText);
+
+        // Tạo các nút tùy chỉnh
+        ButtonType buttonTypeOK = new ButtonType("OK");
+
+        // Thiết lập các nút cho Alert
+        this.alertError.getButtonTypes().setAll(buttonTypeOK);
+
+        this.alertError.showAndWait();
     }
 }

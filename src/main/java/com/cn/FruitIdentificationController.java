@@ -124,6 +124,9 @@ public class FruitIdentificationController {
     @FXML
     private TableView<Position> tbl_RG;
 
+    @FXML
+    private Label lblFullName;
+
     //Thuộc tính: Các trang hiện tại là 1
     private byte pageEG = 1;
     private byte pageOG = 1;
@@ -330,6 +333,14 @@ public class FruitIdentificationController {
         Support.navigateTo((byte) 2, this);
     }
 
+    //Đăng xuất
+    public void clickBtnLogOut() throws RemoteException {
+        if(!dict.showAlertWarning("Bạn có chắc chắn muốn thoát không?","Nhấn \"Có\" để xác nhận."))
+            return;
+        this.registryClass.user().logoutUser(Support.account);
+        Support.navigateTo((byte) 0, this);
+    }
+
     //Các thuộc tính đặc biệt
     private RegistryClass registryClass;
 
@@ -354,6 +365,8 @@ public class FruitIdentificationController {
 
     @FXML
     void initialize() throws RemoteException {
+        lblFullName.setText(Support.account.getFullname());
+
         //Lấy danh sách các trái cây
         this.listEG = FXCollections.observableArrayList(registryClass.position().getGoodsPositionsByStatus("D", this.pageEG));
         this.listOG = FXCollections.observableArrayList(registryClass.position().getGoodsPositionsByStatus("OR", this.pageOG));

@@ -1,10 +1,7 @@
 package com.cn;
 
 import com.entity.*;
-import com.util.FruitUtil;
-import com.util.ObserverObject;
-import com.util.RegistryClass;
-import com.util.Support;
+import com.util.*;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -105,8 +102,12 @@ public class GoodsDeliveryController {
     @FXML
     private TextArea txt_des;
 
+    @FXML
+    private Label lblFullName;
+
     //Thuộc tính: Tiện ích
     private FruitUtil dict = new FruitUtil();
+    private CitizenIdentification ci = new CitizenIdentification();
 
     //Thuộc tính: Danh sách trái cây cần tìm
     private ObservableList<Goods> listFG;
@@ -298,7 +299,6 @@ public class GoodsDeliveryController {
 
     //Method: Kiểm tra các dữ liệu khách hàng có hợp lệ không
     private boolean validateCustomer(){
-        /*
         if (this.txt_c_name.getText().trim().equals("") || this.txt_c_phone.getText().trim().equals("") || this.txt_c_address.getText().trim().equals("") || this.txt_gdn_address.getText().trim().equals("")){
             this.dict.showAlertError("Hãy điền đầy đủ thông tin");
             return false;
@@ -311,7 +311,7 @@ public class GoodsDeliveryController {
         }
 
         //Điện thoại 10 số
-        if(!this.txt_c_phone.getText().trim().matches("[0-9]{10}")){
+        if(!ci.checkPhoneNum(this.txt_c_phone.getText().trim())){
             this.dict.showAlertError("Số điện thoại không hợp lệ");
             return false;
         }
@@ -322,7 +322,6 @@ public class GoodsDeliveryController {
             this.dict.showAlertError("Email không hợp lệ");
             return false;
         }
-        */
 
         //Địa chỉ từ 6 - 255 ký tự
         //Chấp nhận chữ, số, dấu phẩy, dấu cách, dấu /
@@ -547,19 +546,17 @@ public class GoodsDeliveryController {
                 }
 
                 if(dict.showAlertWarning("Bạn có chắc chắn muốn xuất phiếu không")){
-                    //User trống do chưa đăng nhập nên chưa lấy được
                     //User ở util
-                    //Lấy tạm user
 
                     /*
-                    User s = registryClass.user().findUserByPhone("0343806801");
-                    gdn.setDeliveryUser(s);
+                    gdn.setDeliveryUser(Support.account);
                     gdn.setGdnDate(Date.valueOf(LocalDate.now()));
                     gdn.setTotalDeliveryPrice(BigDecimal.valueOf(Double.parseDouble(lbl_amount_payable.getText())));
                     gdn.setGdnDetailsSet(set);
 
                     registryClass.goodsDeliveryNote().createGDN(gdn);
                     */
+
                     dict.showAlertInfo("Xuất phiếu thành công");
 
 
@@ -571,8 +568,22 @@ public class GoodsDeliveryController {
 
     }
 
+    //Chuyển đến trang xác định trái cây
     public void navigateToFIPage() throws RemoteException  {
         Support.navigateTo((byte) 3, this);
+    }
+
+    //Chuyển đến trang đổi mật khẩu
+    public void navigateToChangePwdPage() throws RemoteException  {
+        Support.navigateTo((byte) 4, this);
+    }
+
+    //Đăng xuất
+    public void clickBtnLogOut() throws RemoteException {
+        if(!dict.showAlertWarning("Bạn có chắc chắn muốn thoát không?","Nhấn \"Có\" để xác nhận."))
+            return;
+        this.registryClass.user().logoutUser(Support.account);
+        Support.navigateTo((byte) 0, this);
     }
 
     //Các thuộc tính đặc biệt
@@ -594,6 +605,7 @@ public class GoodsDeliveryController {
 
     @FXML
     public void initialize() throws RemoteException {
+        lblFullName.setText(Support.account.getFullname());
         clearGridPaneGD();
 //        addCardGD();
 //        addCardGD();

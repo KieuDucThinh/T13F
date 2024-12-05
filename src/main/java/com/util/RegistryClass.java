@@ -16,6 +16,7 @@ public class RegistryClass {
     private static final DAOGoodsDeliveryNote goodsDeliveryNote;
     private static final DAOPosition position;
     private static final DAOUser user;
+    private static final DAOSupplier supplier;
 
     static{
         try {
@@ -26,6 +27,7 @@ public class RegistryClass {
             goodsDeliveryNote = (DAOGoodsDeliveryNote) registry.lookup("goodsDeliveryNote");
             position = (DAOPosition) registry.lookup("position");
             user = (DAOUser) registry.lookup("user");
+            supplier = (DAOSupplier) registry.lookup("supplier");
         } catch (RemoteException ex) {
             throw new RuntimeException(ex);
         } catch (NotBoundException ex) {
@@ -59,6 +61,10 @@ public class RegistryClass {
 
     public DAOUser user() throws RemoteException {
         return user;
+    }
+
+    public DAOSupplier supplier() throws RemoteException {
+        return supplier;
     }
 
 //     try {

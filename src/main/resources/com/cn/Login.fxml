@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cn.LoginController">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="335.0" styleClass="gradient-side-form">
+         <children>
+            <ImageView fitHeight="125.0" fitWidth="125.0" layoutX="105.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/Vector.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="40.0" layoutY="340.0" style="-fx-text-fill: black;" styleClass="heading1" stylesheets="@../style/MainCSS.css" text="KHO HÀNG TRÁI CÂY" />
+            <Label layoutX="140.0" layoutY="383.0" style="-fx-text-fill: black;" styleClass="heading1" stylesheets="@../style/MainCSS.css" text="T13F" />
+         </children>
+         <stylesheets>
+            <URL value="@../style/LoginCSS.css" />
+            <URL value="@../style/MainCSS.css" />
+         </stylesheets>
+      </AnchorPane>
+      <PasswordField fx:id="txtPwd" focusTraversable="false" layoutX="435.0" layoutY="321.0" onKeyPressed="#pressEnterKey" prefHeight="42.0" prefWidth="282.0" promptText="Mật khẩu">
+         <stylesheets>
+            <URL value="@../style/LoginCSS.css" />
+            <URL value="@../style/MainCSS.css" />
+         </stylesheets>
+         <styleClass>
+            <String fx:value="heading4" />
+            <String fx:value="radius" />
+         </styleClass>
+      </PasswordField>
+      <TextField fx:id="txtUsername" layoutX="435.0" layoutY="253.0" onKeyPressed="#pressTabKey" prefHeight="42.0" prefWidth="282.0" promptText="Tên đăng nhập">
+         <stylesheets>
+            <URL value="@../style/LoginCSS.css" />
+            <URL value="@../style/MainCSS.css" />
+         </stylesheets>
+         <styleClass>
+            <String fx:value="heading4" />
+            <String fx:value="radius" />
+         </styleClass>
+      </TextField>
+      <FontAwesomeIconView fill="#82c8e1" glyphName="USER" layoutX="401.0" layoutY="282.0" selectionFill="#3f9db7" size="23" />
+      <FontAwesomeIconView fill="#7ab1c4" glyphName="KEY" layoutX="400.0" layoutY="350.0" size="20" />
+      <Button layoutX="519.0" layoutY="401.0" mnemonicParsing="false" onAction="#clickBtnLogin" prefHeight="35.0" prefWidth="114.0" text="Đăng nhập" textFill="WHITE">
+         <stylesheets>
+            <URL value="@../style/LoginCSS.css" />
+            <URL value="@../style/MainCSS.css" />
+         </stylesheets>
+         <styleClass>
+            <String fx:value="update-btn" />
+            <String fx:value="heading4" />
+            <String fx:value="bold" />
+            <String fx:value="radius2" />
+         </styleClass>
+      </Button>
+      <Label layoutX="499.0" layoutY="176.0" stylesheets="@../style/MainCSS.css" text="ĐĂNG NHẬP">
+         <styleClass>
+            <String fx:value="heading1" />
+            <String fx:value="blue" />
+         </styleClass>
+      </Label>
+      <FontAwesomeIconView fill="#71cdea" glyphName="COGS" layoutX="549.0" layoutY="154.0" size="50" />
+   </children>
+</AnchorPane>
