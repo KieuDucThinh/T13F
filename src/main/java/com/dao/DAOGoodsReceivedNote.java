@@ -12,7 +12,9 @@ public interface DAOGoodsReceivedNote extends Remote {
 
     public List<GoodsReceivedNote> getAllNotVerifyGRN() throws RemoteException;
     public GoodsReceivedNote getGRNByID(String id) throws RemoteException;
-    public boolean addGRN(GoodsReceivedNote grn) throws RemoteException;
+    public List<GoodsReceivedNote> getUnverifyGRNByKeyword(String keyword) throws RemoteException;
+
+    public boolean createGRN(GoodsReceivedNote grn) throws RemoteException;
     public boolean updateGRN(GoodsReceivedNote grn) throws RemoteException;
     public boolean deleteGRN(String id) throws RemoteException;
 }

@@ -2,6 +2,11 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import java.lang.String?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -10,7 +15,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" prefHeight="750.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cn.StaffManageController">
+<AnchorPane maxHeight="1.7976931348623157E308" prefHeight="750.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cn.StatisticsManageController">
    <children>
       <AnchorPane prefHeight="753.0" prefWidth="258.0" styleClass="gradient-side-form" stylesheets="@../style/MainCSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -41,7 +46,7 @@
             </AnchorPane>
             <Line endX="108.79997253417969" layoutX="136.0" layoutY="212.0" startX="-129.59999084472656" stroke="WHITE" />
             <Line endX="110.19999694824219" layoutX="137.0" layoutY="296.0" startX="-129.59999084472656" stroke="WHITE" />
-            <Button layoutX="1.0" layoutY="707.6" mnemonicParsing="false" prefHeight="42.0" prefWidth="253.0" stylesheets="@../style/MainCSS.css" text="Đăng xuất" textFill="#dc3939" AnchorPane.bottomAnchor="3.0">
+            <Button layoutX="1.0" layoutY="707.6" mnemonicParsing="false" onAction="#clickBtnLogOut" prefHeight="42.0" prefWidth="253.0" stylesheets="@../style/MainCSS.css" text="Đăng xuất" textFill="#dc3939" AnchorPane.bottomAnchor="3.0">
                <styleClass>
                   <String fx:value="function-btn" />
                   <String fx:value="heading3" />
@@ -51,7 +56,7 @@
                   <FontAwesomeIconView fill="#d95151" glyphName="SIGN_OUT" selectionFill="#df2d2d" size="25.0" text="    " />
                </graphic>
             </Button>
-            <Button layoutY="307.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="271.0" stylesheets="@../style/MainCSS.css" text="Nhà cung cấp                 ">
+            <Button layoutY="307.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="262.0" stylesheets="@../style/MainCSS.css" text="Nhà cung cấp                 ">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
@@ -61,10 +66,10 @@
                   <String fx:value="black" />
                </styleClass>
                <graphic>
-                  <FontAwesomeIconView glyphName="FILE" size="23" text="     " />
+                  <FontAwesomeIconView glyphName="FILE" size="23" text="      " />
                </graphic>
             </Button>
-            <Button layoutX="-1.0" layoutY="363.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="271.0" stylesheets="@../style/MainCSS.css" text=" Khách hàng                     ">
+            <Button layoutX="-1.0" layoutY="363.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="268.0" stylesheets="@../style/MainCSS.css" text="Khách hàng                     ">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
@@ -74,10 +79,10 @@
                   <String fx:value="black" />
                </styleClass>
                <graphic>
-                  <FontAwesomeIconView glyphName="HEART" size="23" text="    " />
+                  <FontAwesomeIconView glyphName="HEART" size="23" text="     " />
                </graphic>
             </Button>
-            <Button layoutY="640.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="271.0" stylesheets="@../style/MainCSS.css" text="Tài khoản                        ">
+            <Button layoutY="640.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="271.0" stylesheets="@../style/MainCSS.css" text="Tài khoản                     ">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
@@ -103,7 +108,7 @@
                   <FontAwesomeIconView glyphName="TAG" size="23" text="    " />
                </graphic>
             </Button>
-            <Button layoutY="473.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="268.0" stylesheets="@../style/MainCSS.css" text="Nhập xuất                      ">
+            <Button layoutY="473.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="268.0" stylesheets="@../style/MainCSS.css" text="Nhập xuất                     ">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
@@ -111,7 +116,6 @@
                   <String fx:value="function-btn" />
                   <String fx:value="heading3" />
                   <String fx:value="black" />
-                  <String fx:value="btn" />
                </styleClass>
                <graphic>
                   <FontAwesomeIconView glyphName="LIST" size="22" text="     " />
@@ -130,7 +134,7 @@
                   <FontAwesomeIconView glyphName="EJECT" size="25" text="     " />
                </graphic>
             </Button>
-            <Button layoutY="585.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="268.0" stylesheets="@../style/MainCSS.css" text="Thống kê                       ">
+            <Button layoutY="585.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="268.0" stylesheets="@../style/MainCSS.css" text="Thống kê                     ">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
@@ -138,6 +142,7 @@
                   <String fx:value="function-btn" />
                   <String fx:value="heading3" />
                   <String fx:value="black" />
+                  <String fx:value="btn" />
                </styleClass>
                <graphic>
                   <FontAwesomeIconView glyphName="BAR_CHART" size="24" text="   " />
@@ -145,7 +150,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="287.2" layoutY="26.2" prefHeight="709.0" prefWidth="1086.0" stylesheets="@../style/MainCSS.css" AnchorPane.bottomAnchor="17.799999999999955" AnchorPane.leftAnchor="287.2" AnchorPane.rightAnchor="27.200000000000045" AnchorPane.topAnchor="26.2">
+      <AnchorPane layoutX="287.0" layoutY="44.0" prefHeight="679.0" prefWidth="1086.0" stylesheets="@../style/MainCSS.css" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="287.1999999999998" AnchorPane.rightAnchor="26.59999999999991" AnchorPane.topAnchor="44.0">
          <styleClass>
             <String fx:value="white-form" />
             <String fx:value="shadow-to-form" />
@@ -153,43 +158,101 @@
          </styleClass>
          <children>
             <Line endX="876.9334716796875" layoutX="178.0" layoutY="82.0" startX="-141.7333526611328" startY="-7.62939453125E-6" />
-            <Label layoutX="101.0" layoutY="28.0" stylesheets="@../style/MainCSS.css" text="Quản lý nhập xuất">
+            <Label layoutX="101.0" layoutY="28.0" stylesheets="@../style/MainCSS.css" text="Quản lý thống kê">
                <styleClass>
                   <String fx:value="heading1" />
                   <String fx:value="blue" />
                </styleClass>
             </Label>
-            <FontAwesomeIconView fill="#63bad9" glyphName="LIST" layoutX="52.0" layoutY="57.0" selectionFill="#63bad9" size="30" />
-            <Button layoutX="39.0" layoutY="107.0" mnemonicParsing="false" prefHeight="263.0" prefWidth="518.0" stylesheets="@../style/MainCSS.css" text="       Phiếu nhập chưa duyệt" textFill="WHITE">
-               <graphic>
-                  <FontAwesomeIconView fill="WHITE" glyphName="BOOKMARK" size="50" />
-               </graphic>
+            <FontAwesomeIconView fill="#63bad9" glyphName="BAR_CHART" layoutX="52.0" layoutY="57.0" selectionFill="#63bad9" size="30" />
+            <AnchorPane layoutX="753.0" layoutY="98.0" prefHeight="274.0" prefWidth="302.0" stylesheets="@../style/MainCSS.css">
                <styleClass>
-                  <String fx:value="heading1" />
-                  <String fx:value="erase-btn" />
+                  <String fx:value="shadow-to-form" />
+                  <String fx:value="radius" />
+                  <String fx:value="white-form" />
+               </styleClass>
+               <children>
+                  <PieChart fx:id="pieChart" layoutX="1.0" layoutY="5.0" onMouseClicked="#openSupportSceen" prefHeight="268.0" prefWidth="299.0" styleClass="btn-cur" />
+                  <Label layoutX="55.0" layoutY="4.0" stylesheets="@../style/MainCSS.css" text="Biểu đồ thống kê tồn kho">
+                     <styleClass>
+                        <String fx:value="heading3" />
+                        <String fx:value="blue" />
+                     </styleClass>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="36.0" layoutY="98.0" prefHeight="274.0" prefWidth="698.0" stylesheets="@../style/MainCSS.css">
+               <styleClass>
+                  <String fx:value="shadow-to-form" />
+                  <String fx:value="radius" />
+                  <String fx:value="white-form" />
+               </styleClass>
+               <children>
+                  <LineChart fx:id="lineChart" layoutX="-1.0" layoutY="16.0" prefHeight="256.0" prefWidth="702.0">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </LineChart>
+                  <Label layoutX="246.0" layoutY="4.0" stylesheets="@../style/MainCSS.css" text="Biểu đồ thống kê lợi nhuận">
+                     <styleClass>
+                        <String fx:value="heading3" />
+                        <String fx:value="blue" />
+                     </styleClass>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="33.0" layoutY="391.0" prefHeight="274.0" prefWidth="1027.0" stylesheets="@../style/MainCSS.css">
+               <styleClass>
+                  <String fx:value="shadow-to-form" />
+                  <String fx:value="radius" />
+                  <String fx:value="white-form" />
+               </styleClass>
+               <children>
+                  <BarChart fx:id="barChart" layoutY="17.0" prefHeight="256.0" prefWidth="1027.0">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </BarChart>
+                  <Label layoutX="408.0" layoutY="7.0" stylesheets="@../style/MainCSS.css" text="Biểu đồ thống kê doanh thu">
+                     <styleClass>
+                        <String fx:value="heading3" />
+                        <String fx:value="blue" />
+                     </styleClass>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="supportSceen" layoutX="36.0" layoutY="95.0" prefHeight="557.0" prefWidth="1027.0" visible="false">
+               <styleClass>
+                  <String fx:value="white-form" />
+                  <String fx:value="shadow-to-form" />
                   <String fx:value="radius2" />
                </styleClass>
-            </Button>
-            <Button layoutX="580.0" layoutY="103.0" mnemonicParsing="false" prefHeight="558.0" prefWidth="480.0" stylesheets="@../style/MainCSS.css" text="       Phiếu xuất" textFill="WHITE">
-               <graphic>
-                  <FontAwesomeIconView fill="WHITE" glyphName="MAP_MARKER" size="50" />
-               </graphic>
-               <styleClass>
-                  <String fx:value="heading1" />
-                  <String fx:value="add-btn" />
-                  <String fx:value="radius2" />
-               </styleClass>
-            </Button>
-            <Button layoutX="39.0" layoutY="396.0" mnemonicParsing="false" prefHeight="263.0" prefWidth="517.0" stylesheets="@../style/MainCSS.css" text="    Phiếu nhập đã được duyệt" textFill="WHITE">
-               <graphic>
-                  <FontAwesomeIconView fill="WHITE" glyphName="TH" size="50" />
-               </graphic>
-               <styleClass>
-                  <String fx:value="heading1" />
-                  <String fx:value="update-btn" />
-                  <String fx:value="radius2" />
-               </styleClass>
-            </Button>
+               <children>
+                  <Label layoutX="364.0" layoutY="14.0" text="Biểu đồ thống kê tồn kho">
+                     <styleClass>
+                        <String fx:value="blue" />
+                        <String fx:value="heading1" />
+                     </styleClass>
+                  </Label>
+                  <PieChart fx:id="pieChart2" layoutX="236.0" layoutY="60.0" prefHeight="472.0" prefWidth="555.0" />
+                  <Button layoutX="961.0" layoutY="19.0" mnemonicParsing="false" onAction="#closeSupportSceen" prefHeight="30.0" prefWidth="23.0" textFill="WHITE">
+                     <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" size="16" />
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="delete-btn" />
+                        <String fx:value="radius2" />
+                        <String fx:value="heading3" />
+                     </styleClass>
+                  </Button>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </children>

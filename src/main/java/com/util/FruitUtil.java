@@ -1,5 +1,8 @@
 package com.util;
 
+import com.entity.Goods;
+import com.entity.GoodsReceivedNote;
+import com.entity.GrnDetail;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 
@@ -7,8 +10,10 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 
 //Lớp tiện ích dùng chuyển đổi dữ liệu cho người dùng dễ đọc
 public class FruitUtil {
@@ -16,9 +21,12 @@ public class FruitUtil {
     private static final HashMap<String, String> dictdecode;
     private static final HashMap<String, String> dictAddress;
     private static final DateFormat dfm_encode;
-    private Alert alertWarning = new Alert(Alert.AlertType.WARNING);
-    private Alert alertError = new Alert(Alert.AlertType.ERROR);
-    private Alert alertInfo = new Alert(Alert.AlertType.INFORMATION);
+    private static Alert alertWarning = new Alert(Alert.AlertType.WARNING);
+    private static Alert alertError = new Alert(Alert.AlertType.ERROR);
+    private static Alert alertInfo = new Alert(Alert.AlertType.INFORMATION);
+
+    private static LocalDateMonthY time;
+    private static ArrayList<String> listTime;
 
     static{
         dfm_encode = new SimpleDateFormat("dd/MM/yyyy");
@@ -102,6 +110,20 @@ public class FruitUtil {
         dictAddress.put("Sóc Trăng", "994");
         dictAddress.put("Bạc Liêu", "995");
         dictAddress.put("Cà Mau", "996");
+
+        time = new LocalDateMonthY();
+        listTime = new ArrayList<>();
+
+        String date;
+        for (int i = 9; i >= 0; i--) {
+            date = time.previousMonth(i) + "-";
+            if (time.getMonthNow() < time.previousMonth(i)) {
+                date += time.previousYear(1);
+            } else {
+                date += time.getYearNow();
+            }
+            listTime.add(date);
+        }
     }
 
     public FruitUtil(){
@@ -143,6 +165,11 @@ public class FruitUtil {
     //Định dạng ngày: dd/mm/YYYY
     public String convertDate(LocalDate date){
         return date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+    }
+
+    //Định dạng ngày: dd/mm/YYYY
+    public LocalDate convertDate(String date){
+        return LocalDate.parse(date, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
 
     public boolean showAlertWarning(String headerText){
@@ -233,5 +260,14 @@ public class FruitUtil {
         this.alertError.getButtonTypes().setAll(buttonTypeOK);
 
         this.alertError.showAndWait();
+    }
+
+    public String getTime(byte index){
+        return listTime.get(index);
+    }
+
+    public String getSKU(Goods tc, LocalDate date){
+        String datePart = date.format(DateTimeFormatter.ofPattern("ddMMyy"));
+        return tc.getGoodsFruitType().getFtId() + "-" + tc.getSize() + "-" + dictAddress.get(tc.getOriginal()) + "-" + datePart + "-" + tc.getStatus();
     }
 }

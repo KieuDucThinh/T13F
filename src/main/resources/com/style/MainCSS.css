@@ -94,7 +94,7 @@
 }
 
 .update-btn{
-    -fx-background-color:     #63BAD9;
+    -fx-background-color: #63BAD9;
     -fx-cursor: hand;
 }
 .update-btn:hover{
@@ -114,7 +114,7 @@
     -fx-cursor: hand;
 }
 .delete-btn:hover{
-    -fx-background-color: #EE554C;
+    -fx-background-color: #f12418;
 }
 
 .print-btn{
@@ -186,6 +186,10 @@
 
 .blue{
     -fx-text-fill: #82C8E1;
+}
+
+.chart-bar {
+    -fx-bar-fill: #82C8E1;
 }
 
 .bold{
