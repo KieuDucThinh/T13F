@@ -23,6 +23,8 @@ import java.util.Map;
 
 
 public class PositionManageController {
+    @FXML
+    private Label lblFullName;
 
     @FXML
     private ComboBox<FruitType> cbo_Ft;
@@ -276,6 +278,35 @@ public class PositionManageController {
         Support.navigateTo((byte) 11, this);
     }
 
+    //Chuyển các màn hình
+    public void navigateToSupplierManagement(){
+        Support.navigateTo((byte) 5, this);
+    }
+
+    public void navigateToCustomerManagement(){
+        Support.navigateTo((byte) 6, this);
+    }
+
+    public void naviagteToStaffManagement(){
+        Support.navigateTo((byte) 7, this);
+    }
+
+    public void navigateToGNNavigate(){
+        Support.navigateTo((byte) 8, this);
+    }
+
+    public void navigateToPositionManagement(){
+        Support.navigateTo((byte) 9, this);
+    }
+
+    public void navigateToStatisticsManagement(){
+        Support.navigateTo((byte) 10, this);
+    }
+
+    public void navigateToManagerAccountManagement(){
+        Support.navigateTo((byte) 11, this);
+    }
+
     //Đăng xuất
     public void clickBtnLogOut() throws RemoteException {
         if(!dict.showAlertWarning("Bạn có chắc chắn muốn thoát không?","Nhấn \"Có\" để xác nhận."))
@@ -303,6 +334,7 @@ public class PositionManageController {
 
     @FXML
     void initialize() throws RemoteException {
+        lblFullName.setText(Support.account.getFullname());
         addBtn();
         cboInit();
     }

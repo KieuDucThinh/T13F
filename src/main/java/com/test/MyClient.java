@@ -4,7 +4,9 @@ import com.dao.DAOCustomer;
 import com.dao.DAOGoods;
 import com.entity.Customer;
 import com.entity.Position;
+import com.util.FruitUtil;
 import com.util.RegistryClass;
+import javafx.application.Platform;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -14,7 +16,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class MyClient {
+public class MyClient{
     //Các thuộc tính đặc biệt
     private static RegistryClass registryClass;
 
@@ -28,10 +30,19 @@ public class MyClient {
         }
     }
 
+    private static void testMap(){
+        FruitUtil dict = new FruitUtil();
+        System.out.println(dict.encodeAddrress("Hà")==null);
+    }
+
     public static void main(String args[]) throws Exception {
-        registryClass = new RegistryClass();
-        HashMap<String, Long> map = (HashMap<String, Long>) registryClass.position().getInventory();
-        System.out.println(map);
+        Platform.startup(()->{
+            testMap();
+        });
+
+//        registryClass = new RegistryClass();
+//        HashMap<String, Long> map = (HashMap<String, Long>) registryClass.position().getInventory();
+//        System.out.println(map);
 //        RegistryClass registry = new RegistryClass();
 //        DAOCustomer daoCustomer = registry.customer();
 //

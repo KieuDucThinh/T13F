@@ -35,9 +35,9 @@ public class HelloApplication extends Application {
 //        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
 //            System.out.println(this.getClass().getResource("FruitIdentification.fxml"))
 //            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("UnverifyGRNManage.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
-            stage.setTitle("Hello!");
+            stage.setTitle("Kho hàng trái cây T13F");
             stage.setScene(scene);
             stage.show();
 

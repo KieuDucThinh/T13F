@@ -322,15 +322,32 @@ public class FruitIdentificationController {
         if (this.dict.showAlertWarning("Bạn có chắc chắn muốn dọn dẹp không?")) {
             //Xóa toàn bộ hàng hết hạn trong kho
             //Tạm thời đóng băng do lệnh nguy hiểm
-            //registryClass.position().clearPositions();
+            registryClass.position().clearPositions();
+
             this.tbl_EG.getItems().clear();
             this.lbl_EG_page.setText("1");
             this.maxPageEG = 1;
         }
     }
 
-    public void navigateToGDNPage(){
+    //Chuyển đến trang xác nhận phiếu nhập
+    public void navigateToVeifyGRN(){
+        Support.navigateTo((byte) 1, this);
+    }
+
+    //Chuyển đến trang lập phiếu xuất
+    public void navigateToGoodsDelivery(){
         Support.navigateTo((byte) 2, this);
+    }
+
+    //Chuyển đến trang xác định trái cây
+    public void navigateToFIPage() throws RemoteException  {
+        Support.navigateTo((byte) 3, this);
+    }
+
+    //Chuyển đến trang đổi mật khẩu
+    public void navigateToChangePwdPage() throws RemoteException  {
+        Support.navigateTo((byte) 4, this);
     }
 
     //Đăng xuất
@@ -353,6 +370,8 @@ public class FruitIdentificationController {
             throw new RuntimeException(e);
         }
     }
+
+
 
     private ObservableList<Position> listEG;
     private ObservableList<Position> listOG;

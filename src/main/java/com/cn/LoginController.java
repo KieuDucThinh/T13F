@@ -48,10 +48,10 @@ public class LoginController {
             Support.stage.setWidth(1400);
             Support.stage.setHeight(800);
             if (txtUsername.getText().equals("administrator")) {
-                Support.navigateTo((byte) 9, this);
+                Support.navigateTo((byte) 5, this);
             } else {
                 if(!Support.account.getStatus().equalsIgnoreCase("FI")){
-                    Support.navigateTo((byte) 2, this);
+                    Support.navigateTo((byte) 1, this);
                 } else{
                     Support.navigateTo((byte) 4, this);
                 }

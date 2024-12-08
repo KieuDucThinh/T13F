@@ -22,13 +22,28 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.sql.Date;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 
 public class GoodsDeliveryController {
+
+    @FXML
+    private Tab tab3;
+
+    @FXML
+    private TabPane tabPane;
+
+    @FXML
+    private Button btnAdd;
+
+    @FXML
+    private Button btnCancle;
+
+    @FXML
+    private Button btnDelivery;
+
+    @FXML
+    private TextArea txt_goodsPos;
 
     @FXML
     private Circle circle1;
@@ -113,7 +128,7 @@ public class GoodsDeliveryController {
     private ObservableList<Goods> listFG;
 
     //Thuộc tính: Khách hàng cần xuất hàng
-    private Customer customer;
+    private Customer customer = new Customer();
 
     //Thuộc tính phiếu xuất
     private GoodsDeliveryNote gdn;
@@ -355,6 +370,8 @@ public class GoodsDeliveryController {
                     .gdnAddress(this.txt_gdn_address.getText().trim())
                     .customer(customer)
                     .build();
+            System.out.println(customer);
+            System.out.println(gdn.getCustomer());
         } else {
             //Không tìm thấy
             //Kiểm tra hợp lệ dữ liệu
@@ -446,7 +463,16 @@ public class GoodsDeliveryController {
 //        this.deliveryPane.setVisible(false);
 //        exchangeColor(false);
 //        unlockTxtCustomer();
-        gdn = new GoodsDeliveryNote();
+        if(!dict.showAlertWarning("Chắc chắn hủy tạo phiếu"))
+            return;
+        Support.navigateTo((byte) 2, this);
+    }
+
+    //Method: Reset màn hình
+    //Load lại trang (Chưa xử lý)
+    public void resetDelivery(){
+        if(!dict.showAlertWarning("Kết thúc xem vị trí hàng cần xuất trong kho?"))
+            return;
         Support.navigateTo((byte) 2, this);
     }
 
@@ -490,7 +516,7 @@ public class GoodsDeliveryController {
             return;
 
         //Chạy đoạn new do đang test
-        this.gdn = new GoodsDeliveryNote();
+//        this.gdn = new GoodsDeliveryNote();
 
         //Số tiền phải trả = tổng tiền * (1 - giảm giá%)
         this.gdn.setTotalDeliveryPrice(BigDecimal.valueOf(Double.parseDouble(lbl_total_price.getText())).multiply(BigDecimal.valueOf(1).subtract(BigDecimal.valueOf(Double.parseDouble(txt_bonusDiscount.getText())).divide(BigDecimal.valueOf(100)))).setScale(2, BigDecimal.ROUND_HALF_UP));
@@ -548,24 +574,58 @@ public class GoodsDeliveryController {
                 if(dict.showAlertWarning("Bạn có chắc chắn muốn xuất phiếu không")){
                     //User ở util
 
-                    /*
+                    //Lưu rồi
+//                    gdn.setCustomer(customer);
+//                    gdn.setGdnAddress(txt_gdn_address.getText().trim());
+
                     gdn.setDeliveryUser(Support.account);
                     gdn.setGdnDate(Date.valueOf(LocalDate.now()));
                     gdn.setTotalDeliveryPrice(BigDecimal.valueOf(Double.parseDouble(lbl_amount_payable.getText())));
                     gdn.setGdnDetailsSet(set);
+                    gdn.setGdnDescription(txt_des.getText().trim());
+                    System.out.println(gdn.getCustomer());
 
-                    registryClass.goodsDeliveryNote().createGDN(gdn);
-                    */
+                    if(registryClass.goodsDeliveryNote().createGDN(gdn)){
+                        dict.showAlertInfo("Xuất phiếu thành công");
+                        btnAdd.setDisable(true);
+                        btnCancle.setDisable(true);
+                        btnDelivery.setDisable(true);
 
-                    dict.showAlertInfo("Xuất phiếu thành công");
+                        HashMap<String, List<String>> hm = this.registryClass.goodsDeliveryNote().getGoodsDeliveryPos();
+                        StringBuffer goodsPos =  new StringBuffer();
+                        for (Map.Entry<String, List<String>> entry : hm.entrySet()) {
+                            String key = entry.getKey();
+                            List<String> values = entry.getValue();
+                            goodsPos.append("Mã hàng: " + key + "\n");
+//                            System.out.println("Mã hàng: " + key + "\n");
 
-
-                    //Reset về phiếu xuất
-                    gdn = new GoodsDeliveryNote();
+                            for (String value : values) {
+                                goodsPos.append("\tVị trí:\t" + value + "\n");
+//                                System.out.println("\tVị trí: " + value + "\n");
+                            }
+                        }
+                        txt_goodsPos.setText(goodsPos.toString());
+                        tabPane.getSelectionModel().select(tab3);
+                        tab3.setDisable(false);
+//                        //Reset về phiếu xuất
+//                        gdn = new GoodsDeliveryNote();
+                        return;
+                    }
+                    dict.showAlertError("Xuất phiếu thất bại");
                 }
             }
         }
 
+    }
+
+    //Chuyển đến trang xác nhận phiếu nhập
+    public void navigateToVeifyGRN(){
+        Support.navigateTo((byte) 1, this);
+    }
+
+    //Chuyển đến trang lập phiếu xuất
+    public void navigateToGoodsDelivery(){
+        Support.navigateTo((byte) 2, this);
     }
 
     //Chuyển đến trang xác định trái cây
@@ -605,6 +665,7 @@ public class GoodsDeliveryController {
 
     @FXML
     public void initialize() throws RemoteException {
+        tab3.setDisable(true);
         lblFullName.setText(Support.account.getFullname());
         clearGridPaneGD();
 //        addCardGD();
@@ -613,7 +674,7 @@ public class GoodsDeliveryController {
 //        addCardGD();
 //        addCardGD();
         refreshFindGoodsTable();
-        updateAmountPayable();
+//        updateAmountPayable();
         circle1.getStyleClass().add("circle_color1");
         circle2.getStyleClass().add("circle_color2");
 

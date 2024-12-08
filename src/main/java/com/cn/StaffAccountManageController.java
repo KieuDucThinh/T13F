@@ -40,11 +40,44 @@ public class StaffAccountManageController {
                     txtPwdConfirm.clear();
                     dict.showAlertInfo("Thông báo","Đổi mật khẩu thành công");
                     Support.account.setPassword(null);
+                    Support.account.setStatus("ON");
                 } else {
                     dict.showAlertInfo("Thông báo","Đổi mật khẩu thất bại");
                 }
             }
         }
+    }
+
+    //Chuyển đến trang xác nhận phiếu nhập
+    public void navigateToVeifyGRN(){
+        if(Support.account.getStatus().equals("FI")){
+            dict.showAlertError("Thông báo", "Đây là lần đăng nhập đầu.\nBạn cần đổi mật khẩu để thực hiện các thao tác khác.");
+            return;
+        }
+        Support.navigateTo((byte) 1, this);
+    }
+
+    //Chuyển đến trang lập phiếu xuất
+    public void navigateToGoodsDelivery(){
+        if(Support.account.getStatus().equals("FI")){
+            dict.showAlertError("Thông báo", "Đây là lần đăng nhập đầu.\nBạn cần đổi mật khẩu để thực hiện các thao tác khác.");
+            return;
+        }
+        Support.navigateTo((byte) 2, this);
+    }
+
+    //Chuyển đến trang xác định trái cây
+    public void navigateToFIPage() throws RemoteException  {
+        if(Support.account.getStatus().equals("FI")){
+            dict.showAlertError("Thông báo", "Đây là lần đăng nhập đầu.\nBạn cần đổi mật khẩu để thực hiện các thao tác khác.");
+            return;
+        }
+        Support.navigateTo((byte) 3, this);
+    }
+
+    //Chuyển đến trang đổi mật khẩu
+    public void navigateToChangePwdPage() throws RemoteException  {
+        Support.navigateTo((byte) 4, this);
     }
 
     //Đăng xuất

@@ -207,6 +207,7 @@ public class FruitUtil {
     public void showAlertInfo(String headerText){
         this.alertInfo.setTitle("Kiểm tra lại dữ liệu nhập vào");
         this.alertInfo.setHeaderText(headerText);
+        this.alertInfo.setContentText("");
 
         // Tạo các nút tùy chỉnh
         ButtonType buttonTypeOK = new ButtonType("OK");
@@ -220,6 +221,21 @@ public class FruitUtil {
     public void showAlertInfo(String title, String headerText){
         this.alertInfo.setTitle(title);
         this.alertInfo.setHeaderText(headerText);
+        alertInfo.setContentText("");
+
+        // Tạo các nút tùy chỉnh
+        ButtonType buttonTypeOK = new ButtonType("OK");
+
+        // Thiết lập các nút cho Alert
+        this.alertInfo.getButtonTypes().setAll(buttonTypeOK);
+
+        this.alertInfo.showAndWait();
+    }
+
+    public void showAlertInfo(String title, String headerText, String content){
+        this.alertInfo.setTitle(title);
+        this.alertInfo.setHeaderText(headerText);
+        this.alertInfo.setContentText(content);
 
         // Tạo các nút tùy chỉnh
         ButtonType buttonTypeOK = new ButtonType("OK");

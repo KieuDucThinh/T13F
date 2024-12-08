@@ -55,7 +55,7 @@
                   <FontAwesomeIconView fill="#d95151" glyphName="SIGN_OUT" selectionFill="#df2d2d" size="25.0" text="    " />
                </graphic>
             </Button>
-            <Button layoutY="445.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="262.0" stylesheets="@../style/MainCSS.css" text="Xử lý trái cây               ">
+            <Button layoutY="445.0" mnemonicParsing="false" onAction="#navigateToFIPage" prefHeight="52.0" prefWidth="262.0" stylesheets="@../style/MainCSS.css" text="Xử lý trái cây               ">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
@@ -68,7 +68,7 @@
                   <FontAwesomeIconView fill="#ee554c" glyphName="PLAY" selectionFill="#e75e5e" size="25.0" text="     " />
                </graphic>
             </Button>
-            <Button layoutX="-2.0" layoutY="320.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="262.0" stylesheets="@../style/MainCSS.css" text="Phiếu nhập                   ">
+            <Button layoutX="-2.0" layoutY="320.0" mnemonicParsing="false" onAction="#navigateToVeifyGRN" prefHeight="52.0" prefWidth="262.0" stylesheets="@../style/MainCSS.css" text="Phiếu nhập                   ">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
@@ -81,7 +81,7 @@
                   <FontAwesomeIconView glyphName="FILE" size="23" text="      " />
                </graphic>
             </Button>
-            <Button layoutY="381.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="262.0" stylesheets="@../style/MainCSS.css" text="Xuất hàng                     ">
+            <Button layoutY="381.0" mnemonicParsing="false" onAction="#navigateToGoodsDelivery" prefHeight="52.0" prefWidth="262.0" stylesheets="@../style/MainCSS.css" text="Xuất hàng                     ">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
@@ -94,7 +94,7 @@
                   <FontAwesomeIconView glyphName="LIST" size="22" text="     " />
                </graphic>
             </Button>
-            <Button layoutY="511.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="262.0" stylesheets="@../style/MainCSS.css" text="Tài khoản                     ">
+            <Button layoutY="511.0" mnemonicParsing="false" onAction="#navigateToChangePwdPage" prefHeight="52.0" prefWidth="262.0" stylesheets="@../style/MainCSS.css" text="Tài khoản                     ">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
@@ -110,7 +110,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="287.0" layoutY="44.0" prefHeight="679.0" prefWidth="1086.0" stylesheets="@../style/MainCSS.css" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="287.1999999999998" AnchorPane.rightAnchor="26.59999999999991" AnchorPane.topAnchor="44.0">
+      <AnchorPane layoutX="287.0" layoutY="44.0" prefHeight="679.0" prefWidth="1100.0" stylesheets="@../style/MainCSS.css" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="287.1999999999998" AnchorPane.rightAnchor="26.59999999999991" AnchorPane.topAnchor="44.0">
          <styleClass>
             <String fx:value="white-form" />
             <String fx:value="shadow-to-form" />

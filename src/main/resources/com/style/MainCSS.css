@@ -223,4 +223,8 @@
 .circle_color2{
     -fx-fill: #a6e0f4;
 }
+
+.text-area .text {
+    -fx-line-spacing: 5px;
+}
 /*#0f6789 = 63BAD9 286155 = 82C8E1 286155 = B1DCEC*/

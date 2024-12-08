@@ -55,7 +55,7 @@
             </AnchorPane>
             <Line endX="108.79997253417969" layoutX="136.0" layoutY="212.0" startX="-129.59999084472656" stroke="WHITE" />
             <Line endX="110.19999694824219" layoutX="137.0" layoutY="296.0" startX="-129.59999084472656" stroke="WHITE" />
-            <Button layoutX="1.0" layoutY="707.6" mnemonicParsing="false" prefHeight="42.0" prefWidth="253.0" stylesheets="@../style/MainCSS.css" text="Đăng xuất" textFill="#dc3939" AnchorPane.bottomAnchor="3.0">
+            <Button layoutX="1.0" layoutY="707.6" mnemonicParsing="false" onAction="#clickBtnLogOut" prefHeight="42.0" prefWidth="253.0" stylesheets="@../style/MainCSS.css" text="Đăng xuất" textFill="#dc3939" AnchorPane.bottomAnchor="3.0">
                <styleClass>
                   <String fx:value="function-btn" />
                   <String fx:value="heading3" />
@@ -65,7 +65,7 @@
                   <FontAwesomeIconView fill="#d95151" glyphName="SIGN_OUT" selectionFill="#df2d2d" size="25.0" text="    " />
                </graphic>
             </Button>
-            <Button layoutY="307.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="271.0" stylesheets="@../style/MainCSS.css" text="Nhà cung cấp                 ">
+            <Button layoutY="307.0" mnemonicParsing="false" onAction="#navigateToSupplierManagement" prefHeight="52.0" prefWidth="271.0" stylesheets="@../style/MainCSS.css" text="Nhà cung cấp                 ">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
@@ -78,7 +78,7 @@
                   <FontAwesomeIconView glyphName="FILE" size="23" text="     " />
                </graphic>
             </Button>
-            <Button layoutX="-1.0" layoutY="363.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="271.0" stylesheets="@../style/MainCSS.css" text=" Khách hàng                     ">
+            <Button layoutX="-1.0" layoutY="363.0" mnemonicParsing="false" onAction="#navigateToCustomerManagement" prefHeight="52.0" prefWidth="271.0" stylesheets="@../style/MainCSS.css" text=" Khách hàng                     ">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
@@ -91,7 +91,7 @@
                   <FontAwesomeIconView glyphName="HEART" size="23" text="    " />
                </graphic>
             </Button>
-            <Button layoutY="640.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="271.0" stylesheets="@../style/MainCSS.css" text="Tài khoản                        ">
+            <Button layoutY="640.0" mnemonicParsing="false" onAction="#navigateToManagerAccountManagement" prefHeight="52.0" prefWidth="271.0" stylesheets="@../style/MainCSS.css" text="Tài khoản                        ">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
@@ -104,7 +104,7 @@
                   <FontAwesomeIconView glyphName="KEY" size="24" text="    " />
                </graphic>
             </Button>
-            <Button layoutX="-1.0" layoutY="418.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="268.0" stylesheets="@../style/MainCSS.css" text="Nhân viên                     ">
+            <Button layoutX="-1.0" layoutY="418.0" mnemonicParsing="false" onAction="#naviagteToStaffManagement" prefHeight="52.0" prefWidth="268.0" stylesheets="@../style/MainCSS.css" text="Nhân viên                     ">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
@@ -117,7 +117,7 @@
                   <FontAwesomeIconView glyphName="TAG" size="23" text="    " />
                </graphic>
             </Button>
-            <Button layoutY="473.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="268.0" stylesheets="@../style/MainCSS.css" text="Nhập xuất                      ">
+            <Button layoutY="473.0" mnemonicParsing="false" onAction="#navigateToGNNavigate" prefHeight="52.0" prefWidth="271.0" stylesheets="@../style/MainCSS.css" text="Nhập xuất                      ">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
@@ -131,7 +131,7 @@
                   <FontAwesomeIconView glyphName="LIST" size="22" text="     " />
                </graphic>
             </Button>
-            <Button layoutX="-1.0" layoutY="527.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="268.0" stylesheets="@../style/MainCSS.css" text="Khu vực lưu trữ            ">
+            <Button layoutX="-1.0" layoutY="527.0" mnemonicParsing="false" onAction="#navigateToPositionManagement" prefHeight="52.0" prefWidth="268.0" stylesheets="@../style/MainCSS.css" text="Khu vực lưu trữ            ">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
@@ -144,7 +144,7 @@
                   <FontAwesomeIconView glyphName="EJECT" size="25" text="     " />
                </graphic>
             </Button>
-            <Button layoutY="585.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="268.0" stylesheets="@../style/MainCSS.css" text="Thống kê                       ">
+            <Button layoutY="585.0" mnemonicParsing="false" onAction="#navigateToStatisticsManagement" prefHeight="52.0" prefWidth="268.0" stylesheets="@../style/MainCSS.css" text="Thống kê                       ">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
@@ -206,7 +206,7 @@
                                           <TableColumn fx:id="col_total_price" prefWidth="159.2000732421875" text="Tổng tiền" />
                                        </columns>
                                     </TableView>
-                                    <Button alignment="BASELINE_CENTER" layoutX="894.0" layoutY="18.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="119.0" stylesheets="@../style/MainCSS.css" text="Thêm mới" textFill="WHITE">
+                                    <Button alignment="BASELINE_CENTER" layoutX="894.0" layoutY="18.0" mnemonicParsing="false" onAction="#clickBtnAddGRN" prefHeight="36.0" prefWidth="119.0" stylesheets="@../style/MainCSS.css" text="Thêm mới" textFill="WHITE">
                                        <graphic>
                                           <FontAwesomeIconView fill="WHITE" glyphName="PLUS" size="18" />
                                        </graphic>
@@ -361,7 +361,7 @@
                                     </Label>
                                     <VBox layoutX="883.0" layoutY="46.0" opacity="0.9" prefHeight="91.0" prefWidth="119.0" spacing="15.0">
                                        <children>
-                                          <Button alignment="BASELINE_CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="119.0" stylesheets="@../style/MainCSS.css" text="   Sửa" textFill="WHITE">
+                                          <Button alignment="BASELINE_CENTER" mnemonicParsing="false" onAction="#clickBtnUpdateGRN" prefHeight="40.0" prefWidth="119.0" stylesheets="@../style/MainCSS.css" text="   Sửa" textFill="WHITE">
                                              <graphic>
                                                 <FontAwesomeIconView fill="WHITE" glyphName="PENCIL" size="18" />
                                              </graphic>
@@ -392,9 +392,9 @@
                       </Tab>
                     </tabs>
                   </TabPane>
-                  <TabPane prefHeight="366.0" prefWidth="1028.0" tabClosingPolicy="UNAVAILABLE">
+                  <TabPane fx:id="tab_pane_form" prefHeight="366.0" prefWidth="1028.0" tabClosingPolicy="UNAVAILABLE" visible="false">
                     <tabs>
-                      <Tab styleClass="heading4" text="Thông tin cơ bản">
+                      <Tab fx:id="tab_basic_form" styleClass="heading4" text="Thông tin cơ bản">
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
@@ -454,9 +454,9 @@
                                                 <String fx:value="blue" />
                                              </styleClass>
                                           </Label>
-                                          <TextField prefHeight="34.0" prefWidth="259.0" styleClass="heading4" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                          <DatePicker prefHeight="16.0" prefWidth="204.0" GridPane.columnIndex="4" />
-                                          <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="22.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                          <TextField fx:id="txt_sup_name" prefHeight="34.0" prefWidth="259.0" styleClass="heading4" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <DatePicker fx:id="txt_grn_date" prefHeight="16.0" prefWidth="204.0" stylesheets="@../style/MainCSS.css" GridPane.columnIndex="4" />
+                                          <Button mnemonicParsing="false" onAction="#clickBtnCheckSupplier" prefHeight="30.0" prefWidth="22.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                              <graphic>
                                                 <FontAwesomeIconView fill="WHITE" glyphName="CHECK" size="18" />
                                              </graphic>
@@ -506,7 +506,7 @@
                                           </Label>
                                        </children>
                                     </HBox>
-                                    <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="845.0" layoutY="529.0" mnemonicParsing="false" onAction="#clickBtnAddSupplier" prefHeight="34.0" prefWidth="89.0" stylesheets="@../style/MainCSS.css" text="TIẾP  " textAlignment="RIGHT" textFill="WHITE">
+                                    <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="845.0" layoutY="529.0" mnemonicParsing="false" onAction="#clickBtnNext" prefHeight="34.0" prefWidth="89.0" stylesheets="@../style/MainCSS.css" text="TIẾP  " textAlignment="RIGHT" textFill="WHITE">
                                        <graphic>
                                           <FontAwesomeIconView fill="WHITE" glyphName="ARROW_RIGHT" size="21" />
                                        </graphic>
@@ -524,11 +524,11 @@
                               </AnchorPane>
                         </content>
                       </Tab>
-                      <Tab styleClass="heading4" text="Danh sách trái cây">
+                      <Tab fx:id="tab_detail_form" styleClass="heading4" text="Danh sách trái cây">
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="white-form">
                                  <children>
-                                    <Button alignment="BOTTOM_LEFT" layoutY="530.0" mnemonicParsing="false" onAction="#clickBtnAddSupplier" opacity="0.9" prefHeight="30.0" prefWidth="119.0" stylesheets="@../style/MainCSS.css" text="  QUAY LẠI" textAlignment="RIGHT" textFill="WHITE">
+                                    <Button alignment="BOTTOM_LEFT" layoutY="530.0" mnemonicParsing="false" onAction="#clickBtnReturn" opacity="0.9" prefHeight="30.0" prefWidth="119.0" stylesheets="@../style/MainCSS.css" text="  QUAY LẠI" textAlignment="RIGHT" textFill="WHITE">
                                        <styleClass>
                                           <String fx:value="heading4" />
                                           <String fx:value="bold" />
@@ -541,7 +541,7 @@
                                     <Line endX="-100.0" endY="486.79998779296875" layoutX="613.0" layoutY="77.0" startX="-100.0" startY="-64.66666412353516" />
                                     <HBox layoutX="137.0" layoutY="530.0" prefHeight="35.0" prefWidth="366.0" spacing="8.0">
                                        <children>
-                                          <Button mnemonicParsing="false" onAction="#clickBtnClearTxt" prefHeight="30.0" prefWidth="100.0" stylesheets="@../style/MainCSS.css" text="Làm sạch" textAlignment="RIGHT">
+                                          <Button mnemonicParsing="false" onAction="#clickBtnClearTxtDetailForm" prefHeight="30.0" prefWidth="100.0" stylesheets="@../style/MainCSS.css" text="Làm sạch" textAlignment="RIGHT">
                                              <graphic>
                                                 <FontAwesomeIconView fill="WHITE" glyphName="RETWEET" size="18" />
                                              </graphic>
@@ -550,7 +550,7 @@
                                                 <String fx:value="erase-btn" />
                                              </styleClass>
                                           </Button>
-                                          <Button mnemonicParsing="false" onAction="#clickBtnUpdateSupplier" prefHeight="30.0" prefWidth="100.0" stylesheets="@../style/MainCSS.css" text="Cập nhật" textAlignment="RIGHT">
+                                          <Button mnemonicParsing="false" onAction="#clickBtnUpdateGrnDetail" prefHeight="30.0" prefWidth="100.0" stylesheets="@../style/MainCSS.css" text="Cập nhật" textAlignment="RIGHT">
                                              <graphic>
                                                 <FontAwesomeIconView fill="WHITE" glyphName="PENCIL" size="18" />
                                              </graphic>
@@ -559,7 +559,7 @@
                                                 <String fx:value="update-btn" />
                                              </styleClass>
                                           </Button>
-                                          <Button mnemonicParsing="false" onAction="#clickBtnAddSupplier" prefHeight="30.0" prefWidth="100.0" stylesheets="@../style/MainCSS.css" text="Thêm mới" textAlignment="RIGHT">
+                                          <Button mnemonicParsing="false" onAction="#clickBtnAddGrnDetail" prefHeight="30.0" prefWidth="100.0" stylesheets="@../style/MainCSS.css" text="Thêm mới" textAlignment="RIGHT">
                                              <graphic>
                                                 <FontAwesomeIconView fill="WHITE" glyphName="PLUS" size="18" />
                                              </graphic>
@@ -568,7 +568,7 @@
                                                 <String fx:value="add-btn" />
                                              </styleClass>
                                           </Button>
-                                          <Button mnemonicParsing="false" onAction="#clickBtnAddSupplier" prefHeight="30.0" prefWidth="100.0" stylesheets="@../style/MainCSS.css" text="   Xóa" textAlignment="RIGHT">
+                                          <Button mnemonicParsing="false" onAction="#clickBtnDel" prefHeight="30.0" prefWidth="100.0" stylesheets="@../style/MainCSS.css" text="   Xóa" textAlignment="RIGHT">
                                              <graphic>
                                                 <FontAwesomeIconView fill="WHITE" glyphName="TRASH" size="17" />
                                              </graphic>
@@ -580,7 +580,7 @@
                                           </Button>
                                        </children>
                                     </HBox>
-                                    <Button layoutX="527.0" layoutY="529.0" mnemonicParsing="false" onAction="#clickBtnAddSupplier" prefHeight="30.0" prefWidth="100.0" stylesheets="@../style/MainCSS.css" text="HỦY" textAlignment="RIGHT" textFill="WHITE">
+                                    <Button layoutX="527.0" layoutY="529.0" mnemonicParsing="false" onAction="#clickBtnCancle" prefHeight="30.0" prefWidth="100.0" stylesheets="@../style/MainCSS.css" text="HỦY" textAlignment="RIGHT" textFill="WHITE">
                                        <graphic>
                                           <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" size="21" />
                                        </graphic>
@@ -590,7 +590,7 @@
                                           <String fx:value="delete-btn" />
                                        </styleClass>
                                     </Button>
-                                    <Button layoutX="914.0" layoutY="529.0" mnemonicParsing="false" onAction="#clickBtnAddSupplier" prefHeight="30.0" prefWidth="100.0" stylesheets="@../style/MainCSS.css" text="LƯU" textAlignment="RIGHT" textFill="WHITE">
+                                    <Button layoutX="914.0" layoutY="529.0" mnemonicParsing="false" onAction="#clickBtnSaveGRN" prefHeight="30.0" prefWidth="100.0" stylesheets="@../style/MainCSS.css" text="LƯU" textAlignment="RIGHT" textFill="WHITE">
                                        <graphic>
                                           <FontAwesomeIconView fill="WHITE" glyphName="TASKS" size="18" />
                                        </graphic>
@@ -616,8 +616,8 @@
                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                       </rowConstraints>
                                        <children>
-                                          <ComboBox prefHeight="26.0" prefWidth="214.0" GridPane.columnIndex="1" />
-                                          <ComboBox prefHeight="26.0" prefWidth="215.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <ComboBox fx:id="cbo_size" prefHeight="26.0" prefWidth="214.0" GridPane.columnIndex="1" />
+                                          <ComboBox fx:id="cbo_status" prefHeight="26.0" prefWidth="215.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                           <Label layoutX="10.0" layoutY="36.0" text="Kích thước">
                                              <styleClass>
                                                 <String fx:value="blue" />
@@ -667,11 +667,11 @@
                                                 <String fx:value="bold" />
                                              </styleClass>
                                           </Label>
-                                          <TextField prefHeight="26.0" prefWidth="165.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                          <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                          <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                          <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                          <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                          <TextField fx:id="txt_qinbox" onKeyReleased="#checkQinBox" prefHeight="26.0" prefWidth="165.0" text="1" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <TextField fx:id="txt_received_price" onKeyReleased="#checkReceivedPrice" text="1" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <TextField fx:id="txt_delivery_price" onKeyReleased="#checkDeliveryPrice" text="1" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                          <TextField fx:id="txt_original" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                          <TextField fx:id="txt_quantity" onKeyReleased="#checkQuantity" text="1" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                                           <Label text="hộp" GridPane.columnIndex="2" GridPane.rowIndex="6">
                                              <styleClass>
                                                 <String fx:value="heading4" />
@@ -693,7 +693,7 @@
                                                 <String fx:value="blue" />
                                              </styleClass>
                                           </Label>
-                                          <Label layoutX="340.0" layoutY="212.0" text="đvt" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                          <Label fx:id="lbl_unit" layoutX="340.0" layoutY="212.0" text="đvt" GridPane.columnIndex="2" GridPane.rowIndex="2">
                                              <styleClass>
                                                 <String fx:value="heading4" />
                                                 <String fx:value="bold" />
@@ -709,17 +709,29 @@
                                           <String fx:value="bold" />
                                        </styleClass>
                                     </Label>
-                                    <ComboBox layoutX="142.0" layoutY="39.0" prefHeight="26.0" prefWidth="327.0" />
-                                    <TableView layoutX="523.0" layoutY="11.0" prefHeight="506.0" prefWidth="495.0">
+                                    <ComboBox fx:id="cbo_ft_name" layoutX="142.0" layoutY="39.0" onAction="#chooseFt" prefHeight="26.0" prefWidth="327.0" />
+                                    <TableView fx:id="tbl_grn_detail" layoutX="523.0" layoutY="11.0" onMouseClicked="#view2" prefHeight="506.0" prefWidth="495.0">
                                       <columns>
-                                        <TableColumn prefWidth="200.79999160766602" text="SKU" />
-                                          <TableColumn prefWidth="141.6000213623047" text="Số lượng" />
-                                          <TableColumn prefWidth="163.20001220703125" text="Giá nhập" />
-                                          <TableColumn prefWidth="126.39996337890625" text="Giá xuất" />
-                                          <TableColumn prefWidth="118.40020751953125" text="Số lượng/hộp" />
-                                        <TableColumn prefWidth="274.39996337890625" text="Nguồn gốc" />
+                                        <TableColumn fx:id="col_sku2" prefWidth="200.79999160766602" text="SKU" />
+                                          <TableColumn fx:id="col_quantity2" prefWidth="141.6000213623047" text="Số lượng" />
+                                          <TableColumn fx:id="col_received_price2" prefWidth="163.20001220703125" text="Giá nhập" />
+                                          <TableColumn fx:id="col_delivery_price2" prefWidth="126.39996337890625" text="Giá xuất" />
+                                          <TableColumn fx:id="col_qinbox2" prefWidth="118.40020751953125" text="Số lượng/hộp" />
+                                        <TableColumn fx:id="col_original2" prefWidth="274.39996337890625" text="Nguồn gốc" />
                                       </columns>
                                     </TableView>
+                                    <Label layoutX="645.0" layoutY="535.0" text="Tổng">
+                                       <styleClass>
+                                          <String fx:value="heading2" />
+                                          <String fx:value="blue" />
+                                       </styleClass>
+                                    </Label>
+                                    <Label fx:id="lbl_total" layoutX="703.0" layoutY="535.0" text="0">
+                                       <styleClass>
+                                          <String fx:value="heading2" />
+                                          <String fx:value="blue" />
+                                       </styleClass>
+                                    </Label>
                                  </children>
                               </AnchorPane>
                         </content>

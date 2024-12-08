@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" prefHeight="750.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cn.StaffManageController">
+<AnchorPane maxHeight="1.7976931348623157E308" prefHeight="750.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cn.GoodsNoteNavigateController">
    <children>
       <AnchorPane prefHeight="753.0" prefWidth="258.0" styleClass="gradient-side-form" stylesheets="@../style/MainCSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -41,7 +41,7 @@
             </AnchorPane>
             <Line endX="108.79997253417969" layoutX="136.0" layoutY="212.0" startX="-129.59999084472656" stroke="WHITE" />
             <Line endX="110.19999694824219" layoutX="137.0" layoutY="296.0" startX="-129.59999084472656" stroke="WHITE" />
-            <Button layoutX="1.0" layoutY="707.6" mnemonicParsing="false" prefHeight="42.0" prefWidth="253.0" stylesheets="@../style/MainCSS.css" text="Đăng xuất" textFill="#dc3939" AnchorPane.bottomAnchor="3.0">
+            <Button layoutX="1.0" layoutY="707.6" mnemonicParsing="false" onAction="#clickBtnLogOut" prefHeight="42.0" prefWidth="253.0" stylesheets="@../style/MainCSS.css" text="Đăng xuất" textFill="#dc3939" AnchorPane.bottomAnchor="3.0">
                <styleClass>
                   <String fx:value="function-btn" />
                   <String fx:value="heading3" />
@@ -51,7 +51,7 @@
                   <FontAwesomeIconView fill="#d95151" glyphName="SIGN_OUT" selectionFill="#df2d2d" size="25.0" text="    " />
                </graphic>
             </Button>
-            <Button layoutY="307.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="271.0" stylesheets="@../style/MainCSS.css" text="Nhà cung cấp                 ">
+            <Button layoutY="307.0" mnemonicParsing="false" onAction="#navigateToSupplierManagement" prefHeight="52.0" prefWidth="271.0" stylesheets="@../style/MainCSS.css" text="Nhà cung cấp                 ">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
@@ -64,7 +64,7 @@
                   <FontAwesomeIconView glyphName="FILE" size="23" text="     " />
                </graphic>
             </Button>
-            <Button layoutX="-1.0" layoutY="363.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="271.0" stylesheets="@../style/MainCSS.css" text=" Khách hàng                     ">
+            <Button layoutX="-1.0" layoutY="363.0" mnemonicParsing="false" onAction="#navigateToCustomerManagement" prefHeight="52.0" prefWidth="271.0" stylesheets="@../style/MainCSS.css" text=" Khách hàng                     ">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
@@ -77,7 +77,7 @@
                   <FontAwesomeIconView glyphName="HEART" size="23" text="    " />
                </graphic>
             </Button>
-            <Button layoutY="640.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="271.0" stylesheets="@../style/MainCSS.css" text="Tài khoản                        ">
+            <Button layoutY="640.0" mnemonicParsing="false" onAction="#navigateToManagerAccountManagement" prefHeight="52.0" prefWidth="271.0" stylesheets="@../style/MainCSS.css" text="Tài khoản                        ">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
@@ -90,7 +90,7 @@
                   <FontAwesomeIconView glyphName="KEY" size="24" text="    " />
                </graphic>
             </Button>
-            <Button layoutX="-1.0" layoutY="418.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="268.0" stylesheets="@../style/MainCSS.css" text="Nhân viên                     ">
+            <Button layoutX="-1.0" layoutY="418.0" mnemonicParsing="false" onAction="#naviagteToStaffManagement" prefHeight="52.0" prefWidth="268.0" stylesheets="@../style/MainCSS.css" text="Nhân viên                     ">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
@@ -103,7 +103,7 @@
                   <FontAwesomeIconView glyphName="TAG" size="23" text="    " />
                </graphic>
             </Button>
-            <Button layoutY="473.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="268.0" stylesheets="@../style/MainCSS.css" text="Nhập xuất                      ">
+            <Button layoutY="473.0" mnemonicParsing="false" onAction="#navigateToGNNavigate" prefHeight="52.0" prefWidth="268.0" stylesheets="@../style/MainCSS.css" text="Nhập xuất                      ">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
@@ -117,7 +117,7 @@
                   <FontAwesomeIconView glyphName="LIST" size="22" text="     " />
                </graphic>
             </Button>
-            <Button layoutX="-1.0" layoutY="527.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="268.0" stylesheets="@../style/MainCSS.css" text="Khu vực lưu trữ            ">
+            <Button layoutX="-1.0" layoutY="527.0" mnemonicParsing="false" onAction="#navigateToPositionManagement" prefHeight="52.0" prefWidth="268.0" stylesheets="@../style/MainCSS.css" text="Khu vực lưu trữ            ">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
@@ -130,7 +130,7 @@
                   <FontAwesomeIconView glyphName="EJECT" size="25" text="     " />
                </graphic>
             </Button>
-            <Button layoutY="585.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="268.0" stylesheets="@../style/MainCSS.css" text="Thống kê                       ">
+            <Button layoutY="585.0" mnemonicParsing="false" onAction="#navigateToStatisticsManagement" prefHeight="52.0" prefWidth="268.0" stylesheets="@../style/MainCSS.css" text="Thống kê                       ">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
@@ -160,7 +160,7 @@
                </styleClass>
             </Label>
             <FontAwesomeIconView fill="#63bad9" glyphName="LIST" layoutX="52.0" layoutY="57.0" selectionFill="#63bad9" size="30" />
-            <Button layoutX="39.0" layoutY="107.0" mnemonicParsing="false" prefHeight="263.0" prefWidth="518.0" stylesheets="@../style/MainCSS.css" text="       Phiếu nhập chưa duyệt" textFill="WHITE">
+            <Button layoutX="39.0" layoutY="107.0" mnemonicParsing="false" onAction="#navigateToUnverifyGRNManagement" prefHeight="263.0" prefWidth="518.0" stylesheets="@../style/MainCSS.css" text="       Phiếu nhập chưa duyệt" textFill="WHITE">
                <graphic>
                   <FontAwesomeIconView fill="WHITE" glyphName="BOOKMARK" size="50" />
                </graphic>
@@ -170,7 +170,7 @@
                   <String fx:value="radius2" />
                </styleClass>
             </Button>
-            <Button layoutX="580.0" layoutY="103.0" mnemonicParsing="false" prefHeight="558.0" prefWidth="480.0" stylesheets="@../style/MainCSS.css" text="       Phiếu xuất" textFill="WHITE">
+            <Button layoutX="580.0" layoutY="103.0" mnemonicParsing="false" onAction="#navigateToGDNManagement" prefHeight="558.0" prefWidth="480.0" stylesheets="@../style/MainCSS.css" text="       Phiếu xuất" textFill="WHITE">
                <graphic>
                   <FontAwesomeIconView fill="WHITE" glyphName="MAP_MARKER" size="50" />
                </graphic>
@@ -180,7 +180,7 @@
                   <String fx:value="radius2" />
                </styleClass>
             </Button>
-            <Button layoutX="39.0" layoutY="396.0" mnemonicParsing="false" prefHeight="263.0" prefWidth="517.0" stylesheets="@../style/MainCSS.css" text="    Phiếu nhập đã được duyệt" textFill="WHITE">
+            <Button layoutX="39.0" layoutY="396.0" mnemonicParsing="false" onAction="#navigateToVerifyGRNManagement" prefHeight="263.0" prefWidth="517.0" stylesheets="@../style/MainCSS.css" text="    Phiếu nhập đã được duyệt" textFill="WHITE">
                <graphic>
                   <FontAwesomeIconView fill="WHITE" glyphName="TH" size="50" />
                </graphic>

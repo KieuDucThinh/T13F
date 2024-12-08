@@ -5,52 +5,16 @@ import com.util.RegistryClass;
 import com.util.Support;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
-public class ManagerAccountManageController {
+public class GoodsNoteNavigateController {
 
     @FXML
     private Label lblFullName;
 
-    @FXML
-    private TextField txtPwdConfirm;
-
-    @FXML
-    private TextField txtPwdNew;
-
-    @FXML
-    private TextField txtPwdOld;
-
     private FruitUtil dict = new FruitUtil();
-
-    public void clickBtnChangePwd() throws RemoteException {
-        if(txtPwdNew.getText().length()<6){
-            dict.showAlertError("Mật khẩu mới cần độ dài lớn hơn 6 ký tự.");
-        } else{
-            if(!txtPwdNew.getText().equals(txtPwdConfirm.getText())){
-                dict.showAlertError("Mật khẩu mới không khớp với mật khẩu xác nhận");
-            } else {
-                Support.account.setPassword(txtPwdNew.getText());
-                if(this.registryClass.user().changePassword(txtPwdOld.getText(), Support.account)){
-                    txtPwdOld.clear();
-                    txtPwdNew.clear();
-                    txtPwdConfirm.clear();
-                    dict.showAlertInfo("Thông báo","Đổi mật khẩu thành công");
-                    Support.account.setPassword(null);
-                } else {
-                    dict.showAlertInfo("Thông báo","Đổi mật khẩu thất bại");
-                }
-            }
-        }
-    }
-
-    //Đổi mật khẩu
-    public void navigateToChangePwdPage(){
-        Support.navigateTo((byte) 11, this);
-    }
 
     //Chuyển các màn hình
     public void navigateToSupplierManagement(){
@@ -81,6 +45,18 @@ public class ManagerAccountManageController {
         Support.navigateTo((byte) 11, this);
     }
 
+    public void navigateToUnverifyGRNManagement(){
+        Support.navigateTo((byte) 12, this);
+    }
+
+    public void navigateToVerifyGRNManagement(){
+        Support.navigateTo((byte) 13, this);
+    }
+
+    public void navigateToGDNManagement(){
+        Support.navigateTo((byte) 14, this);
+    }
+
     //Đăng xuất
     public void clickBtnLogOut() throws RemoteException {
         if(!dict.showAlertWarning("Bạn có chắc chắn muốn thoát không?","Nhấn \"Có\" để xác nhận."))
@@ -102,12 +78,12 @@ public class ManagerAccountManageController {
         }
     }
 
-    public ManagerAccountManageController(){
+    public GoodsNoteNavigateController(){
 
     }
 
     @FXML
-    void initialize() throws RemoteException {
+    public void initialize() {
         lblFullName.setText(Support.account.getFullname());
     }
 }

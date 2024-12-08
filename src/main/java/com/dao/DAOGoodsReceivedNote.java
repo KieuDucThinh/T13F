@@ -1,6 +1,7 @@
 package com.dao;
 
 import com.entity.GoodsReceivedNote;
+import com.entity.User;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -15,6 +16,9 @@ public interface DAOGoodsReceivedNote extends Remote {
     public List<GoodsReceivedNote> getUnverifyGRNByKeyword(String keyword) throws RemoteException;
 
     public boolean createGRN(GoodsReceivedNote grn) throws RemoteException;
-    public boolean updateGRN(GoodsReceivedNote grn) throws RemoteException;
+    public boolean updateGRN(GoodsReceivedNote grn, boolean option) throws RemoteException;
     public boolean deleteGRN(String id) throws RemoteException;
+
+//    public boolean deleteGRN(GoodsReceivedNote grn, EntityManager em) throws RemoteException;
+    public boolean verifyGRN(GoodsReceivedNote grn, User user) throws RemoteException;
 }

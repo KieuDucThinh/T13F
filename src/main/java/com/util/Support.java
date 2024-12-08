@@ -47,6 +47,9 @@ public class Support {
                     Support.account.setUsername(null);
                     Support.root = (Parent) FXMLLoader.load(o.getClass().getResource("/com/cn/Login.fxml"));
                     break;
+                case 1:
+                    Support.root = (Parent) FXMLLoader.load(o.getClass().getResource("/com/cn/VerifyGRN.fxml"));
+                    break;
                 case 2:
                     Support.root = (Parent) FXMLLoader.load(o.getClass().getResource("/com/cn/GoodsDelivery.fxml"));
                     break;
@@ -54,14 +57,40 @@ public class Support {
                     Support.root = (Parent) FXMLLoader.load(o.getClass().getResource("/com/cn/FruitIdentification.fxml"));
                     break;
                 case 4:
-                    Support.root = (Parent) FXMLLoader.load(o.getClass().getResource("/com/cn/StaffAccountManage.fxml"));
+                    Support.root = (Parent) FXMLLoader.load(o.getClass().getResource("/com/cn/StaffAccountManagement.fxml"));
+                    break;
+                case 5:
+                    Support.root = (Parent) FXMLLoader.load(o.getClass().getResource("/com/cn/SupplierManagement.fxml"));
+                    break;
+                case 6:
+                    Support.root = (Parent) FXMLLoader.load(o.getClass().getResource("/com/cn/CustomerManagement.fxml"));
+                    break;
+                case 7:
+                    Support.root = (Parent) FXMLLoader.load(o.getClass().getResource("/com/cn/StaffManagement.fxml"));
+                    break;
+                case 8:
+                    Support.root = (Parent) FXMLLoader.load(o.getClass().getResource("/com/cn/GoodsNoteNavigate.fxml"));
                     break;
                 case 9:
-                    Support.root = (Parent) FXMLLoader.load(o.getClass().getResource("/com/cn/PositionManage.fxml"));
+                    Support.root = (Parent) FXMLLoader.load(o.getClass().getResource("/com/cn/PositionManagement.fxml"));
+                    break;
+                case 10:
+                    Support.root = (Parent) FXMLLoader.load(o.getClass().getResource("/com/cn/StatisticsManagement.fxml"));
                     break;
                 case 11:
-                    Support.root = (Parent) FXMLLoader.load(o.getClass().getResource("/com/cn/ManagerAccountManage.fxml"));
+                    Support.root = (Parent) FXMLLoader.load(o.getClass().getResource("/com/cn/ManagerAccountManagement.fxml"));
                     break;
+
+                case 12:
+                    Support.root = (Parent) FXMLLoader.load(o.getClass().getResource("/com/cn/UnverifyGRNManagement.fxml"));
+                    break;
+                case 13:
+                    Support.root = (Parent) FXMLLoader.load(o.getClass().getResource("/com/cn/VerifyGRNManagement.fxml"));
+                    break;
+                case 14:
+                    Support.root = (Parent) FXMLLoader.load(o.getClass().getResource("/com/cn/GDNManagement.fxml"));
+                    break;
+
                 default:
                     Support.root = (Parent) FXMLLoader.load(o.getClass().getResource("/com/cn/Login.fxml"));
                     Support.account.setUsername(null);

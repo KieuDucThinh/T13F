@@ -153,7 +153,7 @@ public class CardGoodsDeliveryController {
         }
 
         //Nguồn gốc nếu có phải tồn tại
-        if (!txt_card_original.getText().trim().isEmpty() && fruitUtil.encodeAddrress(txt_card_original.getText().trim()) != null) {
+        if (!txt_card_original.getText().trim().isEmpty() && fruitUtil.encodeAddrress(txt_card_original.getText().trim()) == null) {
             fruitUtil.showAlertError("Nguồn gốc không hợp lệ");
             return false;
         }
