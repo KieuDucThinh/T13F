@@ -272,19 +272,20 @@ public class CardGoodsDeliveryController {
     }
 
     //Method: Kiểm tra hàng có đúng không
-    public void checkGoods() throws RemoteException {
+    public boolean checkGoods() throws RemoteException {
         if (!validateInfoGoods()) {
             flag = false;
-            return;
+            return false;
         }
         setInfoGoods();
         if(observerObject.checkGoodsInCard()){
             fruitUtil.showAlertError("Không thể có các thẻ trùng SKU");
             flag = false;
-            return;
+            return false;
         }
         flag = true;
         observerObject.calculateTotalPrice();
+        return true;
     }
 
     public void lockEntryData(){

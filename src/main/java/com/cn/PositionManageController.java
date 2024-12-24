@@ -237,34 +237,56 @@ public class PositionManageController {
 
     //Chèn dữ liệu vào bảng: Vị trí
     public void setInfoPosTable(ObservableList<Position> list) {
-        this.col_stack.setCellValueFactory((cellData) ->{
-            return new SimpleObjectProperty<Short>(((Position) cellData.getValue()).getStack());
-        });
-        this.col_sku.setCellValueFactory((cellData) ->{
-            return new SimpleStringProperty(((Position) cellData.getValue()).getGoodsPos().getSku());
-        });
-        this.col_status.setCellValueFactory((cellData) ->{
-            return new SimpleStringProperty(this.dict.encode(((Position) cellData.getValue()).getGoodsPos().getStatus()));
-        });
-        this.col_original.setCellValueFactory((cellData) ->{
-            return new SimpleStringProperty(((Position) cellData.getValue()).getGoodsPos().getOriginal());
-        });
-        this.col_jrd.setCellValueFactory((cellData) ->{
-            return new SimpleStringProperty(this.dict.convertDate(((Position) cellData.getValue()).getGoodsPos().getJustRipeDate()));
-        });
-        this.col_rd.setCellValueFactory((cellData) ->{
-            return new SimpleStringProperty(this.dict.convertDate(((Position) cellData.getValue()).getGoodsPos().getRipeDate()));
-        });
-        this.col_ovd.setCellValueFactory((cellData) ->{
-            return new SimpleStringProperty(this.dict.convertDate(((Position) cellData.getValue()).getGoodsPos().getOverripDate()));
-        });
-        this.col_expd.setCellValueFactory((cellData) ->{
-            return new SimpleStringProperty(this.dict.convertDate(((Position) cellData.getValue()).getGoodsPos().getExpDate()));
-        });
-        this.col_qinbox.setCellValueFactory((cellData) ->{
-            return new SimpleObjectProperty<BigDecimal>(((Position) cellData.getValue()).getGoodsPos().getQuantityInBox());
-        });
-        this.tbl_pos.setItems(list);
+        try{
+            this.col_stack.setCellValueFactory((cellData) ->{
+                if(((Position) cellData.getValue()).getGoodsPos() !=null)
+                    return new SimpleObjectProperty<Short>(((Position) cellData.getValue()).getStack());
+                return new SimpleObjectProperty<Short>();
+            });
+            this.col_sku.setCellValueFactory((cellData) ->{
+                if(((Position) cellData.getValue()).getGoodsPos() !=null)
+                    return new SimpleStringProperty(((Position) cellData.getValue()).getGoodsPos().getSku());
+                return new SimpleStringProperty();
+            });
+            this.col_status.setCellValueFactory((cellData) ->{
+                if(((Position) cellData.getValue()).getGoodsPos() !=null)
+                    return new SimpleStringProperty(this.dict.encode(((Position) cellData.getValue()).getGoodsPos().getStatus()));
+                return new SimpleStringProperty();
+            });
+            this.col_original.setCellValueFactory((cellData) ->{
+                if(((Position) cellData.getValue()).getGoodsPos() !=null)
+                    return new SimpleStringProperty(((Position) cellData.getValue()).getGoodsPos().getOriginal());
+                return new SimpleStringProperty();
+            });
+            this.col_jrd.setCellValueFactory((cellData) ->{
+                if(((Position) cellData.getValue()).getGoodsPos() !=null)
+                    return new SimpleStringProperty(this.dict.convertDate(((Position) cellData.getValue()).getGoodsPos().getJustRipeDate()));
+                return new SimpleStringProperty();
+            });
+            this.col_rd.setCellValueFactory((cellData) ->{
+                if(((Position) cellData.getValue()).getGoodsPos() !=null)
+                    return new SimpleStringProperty(this.dict.convertDate(((Position) cellData.getValue()).getGoodsPos().getRipeDate()));
+                return new SimpleStringProperty();
+            });
+            this.col_ovd.setCellValueFactory((cellData) ->{
+                if(((Position) cellData.getValue()).getGoodsPos() !=null)
+                    return new SimpleStringProperty(this.dict.convertDate(((Position) cellData.getValue()).getGoodsPos().getOverripDate()));
+                return new SimpleStringProperty();
+            });
+            this.col_expd.setCellValueFactory((cellData) ->{
+                if(((Position) cellData.getValue()).getGoodsPos() !=null)
+                    return new SimpleStringProperty(this.dict.convertDate(((Position) cellData.getValue()).getGoodsPos().getExpDate()));
+                return new SimpleStringProperty();
+            });
+            this.col_qinbox.setCellValueFactory((cellData) ->{
+                if(((Position) cellData.getValue()).getGoodsPos() !=null)
+                    return new SimpleObjectProperty<BigDecimal>(((Position) cellData.getValue()).getGoodsPos().getQuantityInBox());
+                return new SimpleObjectProperty<BigDecimal>();
+            });
+            this.tbl_pos.setItems(list);
+        } catch (Exception e){
+
+        }
     }
 
     //Nếu tab area được chọn (tab pos đang chọn trước đó) thì bỏ màu nút
@@ -337,6 +359,7 @@ public class PositionManageController {
         lblFullName.setText(Support.account.getFullname());
         addBtn();
         cboInit();
+//        setInfoPosTable(null);
     }
 }
 

@@ -270,7 +270,8 @@ public class GoodsDeliveryController {
         //Chèn CardGD vào Grid
         try{
             if (!listCard.isEmpty())
-                listCard.getLast().checkGoods();
+                if(!listCard.getLast().checkGoods())
+                    return;
 
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(this.getClass().getResource("/com/cn/CardGoodsDelivery.fxml"));

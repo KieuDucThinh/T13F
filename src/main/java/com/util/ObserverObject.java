@@ -62,6 +62,8 @@ public class ObserverObject {
     }
 
     public boolean checkGoodsInCard(){
+        if(list.isEmpty())
+            return true;
         Set<String> listString = new HashSet<String>();
         for(CardGoodsDeliveryController item : list){
             listString.add(item.getGoods().getSku());
