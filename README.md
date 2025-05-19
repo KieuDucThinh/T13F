@@ -72,8 +72,8 @@
 ## Cài đặt và sử dụng
 
 1.  **Yêu cầu hệ thống:**
-    * Hệ điều hành: (Ví dụ: Windows, Linux, macOS)
-    * Java Development Kit (JDK): Phiên bản (Ví dụ: 11 trở lên)
+    * Hệ điều hành: (Windows, Linux, macOS)
+    * Java Development Kit (JDK): Phiên bản (11 trở lên)
     * MySQL Server: Đã được cài đặt và cấu hình
     * (Các yêu cầu khác nếu có)
 
