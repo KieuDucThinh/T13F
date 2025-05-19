@@ -1,4 +1,3 @@
-# T13F
 # Ứng dụng Quản lý Kho Hàng Trái Cây T13F
 
 ## Giới thiệu
